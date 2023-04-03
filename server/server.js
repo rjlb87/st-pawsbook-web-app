@@ -6,7 +6,7 @@ const express = require('express')
 const path = require('path')
 
 // Import Controllers
-// const ownersController = require('./controller/owners')
+const ownersController = require('./controller/owners')
 
 // Initialize Express App
 const app = express()
@@ -29,7 +29,8 @@ app.get('/', (req, res) => {
 // Add application endpoints (owners, pet, appointment)
 app.get('/api/v1/owners', (req, res) => {
     // http://localhost:3080/api/v1/owners
-    res.send('Owners Endpoint')
+    // do something here to get your data from the database
+    ownersController.getOwners().then((data) => res.json(data))
 })
 
 app.get('/api/v1/pets', (req, res) => {
