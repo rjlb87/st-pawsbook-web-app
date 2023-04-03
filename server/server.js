@@ -22,7 +22,22 @@ app.use(bodyParser.json())
 
 // API Endpoints
 app.get('/', (req, res) => {
+    // http://localhost:3080/
     res.send('Welcome to Awesome Application')
+})
+
+// Add application endpoints (owners, pet, appointment)
+app.get('/api/v1/owners', (req, res) => {
+    // http://localhost:3080/api/v1/owners
+    res.send('Owners Endpoint')
+})
+
+app.get('/api/v1/pets', (req, res) => {
+    res.send('Pet Endpoint')
+})
+
+app.get('/api/v1/appointments', (req, res) => {
+    res.send('Appointment Endpoint')
 })
 
 // Express Listening Port
