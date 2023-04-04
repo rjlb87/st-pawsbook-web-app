@@ -21,14 +21,49 @@ class OwnersRepository {
         }
     }
 
-    // C-R-U-D
-    // Create-(Read/Get)-Update-Delete
-    
-    // async createOwner() {}
+// CRUD
+    async createOwner(owner) {
+        try {
+            const result = await this.db.owners.create(owner)
+            console.log('OWNER CREATED:', result)
+            return result
+        } catch (error) {
+            console.log('ERROR FOUND', error)
+            return null
+        }
+    }
 
-    // async updateOwner() {}
+    async updateOwner(id, updates) {
+        try {
+            const owner = await this.db.owners.findByPk(id)
+            if (!owner) {
+                console.log(`OWNER WITH ID ${id} NOT FOUND`)
+                return null
+            }
+            const result = await owner.update(updates)
+            console.log(`OWNER WITH ID ${id} UPDATED:`, result)
+            return result
+        } catch (error) {
+            console.log('ERROR FOUND', error)
+            return null
+        }
+    }
 
-    // async deleteOwner(id) {}
+    async deleteOwner(id) {
+        try {
+            const owner = await this.db.owners.findByPk(id)
+            if (!owner) {
+                console.log(`OWNER WITH ID ${id} NOT FOUND`)
+                return null
+            }
+            const result = await owner.destroy()
+            console.log(`OWNER WITH ID ${id} DELETED:`, result)
+            return result
+        } catch (error) {
+            console.log('ERROR FOUND', error)
+            return null
+        }
+    }
 }
 
 module.exports = new OwnersRepository()
