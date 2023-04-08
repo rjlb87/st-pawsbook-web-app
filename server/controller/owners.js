@@ -12,11 +12,11 @@ class OwnersController {
 
     }   async updateOwners(owners) {
         console.log('GETTING USERS IN THE CONTROLLER')
-        return await ownersService.updateOwners()
+        return await ownersService.updateOwners(owners)
 
-    }   async deleteOwners(owners) {
+    }   async deleteOwners(id) {
         console.log('GETTING USERS IN THE CONTROLLER')
-        return await ownersService.deleteOwners()
+        return await ownersService.deleteOwners(id)
     }
 }
 

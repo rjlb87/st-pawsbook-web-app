@@ -33,15 +33,14 @@ app.post('/api/v1/owners', (req, res) => {
     ownersController.createOwners(req.body.owners).then((data) => res.json(data))
 })
 
-app.put('/api/v1/owners', (req, res) => {
-    ownersController.updateOwners().then((data) => res.json(data))
+app.put('/api/v1/owners', (req,res) => {
+    ownersController.updateOwners(req.body.owners).then((data) => res.json(data))
 })
-app.delete('/api/v1/owners', (req, res) => {
-    ownersController.deleteOwners().then((data) => res.json(data))
+
+app.delete('/api/v1/owners/:id', (req, res) => {
+    ownersController.deleteOwners(req.params.id).then((data) => res.json(data))
 })
-app.delete('/api/v1/owners', (req, res) => {
-    ownersController.deleteOwners().then((data) => res.json(data))
-})
+
 // Express Listening Port
 app.listen(port, () => {
     console.log(`Server listening on the port: ${port}`)

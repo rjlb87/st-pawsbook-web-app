@@ -10,13 +10,13 @@ class OwnersService {
         console.log('GETTING USERS IN THE SERVICE')
         return await ownersRepository.createOwners(owners)
     }
-    async updateOwners() {
+    async updateOwners(owners) {
         console.log('GETTING USERS IN THE SERVICE')
-        return await ownersRepository.updateOwners()
+        return await ownersRepository.updateOwners(owners)
     }
-    async deleteOwners() {
+    async deleteOwners(id) {
         console.log('GETTING USERS IN THE SERVICE')
-        return await ownersRepository.deleteOwners()
+        return await ownersRepository.deleteOwners(id)
     }
     
 }

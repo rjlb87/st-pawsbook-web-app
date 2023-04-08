@@ -22,45 +22,34 @@ class OwnersRepository {
     }
 
     // CRUD
-    async createOwners(owners) {
-        try {
-            return await this.db.owners.create(owners)
-        } catch (error) {
-            console.log('Error', error)
-        }
-    }
+    async updateOwners(owners) {
+        let data = {}
 
-    async updateOwners(id, updates) {
         try {
-            const owner = await this.db.owners.findByPk(id)
-            if (!owner) {
-                console.log(`OWNER WITH ID ${id} NOT FOUND`)
-                return null
-            }
-            const result = await owner.update(updates)
-            console.log(`OWNER WITH ID ${id} UPDATED:`, result)
-            return result
+            data = await this.db.owners.update(
+                { ...owners },
+                {
+                    where: {
+                        id: owners.id,
+                    },
+                }
+            )
+            return data
         } catch (error) {
-            console.log('ERROR FOUND', error)
-            return null
+            console.log('Error: ', error)
         }
+        return data
     }
 
     async deleteOwners(id) {
         try {
-            const owner = await this.db.owners.findByPk(id)
-            if (!owner) {
-                console.log(`OWNER WITH ID ${id} NOT FOUND`)
-                return null
-            }
-            const result = await owner.destroy()
-            console.log(`OWNER WITH ID ${id} DELETED:`, result)
-            return result
+            const owner = await this.db.owners.destroy({ where: { id } })
+            return owner
         } catch (error) {
-            console.log('ERROR FOUND', error)
-            return null
+            console.log('Error: ', error)
         }
     }
 }
+
 
 module.exports = new OwnersRepository()
