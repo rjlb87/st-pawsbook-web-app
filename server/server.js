@@ -20,12 +20,6 @@ app.use(cors())
 app.use(express.json())
 app.use(bodyParser.json())
 
-// API Endpoints
-app.get('/', (req, res) => {
-    // http://localhost:3080/
-    res.send('Welcome to Awesome Application')
-})
-
 // Add application endpoints (owners, pet, appointment)
 app.get('/api/v1/owners', (req, res) => {
     // http://localhost:3080/api/v1/owners
@@ -33,15 +27,24 @@ app.get('/api/v1/owners', (req, res) => {
     ownersController.getOwners().then((data) => res.json(data))
 })
 
-app.get('/api/v1/pets', (req, res) => {
-    res.send('Pet Endpoint')
+
+//create owners request
+app.post('/api/v1/owners', (req, res) => {
+    ownersController.createOwners(req.body.owners).then((data) => res.json(data))
 })
 
-app.get('/api/v1/appointments', (req, res) => {
-    res.send('Appointment Endpoint')
+app.put('/api/v1/owners', (req, res) => {
+    ownersController.updateOwners().then((data) => res.json(data))
 })
-
+app.delete('/api/v1/owners', (req, res) => {
+    ownersController.deleteOwners().then((data) => res.json(data))
+})
+app.delete('/api/v1/owners', (req, res) => {
+    ownersController.deleteOwners().then((data) => res.json(data))
+})
 // Express Listening Port
 app.listen(port, () => {
     console.log(`Server listening on the port: ${port}`)
 })
+
+//create pet request

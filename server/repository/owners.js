@@ -11,7 +11,7 @@ class OwnersRepository {
         console.log('GETTING/FETCH/READ USERS IN THE Repository')
         try {
             const owners = this.db.owners.findAll({
-                order: [['owner_id', 'ASC']]
+                order: [['id', 'ASC']],
             })
             console.log('HEY, ano yung data na nakuha ko sa owners', owners)
             return owners
@@ -21,19 +21,16 @@ class OwnersRepository {
         }
     }
 
-// CRUD
-    async createOwner(owner) {
+    // CRUD
+    async createOwners(owners) {
         try {
-            const result = await this.db.owners.create(owner)
-            console.log('OWNER CREATED:', result)
-            return result
+            return await this.db.owners.create(owners)
         } catch (error) {
-            console.log('ERROR FOUND', error)
-            return null
+            console.log('Error', error)
         }
     }
 
-    async updateOwner(id, updates) {
+    async updateOwners(id, updates) {
         try {
             const owner = await this.db.owners.findByPk(id)
             if (!owner) {
@@ -49,7 +46,7 @@ class OwnersRepository {
         }
     }
 
-    async deleteOwner(id) {
+    async deleteOwners(id) {
         try {
             const owner = await this.db.owners.findByPk(id)
             if (!owner) {
