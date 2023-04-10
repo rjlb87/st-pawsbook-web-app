@@ -1,69 +1,65 @@
-import React, { useEffect, useState } from 'react'
-import { getAllUsers } from '../services/UserService'
+import React, { useEffect, useState } from 'react';
+import { editOwners, getAllOwners } from '../services/UserService';
+
 
 function UserDashboard() {
-    const [users, setUsers] = useState([])
-    // const [successModal, setSuccessModal] = useState('')
+    const [owners, setOwners] = useState([])
+    const [successModal] = useState('')
 
-    const handleEdit = (user) => {
-        // Introduce UserService for Editing or Updating Record
-        // editUser(user).then((user) => {
-        //     setSuccessModal('User has been created!', user)
-        // })
-        alert('Editing Now')
+
+    const deleteOwner= async (id) => {
+        try {
+            alert('Are you sure you want to delete?')
+            setOwners(owners.filter((u) => u.id !== id))
+        } catch (error) {
+            console.error(error.message)
+        }
+   
     }
-
-    const handleDelete = () => {
-        alert('Delete Now')
-    }
-
     useEffect(() => {
-        getAllUsers().then((user) => {
-            setUsers(user)
+        getAllOwners().then((owners) => {
+            setOwners(owners)
         })
     }, [])
 
     return (
-        <div className="bg-green-700 p-10">
-            {/* {successModal && <div>Success Message: {successModal}</div>} */}
-
+        <div className="bg-white p-10">
+            {successModal && <div>Success Message: {successModal}</div>}
             <div className="text-center my-5">
-                <p className="font-bold">User Dashboard</p>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-                    ➕ Add User
-                </button>
+                <p className="font-bold">Owners Dashboard</p>
             </div>
             <div className="flex justify-center">
                 <table className="text-center">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th className="w-[300px]">Name</th>
-                            <th>Actions</th>
+                            <th className="w-[300px]">First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {users && users.length > 0 ? (
-                            users.map((user) => {
+                        {owners && owners.length > 0 ? (
+                            owners.map((owners) => {
                                 return (
-                                    <tr key={user.id}>
-                                        <td>{user.id}</td>
-                                        <td>{user.username}</td>
+                                    <tr key={owners.id}>
+                                        <td>{owners.id}</td>
+                                        <td>{owners.first_name}</td>
+                                        <td>{owners.last_name}</td>
+                                        <td>{owners.email}</td>
+                                        <td>{owners.phone_number}</td>
                                         <td>
                                             <button
                                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-                                                onClick={handleEdit}
-                                            >
-                                                Edit
-                                            </button>
+                                                onClick={() => editOwners(owners.id)}
+                                                >Edit</button>
                                         </td>
                                         <td>
                                             <button
                                                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                                                onClick={handleDelete}
-                                            >
-                                                Delete
-                                            </button>
+                                                onClick={() => deleteOwner(owners.id)}
+                                                >Delete</button>
                                         </td>
                                     </tr>
                                 )

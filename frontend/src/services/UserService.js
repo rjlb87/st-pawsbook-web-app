@@ -1,15 +1,13 @@
-export async function getAllUsers() {
-    const response = await fetch('/api/v1/users')
+export async function getAllOwners() {
+    const response = await fetch('/api/v1/owners')
     return await response.json()
 }
 
-export async function editUser(data) {
-    const response = await fetch(`/api/v1/users`, {
+export async function editOwners(data) {
+    const response = await fetch(`/api/v1/owners`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user: data }),
     })
     return await response.json()
 }
-
-export async function deleteUser(id) {}

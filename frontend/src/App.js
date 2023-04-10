@@ -1,18 +1,20 @@
-import Login from './authentication/Login'
-import UserDashboard from './components/UserDashboard'
+// import Login from './authentication/Login'
+import Signup from './authentication/Signup';
+import UserDashboard from './components/UserDashboard';
+
 
 import './index.css'
-
 function App() {
     return (
-        <div className="bg-gray-700">
+        <div className="bg-black">
             <div className="flex justify-center items-center h-[100vh]">
-                <p className="text-white">Cool Application!!! 🎉</p>
+                <p className="text-white font-semibold text-4xl">Pawsbook 🐾</p>
                 <div>
-                    <Login />
+                    <Signup />
                 </div>
             </div>
             <UserDashboard />
+
         </div>
     )
 }
