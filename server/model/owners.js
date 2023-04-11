@@ -24,10 +24,12 @@ module.exports = (sequelize, DataTypes, Model) => {
                 type: DataTypes.STRING,
                
             },
+            password: {
+                type: DataTypes.STRING,
+            },
+            
             phone_number: {
                 type: DataTypes.STRING,
-            
-             
             },
         },
         {

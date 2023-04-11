@@ -1,4 +1,5 @@
 const { connect } = require('../config/db')
+const bcrypt = require('bcryptjs')
 
 class OwnersRepository {
     db = {}
@@ -20,6 +21,24 @@ class OwnersRepository {
             return []
         }
     }
+
+    
+    async createOwners(owners) {
+        let ownersData = {}
+
+        try {
+            const password = owners.password
+            const salt = bcrypt.genSaltSync(10)
+            const hashedPassword = bcrypt.hashSync(password, salt)
+
+            ownersData = { ...owners, password: hashedPassword }
+            const createdOwners = await this.db.owners.create(ownersData)
+            return createdOwners
+        } catch (error) {
+            console.log('Error: ', error)
+        }
+    }
+
 
     // CRUD
     async updateOwners(owners) {
