@@ -7,8 +7,8 @@ import './index.css'
 function App() {
     return (
         <div className="bg-black">
-            <div className="flex justify-center items-center h-[100vh]">
-                <p className="text-white font-semibold text-4xl">Pawsbook 🐾</p>
+            <div className="flex justify-center items-center h-screen">
+                <p className="text-white font-semibold text-4xl"></p>
                 <div>
                     <Signup />
                 </div>

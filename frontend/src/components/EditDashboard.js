@@ -1,79 +1,115 @@
-import { Fragment, useRef, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import React, { Fragment, useState } from 'react';
+import { editOwners } from '../services/UserService';
 
-export default function Example() {
-  const [open, setOpen] = useState(true)
+const EditDashboard = ({ owners }) => {
 
-  const cancelButtonRef = useRef(null)
+  const [user_details, setUserDetails] = useState({
+    id: owners?.id || '',
+    first_name: owners?.first_name || '',
+    last_name: owners?.last_name || '',
+    email: owners?.email || '',
+    phone_number: owners?.phone_number || '',
+
+});
+
+const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserDetails((prev) => {
+        return { ...prev, [name]: value };
+    })
+    console.log(name, value)
+};
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Came from User Service
+    editOwners(user_details).then((console.log(user_details)));
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = (e) => {
+    setShowModal(!showModal);
+  };
 
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+    <Fragment>
+      {/* Button to open the modal */}
+      <div className="py-4 mx-10 mt-10">
+        <button
+          className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+          onClick={toggleModal}
         >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-        </Transition.Child>
+          Edit
+        </button>
+      </div>
 
-        <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              enterTo="opacity-100 translate-y-0 sm:scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                  <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <ExclamationTriangleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
-                    </div>
-                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                      <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                        Deactivate account
-                      </Dialog.Title>
-                      <div className="mt-2">
-                        <p className="text-sm text-gray-500">
-                          Are you sure you want to deactivate your account? All of your data will be permanently
-                          removed. This action cannot be undone.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+      {/* Modal code */}
+      {showModal && (
+        <div className="fixed z-10 inset-0 overflow-y-auto">
+          <div className="flex items-center justify-center">
+            <div className="bg-white rounded-lg ">
+              <div className="p-4">
+                <h2 className="text-lg font-bold mb-4">Edit user information</h2>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    name="first_name"
+                    placeholder="First Name"
+                    defaultValue={owners.first_name}
+                    onChange={handleChange} 
+                  />
                 </div>
-                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    name="last_name"
+                    placeholder="Last Name"
+                    defaultValue={owners.last_name}
+                    onChange={handleChange} 
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    defaultValue={owners.email}
+                    onChange={handleChange} 
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone"
+                    defaultValue={owners.phone_number}
+                    onChange={handleChange} 
+                  />
+                </div>
+                <div className="flex justify-between">
                   <button
-                    type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                    onClick={() => setOpen(false)}
+                    className="bg-gray-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={(e) => {
+                      handleSubmit(e);
+                      toggleModal();
+                    }}
                   >
-                    Deactivate
+                    Save
                   </button>
                   <button
-                    type="button"
-                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    onClick={() => setOpen(false)}
-                    ref={cancelButtonRef}
+                    className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={toggleModal}
                   >
                     Cancel
                   </button>
                 </div>
-              </Dialog.Panel>
-            </Transition.Child>
+              </div>
+            </div>
           </div>
         </div>
-      </Dialog>
-    </Transition.Root>
-  )
-}
+      )}
+    </Fragment>
+  );
+};
+export default EditDashboard;
