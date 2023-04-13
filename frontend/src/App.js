@@ -3,13 +3,7 @@ import UserDashboard from './components/UserDashboard'
 
 function App() {
     return (
-        <div className="bg-black">
-            <div className="flex justify-center items-center h-screen">
-                <p className="text-white font-semibold text-4xl"></p>
-                <div>
-                    <SignUp />
-                </div>
-            </div>
+        <div className="flex justify-center items-center h-screen">
             <UserDashboard />
         </div>
     )

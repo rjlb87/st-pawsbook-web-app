@@ -12,7 +12,6 @@ export async function editOwners(data) {
     return await response.json()
 }
 
-
 export const createOwners = async (owners) => {
     try {
         const response = await fetch('/api/v1/owners', {
@@ -23,5 +22,21 @@ export const createOwners = async (owners) => {
         return response.json()
     } catch (error) {
         console.error(error.message)
+    }
+}
+export async function deleteOwner(id) {
+    try {
+        const confirmed = window.confirm(
+            'Are you sure you want to delete this user?'
+        )
+        if (confirmed) {
+            const response = await fetch(`/api/v1/owners/${id}`, {
+                method: 'DELETE',
+            })
+            return true
+        }
+    } catch (error) {
+        console.error(error.message)
+        throw error
     }
 }

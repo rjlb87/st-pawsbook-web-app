@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Navbar() {
+function Splash() {
     return <div></div>
 }
 
-export default Navbar
+export default Splash

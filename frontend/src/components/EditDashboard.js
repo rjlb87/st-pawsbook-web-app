@@ -40,7 +40,6 @@ const EditDashboard = ({ owners }) => {
                 </button>
             </div>
 
-            {/* Modal code */}
             {showModal && (
                 <div className="fixed z-10 inset-0 overflow-y-auto">
                     <div className=" pt-40 flex items-center justify-center">
@@ -51,7 +50,7 @@ const EditDashboard = ({ owners }) => {
                                 </h2>
                                 <div className="mb-4 text-sm">
                                     <input
-                                        className="bg-slate-500 rounded-sm mt-2"
+                                        className="bg-slate-500 rounded-sm mt-2 px-2"
                                         type="text"
                                         name="first_name"
                                         placeholder="First Name"
@@ -61,7 +60,7 @@ const EditDashboard = ({ owners }) => {
                                 </div>
                                 <div className="mb-4 text-sm">
                                     <input
-                                        className="bg-slate-500 rounded-sm"
+                                        className="bg-slate-500 rounded-sm px-2"
                                         type="text"
                                         name="last_name"
                                         placeholder="Last Name"
@@ -71,7 +70,7 @@ const EditDashboard = ({ owners }) => {
                                 </div>
                                 <div className="mb-4 text-sm">
                                     <input
-                                        className="bg-slate-500 rounded-sm"
+                                        className="bg-slate-500 rounded-sm px-2"
                                         type="text"
                                         name="email"
                                         placeholder="Email"
@@ -81,7 +80,7 @@ const EditDashboard = ({ owners }) => {
                                 </div>
                                 <div className="mb-4 text-sm">
                                     <input
-                                        className="bg-slate-500 rounded-sm"
+                                        className="bg-slate-500 rounded-sm px-2"
                                         type="text"
                                         name="phone_number"
                                         placeholder="Phone"
@@ -89,7 +88,7 @@ const EditDashboard = ({ owners }) => {
                                         onChange={handleChange}
                                     />
                                 </div>
-                                <div className="flex justify-between">
+                                <div className="flex justify-around">
                                     <button
                                         className=" text-sm bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
                                         onClick={(e) => {
