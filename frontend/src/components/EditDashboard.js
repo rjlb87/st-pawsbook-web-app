@@ -1,115 +1,117 @@
-import React, { Fragment, useState } from 'react';
-import { editOwners } from '../services/UserService';
+import React, { useState } from 'react'
+import { editOwners } from '../services/UserService'
 
 const EditDashboard = ({ owners }) => {
-
-  const [user_details, setUserDetails] = useState({
-    id: owners?.id || '',
-    first_name: owners?.first_name || '',
-    last_name: owners?.last_name || '',
-    email: owners?.email || '',
-    phone_number: owners?.phone_number || '',
-
-});
-
-const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserDetails((prev) => {
-        return { ...prev, [name]: value };
+    const [userDetails, setUserDetails] = useState({
+        id: owners.id ?? '',
+        first_name: owners.first_name ?? '',
+        last_name: owners.last_name ?? '',
+        email: owners.email ?? '',
+        phone_number: owners.phone_number ?? '',
     })
-    console.log(name, value)
-};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Came from User Service
-    editOwners(user_details).then((console.log(user_details)));
-  };
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setUserDetails((prev) => {
+            return { ...prev, [name]: value }
+        })
+        console.log(name, value)
+    }
 
-  const [showModal, setShowModal] = useState(false);
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        editOwners(userDetails).then(console.log(userDetails))
+    }
 
-  const toggleModal = (e) => {
-    setShowModal(!showModal);
-  };
+    const [showModal, setShowModal] = useState(false)
 
-  return (
-    <Fragment>
-      {/* Button to open the modal */}
-      <div className="py-4 mx-10 mt-10">
-        <button
-          className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-          onClick={toggleModal}
-        >
-          Edit
-        </button>
-      </div>
+    const toggleModal = (e) => {
+        setShowModal(!showModal)
+    }
 
-      {/* Modal code */}
-      {showModal && (
-        <div className="fixed z-10 inset-0 overflow-y-auto">
-          <div className="flex items-center justify-center">
-            <div className="bg-white rounded-lg ">
-              <div className="p-4">
-                <h2 className="text-lg font-bold mb-4">Edit user information</h2>
-                <div className="mb-4">
-                  <input
-                    type="text"
-                    name="first_name"
-                    placeholder="First Name"
-                    defaultValue={owners.first_name}
-                    onChange={handleChange} 
-                  />
-                </div>
-                <div className="mb-4">
-                  <input
-                    type="text"
-                    name="last_name"
-                    placeholder="Last Name"
-                    defaultValue={owners.last_name}
-                    onChange={handleChange} 
-                  />
-                </div>
-                <div className="mb-4">
-                  <input
-                    type="text"
-                    name="email"
-                    placeholder="Email"
-                    defaultValue={owners.email}
-                    onChange={handleChange} 
-                  />
-                </div>
-                <div className="mb-4">
-                  <input
-                    type="text"
-                    name="phone"
-                    placeholder="Phone"
-                    defaultValue={owners.phone_number}
-                    onChange={handleChange} 
-                  />
-                </div>
-                <div className="flex justify-between">
-                  <button
-                    className="bg-gray-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
-                    onClick={(e) => {
-                      handleSubmit(e);
-                      toggleModal();
-                    }}
-                  >
-                    Save
-                  </button>
-                  <button
-                    className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+    return (
+        <div>
+            <div className="py-4 mx-10 mt-10">
+                <button
+                    className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
                     onClick={toggleModal}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
+                >
+                    Edit
+                </button>
             </div>
-          </div>
+
+            {/* Modal code */}
+            {showModal && (
+                <div className="fixed z-10 inset-0 overflow-y-auto">
+                    <div className=" pt-40 flex items-center justify-center">
+                        <div className="bg-gray-800 rounded-lg text-white ">
+                            <div className="p-4">
+                                <h2 className="text-md text-white font-bold mb-4">
+                                    Edit user information
+                                </h2>
+                                <div className="mb-4 text-sm">
+                                    <input
+                                        className="bg-slate-500 rounded-sm mt-2"
+                                        type="text"
+                                        name="first_name"
+                                        placeholder="First Name"
+                                        defaultValue={owners.first_name}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="mb-4 text-sm">
+                                    <input
+                                        className="bg-slate-500 rounded-sm"
+                                        type="text"
+                                        name="last_name"
+                                        placeholder="Last Name"
+                                        defaultValue={owners.last_name}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="mb-4 text-sm">
+                                    <input
+                                        className="bg-slate-500 rounded-sm"
+                                        type="text"
+                                        name="email"
+                                        placeholder="Email"
+                                        defaultValue={owners.email}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="mb-4 text-sm">
+                                    <input
+                                        className="bg-slate-500 rounded-sm"
+                                        type="text"
+                                        name="phone_number"
+                                        placeholder="Phone"
+                                        defaultValue={owners.phone_number}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="flex justify-between">
+                                    <button
+                                        className=" text-sm bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+                                        onClick={(e) => {
+                                            handleSubmit(e)
+                                            toggleModal()
+                                        }}
+                                    >
+                                        Save
+                                    </button>
+                                    <button
+                                        className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded text-sm"
+                                        onClick={toggleModal}
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
-      )}
-    </Fragment>
-  );
-};
-export default EditDashboard;
+    )
+}
+export default EditDashboard

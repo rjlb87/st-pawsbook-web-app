@@ -1,7 +1,5 @@
-// import Login from './authentication/Login'
-import SignUp from './authentication/Signup';
-import UserDashboard from './components/UserDashboard';
-
+import SignUp from './authentication/Signup'
+import UserDashboard from './components/UserDashboard'
 
 function App() {
     return (
@@ -9,11 +7,10 @@ function App() {
             <div className="flex justify-center items-center h-screen">
                 <p className="text-white font-semibold text-4xl"></p>
                 <div>
-                <SignUp />
+                    <SignUp />
                 </div>
             </div>
             <UserDashboard />
-
         </div>
     )
 }
