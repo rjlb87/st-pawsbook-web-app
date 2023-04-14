@@ -30,7 +30,7 @@ function UserDashboard() {
     }, [])
 
     return (
-        <div className="h-auto mx-auto bg-gray-500 px-4 py-20 mb-10">
+        <div className="h-auto mx-auto bg-gray-500 px-4 py-20">
             <div className="flex justify-center items-center uppercase my-5 text-2xl text-white">
                 <h1 className="font-bold tracking-wider pb-10 pt-10">
                     Owners Dashboard

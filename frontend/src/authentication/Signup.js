@@ -27,16 +27,16 @@ const SignUp = () => {
     }
 
     return (
-        <div className="flex justify-center items-center rounded-lg mt-40  w-full ">
-            <div className=" sm:w-96 p-6 bg-white rounded-lg shadow-md ">
-                <h1 className="text-2xl font-semibold mb-6 text-center">
+        <div className="bg-black flex justify-center items-center h-auto pt-20 pb-20">
+            <div className=" sm:w-96 p-6 bg-white rounded-lg shadow-md">
+                <h1 className="text-2xl font-semibold mb-6 text-center pt-10">
                     Sign Up
                 </h1>
                 <form onSubmit={onSubmitForm}>
-                    <label className="mb-4 block mt-20">
+                    <label className="mb-4 block text-xs">
                         First Name:
                         <input
-                            className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
+                            className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1 text-xs"
                             type="text"
                             placeholder="John"
                             value={first_name}
@@ -48,7 +48,7 @@ const SignUp = () => {
                             }
                         />
                     </label>
-                    <label className="mb-4 block">
+                    <label className="mb-4 block text-xs ">
                         Last Name:
                         <input
                             className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
@@ -63,7 +63,7 @@ const SignUp = () => {
                             }
                         />
                     </label>
-                    <label className="block mb-4">
+                    <label className="block mb-4 text-xs">
                         Email:
                         <input
                             className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
@@ -75,14 +75,14 @@ const SignUp = () => {
                             }
                         />
                     </label>
-                    <label className="mb-4 block">
+                    <label className="mb-4 block text-xs">
                         Password:
                         <div className="relative">
                             <input
                                 className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1 pr-10"
                                 // type={showPassword ? 'text' : 'password'}
                                 type="password"
-                                placeholder="Password"
+                                placeholder="******"
                                 value={password}
                                 onChange={(e) =>
                                     setOwners({
@@ -100,7 +100,7 @@ const SignUp = () => {
                         </button> */}
                         </div>
                     </label>
-                    <label className="mb-4 block">
+                    <label className="mb-4 block text-xs">
                         Phone Number:
                         <input
                             className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
