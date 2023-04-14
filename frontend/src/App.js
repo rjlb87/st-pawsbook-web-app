@@ -1,11 +1,17 @@
-import SignUp from './authentication/Signup'
-import UserDashboard from './components/UserDashboard'
+// import SignUp from './authentication/Signup'
+// import UserDashboard from './components/UserDashboard'
+import Dashboard from './common/Dashboard'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NavBar from './common/NavBar'
 
 function App() {
     return (
-        <div className="flex justify-center items-center h-screen">
-            <UserDashboard />
-        </div>
+        <BrowserRouter>
+            <NavBar />
+            <Routes>
+                <Route path="/" element={<Dashboard />} />
+            </Routes>
+        </BrowserRouter>
     )
 }
 
