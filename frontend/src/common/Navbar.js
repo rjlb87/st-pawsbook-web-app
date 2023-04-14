@@ -10,6 +10,10 @@ const NavBar = () => {
             id: 1,
             link: 'SIGN UP',
         },
+        {
+            id: 1,
+            link: 'SIGN IN',
+        },
     ]
 
     const handleCloseNav = () => {

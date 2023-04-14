@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { editOwners } from '../services/UserService'
 
 const EditDashboard = ({ owners }) => {
@@ -28,12 +28,13 @@ const EditDashboard = ({ owners }) => {
     const toggleModal = (e) => {
         setShowModal(!showModal)
     }
+    // useEffect(() => {}, [])
 
     return (
         <div>
-            <div className="py-4 mx-10 mt-10">
+            <div className="py-4 mx-10">
                 <button
-                    className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                    className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     onClick={toggleModal}
                 >
                     Edit

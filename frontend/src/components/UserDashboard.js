@@ -4,8 +4,6 @@ import EditDashboard from './EditDashboard'
 
 function UserDashboard() {
     const [owners, setOwners] = useState([])
-    // const [successModal] = useState('')
-
     const handleDeleteOwners = async (id) => {
         try {
             const success = await deleteOwner(id)
@@ -30,17 +28,17 @@ function UserDashboard() {
     }, [])
 
     return (
-        <div className="h-auto mx-auto bg-gray-500 px-4 py-20">
+        <div className="h-screen bg-gray-500 px-4 py-20">
             <div className="flex justify-center items-center uppercase my-5 text-2xl text-white">
                 <h1 className="font-bold tracking-wider pb-10 pt-10">
-                    Owners Dashboard
+                    Owner Dashboard
                 </h1>
             </div>
-            <table className="max-w-6xl mx-auto border-collapse border rounded-md">
+            <table className=" mx-auto border-collapse border rounded-md overflow-x-auto">
                 <thead>
                     <tr className="bg-[#eaf0f7]">
                         <th className=" border-gray-300 px-6  text-xs font-semibold text-gray-700">
-                            ID
+                            #
                         </th>
                         <th className=" border-gray-300 px-6  text-xs font-semibold text-gray-700">
                             First Name
@@ -63,14 +61,13 @@ function UserDashboard() {
                     </tr>
                 </thead>
                 <tbody>
-                    {owners.map((owners) => (
+                    {owners.map((owners, index) => (
                         <tr
-                            //owners table
                             key={owners.id}
                             className="hover:bg-gray-100 transition-colors text-xs"
                         >
                             <td className="border  border-gray-500 px-6  bg-slate-900  text-center text-white font-light">
-                                {owners.id}
+                                {index + 1}
                             </td>
                             <td className="border border-gray-500 px-6  bg-slate-900  text-center text-white font-light">
                                 {owners.first_name}
@@ -84,13 +81,13 @@ function UserDashboard() {
                             <td className="border border-gray-500 px-6  bg-slate-900  text-center text-white font-light">
                                 {owners.phone_number}
                             </td>
-                            <td className="border border-gray-500 bg-slate-900 pb-10">
+                            <td className="border border-gray-500 bg-slate-900">
                                 <EditDashboard owners={owners} />
                             </td>
                             <td className="border border-gray-500  bg-slate-900">
-                                <td className="flex justify-center group  py-4 px-6">
+                                <td className="flex justify-center group py-4 px-6">
                                     <button
-                                        className=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2"
+                                        className=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                                         onClick={() =>
                                             handleDeleteOwners(owners.id)
                                         }
