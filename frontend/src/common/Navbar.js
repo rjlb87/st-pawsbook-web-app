@@ -10,10 +10,6 @@ const NavBar = () => {
             id: 1,
             link: 'SIGN UP',
         },
-        {
-            id: 1,
-            link: 'SIGN IN',
-        },
     ]
 
     const handleCloseNav = () => {
@@ -23,9 +19,9 @@ const NavBar = () => {
     }
 
     return (
-        <div className="fixed flex justify-between items-center w-full h-20 px-4 bg-slate-950">
-            <div className="flex items-center ml-4 pt-4">
-                <h1 className="text-3xl font-bold text-orange-600 font-rushk pb-4">
+        <div className="fixed flex justify-between items-center w-full px-4 bg-white h-16">
+            <div className="flex items-center ml-4">
+                <h1 className="text-3xl font-bold text-gray-800 font-rushk">
                     pawsbook
                 </h1>
             </div>
@@ -33,7 +29,7 @@ const NavBar = () => {
                 {links.map(({ id, link }) => (
                     <li
                         key={id}
-                        className="px-3 cursor-pointer font-medium text-gray-500 hover:scale-105 hover:text-white link-underline"
+                        className="px-3 cursor-pointer font-semibold text-gray-800 hover:scale-105 hover:text-orange-500 link-underline"
                     >
                         <Link
                             activeClass="active"
@@ -57,11 +53,11 @@ const NavBar = () => {
             </div>
 
             {nav && (
-                <ul className="flex flex-col justify-start absolute top-0 left-0 w-full h-screen bg-gradient-to-r from-teal-500 to-green-200">
-                    <div className="fixed flex justify-between items-center w-full h-20 px-4 bg-gradient-to-r from-teal-500 to-green-200 text-gray-800 nav">
+                <ul className="flex flex-col justify-start absolute top-0 left-0 w-full h-screen bg-white">
+                    <div className="fixed flex justify-between items-center w-full h-20 px-4 bg-white">
                         <div className="flex items-center ml-4 pt-4">
                             <h1 className="text-2xl font-bold text-black font-rushk">
-                                {'<rj'}
+                                pawsbook
                             </h1>
                         </div>
                     </div>

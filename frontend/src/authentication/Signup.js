@@ -27,9 +27,9 @@ const SignUp = () => {
     }
 
     return (
-        <div className="bg-black flex justify-center items-center h-auto pt-20 pb-20">
+        <div className="bg-gray-800 flex justify-center items-center h-auto pt-20 pb-20">
             <div className=" sm:w-96 p-6 bg-white rounded-lg shadow-md">
-                <h1 className="text-2xl font-semibold mb-6 text-center pt-10">
+                <h1 className="text-2xl text-gray-800 font-semibold mb-6 text-center pt-20 pb-20">
                     Sign Up
                 </h1>
                 <form onSubmit={onSubmitForm}>
@@ -115,12 +115,17 @@ const SignUp = () => {
                             }
                         />
                     </label>
+
                     <button
                         type="submit"
-                        className="bg-blue-500 text-white hover:bg-blue-700 rounded-md px-4 py-2 mt-4 w-full"
+                        className="bg-gray-800 text-white hover:bg-orange-500 rounded-md px-4 py-2 mt-4 w-full"
                     >
                         Sign Up
                     </button>
+                    <div className=" text-gray-800 text-xs flex-row text-center pt-6">
+                        <p>Already have an account? </p>
+                        <p className="font-semibold underline">Sign in</p>
+                    </div>
                 </form>
             </div>
         </div>

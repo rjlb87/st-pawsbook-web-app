@@ -2,10 +2,19 @@ import React from 'react'
 
 function Splash() {
     return (
-        <div className="bg-slate-900 text-white text-2xl">
-            Welcome to pawsbook
-        </div>
+        <>
+            <div className="flex justify-center">
+                <img
+                    src="background.png"
+                    className="h-screen"
+                    alt="background"
+                />
+                {/* <div className="flex justify-center items-center h-[100vh]">
+                    <p className="text-blue-800 text-6xl font-extrabold ">
+                        Welcome to pawsbook
+                    </p> */}
+            </div>
+        </>
     )
 }
-
 export default Splash
