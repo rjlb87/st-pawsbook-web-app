@@ -1,7 +1,12 @@
 export const navigation = [
     {
         id: 1,
-        link: 'SIGNUP',
+        link: 'SIGN UP',
         path: '/Signup',
+    },
+    {
+        id: 2,
+        link: 'SIGN IN',
+        path: '/Signin',
     },
 ]

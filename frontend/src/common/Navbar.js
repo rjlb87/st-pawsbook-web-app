@@ -28,10 +28,10 @@ const NavBar = () => {
                 <ul className="list-none">
                     <li
                         key={id}
-                        className=" text-sm px-6 cursor-pointer font-semibold text-gray-800 hover:scale-105 hover:text-orange-500 link-underline"
+                        // className=" text-sm px-6 cursor-pointer font-semibold text-gray-800 hover:scale-105 hover:text-orange-500 link-underline"
                     >
                         <button
-                            className="text-gray-800 hover:text-orange-500 link-underline"
+                            className="text-gray-800 hover:text-orange-500 link-underline font-semibold px-4"
                             onClick={() => navigate(path)}
                         >
                             {' '}
