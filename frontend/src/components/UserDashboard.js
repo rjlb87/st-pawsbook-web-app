@@ -36,7 +36,7 @@ function UserDashboard() {
             </div>
             <table className=" mx-auto border-collapse">
                 <thead>
-                    <tr className="bg-orange-500">
+                    <tr className="bg-black">
                         <th className=" border-gray-300 px-6  text-xs font-semibold text-white">
                             #
                         </th>
@@ -66,25 +66,25 @@ function UserDashboard() {
                             key={owners.id}
                             className="hover:bg-gray-100 transition-colors text-xs"
                         >
-                            <td className="border  border-gray-500 px-6  bg-slate-900  text-center text-white font-semibold">
+                            <td className="border  border-gray-500 px-6  bg-gray-600 text-center text-white font-semibold">
                                 {index + 1}
                             </td>
-                            <td className="border border-gray-500 px-6  bg-slate-900  text-center text-white font-light">
+                            <td className="border border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
                                 {owners.first_name}
                             </td>
-                            <td className="border border-gray-500 px-6  bg-slate-900  text-center text-white font-light">
+                            <td className="border border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
                                 {owners.last_name}
                             </td>
-                            <td className="border border-gray-500 px-6  bg-slate-900  text-center text-white font-light">
+                            <td className="border border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
                                 {owners.email}
                             </td>
-                            <td className="border border-gray-500 px-6  bg-slate-900  text-center text-white font-light">
+                            <td className="border border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
                                 {owners.phone_number}
                             </td>
-                            <td className="border border-gray-500 bg-slate-900">
+                            <td className="border border-gray-500 bg-gray-600">
                                 <EditDashboard owners={owners} />
                             </td>
-                            <td className="border border-gray-500  bg-slate-900">
+                            <td className="border border-gray-500  bg-gray-600">
                                 <td className="flex justify-center group py-4 px-6">
                                     <button
                                         className=" bg-gray-800 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded"

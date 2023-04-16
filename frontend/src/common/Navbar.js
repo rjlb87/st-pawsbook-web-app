@@ -31,7 +31,7 @@ const NavBar = () => {
                         className=" text-sm px-6 cursor-pointer font-semibold text-gray-800 hover:scale-105 hover:text-orange-500 link-underline"
                     >
                         <button
-                            className="text-gray-800"
+                            className="text-gray-800 hover:text-orange-500 link-underline"
                             onClick={() => navigate(path)}
                         >
                             {' '}
