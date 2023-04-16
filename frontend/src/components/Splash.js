@@ -3,7 +3,7 @@ import React from 'react'
 function Splash() {
     return (
         <>
-            <div className="flex justify-center">
+            <div className="flex justify-center" name="HOME">
                 <img
                     src="background.png"
                     className="h-screen"

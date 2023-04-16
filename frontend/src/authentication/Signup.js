@@ -27,9 +27,9 @@ const SignUp = () => {
     }
 
     return (
-        <div className="bg-gray-800 flex justify-center items-center h-auto pt-20 pb-20">
+        <div className="bg-gray-800 flex justify-center py-40">
             <div className=" sm:w-96 p-6 bg-white rounded-lg shadow-md">
-                <h1 className="text-2xl text-gray-800 font-semibold mb-6 text-center pt-20 pb-20">
+                <h1 className="text-2xl text-gray-800 font-semibold mb-6 text-center pt-3 pb-3">
                     Sign Up
                 </h1>
                 <form onSubmit={onSubmitForm}>
@@ -91,13 +91,6 @@ const SignUp = () => {
                                     })
                                 }
                             />
-                            {/* <button
-                            type="button"
-                            onClick={handleShowPassword}
-                            className="absolute top-1/2 right-2 transform -translate-y-1/2"
-                        >
-                            {showPassword ? 'Hide' : 'Show'}
-                        </button> */}
                         </div>
                     </label>
                     <label className="mb-4 block text-xs">
@@ -132,28 +125,3 @@ const SignUp = () => {
     )
 }
 export default SignUp
-// const [showPassword, setShowPassword] = useState(false)
-// const [phoneNumber, setPhoneNumber] = useState('')
-
-// const handleShowPassword = () => {
-//     setShowPassword(!showPassword)
-
-// const handleFirstNameChange = (e) => {
-//     setFirstName(e.target.value)
-// }
-
-// const handleLastNameChange = (e) => {
-//     setLastName(e.target.value)
-// }
-// const handleEmailChange = (e) => {
-//     setEmail(e.target.value)
-// }
-
-// const handlePasswordChange = (e) => {
-//     setPassword(e.target.value)
-// }
-
-// const handlePhoneNumberChange = (e) => {
-//     // Allow only digits to be entered
-//     const value = e.target.value.replace(/\D/g, '')
-//     setPhoneNumber(value)

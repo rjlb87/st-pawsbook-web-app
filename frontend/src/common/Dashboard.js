@@ -1,15 +1,13 @@
-import NavBar from './NavBar'
+import React from 'react'
 import UserDashboard from '../components/UserDashboard'
-import SignUp from '../authentication/Signup'
 import Splash from '../components/Splash'
 
-export default function Dashboard() {
+function Dashboard() {
     return (
         <div>
-            <NavBar />
             <Splash />
             <UserDashboard />
-            <SignUp />
         </div>
     )
 }
+export default Dashboard

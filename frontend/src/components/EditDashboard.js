@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { editOwners } from '../services/UserService'
 
 const EditDashboard = ({ owners }) => {
@@ -29,19 +29,6 @@ const EditDashboard = ({ owners }) => {
         setShowModal(!showModal)
     }
     // useEffect(() => {}, [])
-    useEffect(() => {
-        const saveUserDetails = async () => {
-            try {
-                // Call editOwners function to save edited data
-                await editOwners(userDetails)
-                console.log('User details saved:', userDetails)
-            } catch (error) {
-                console.error(error.message)
-            }
-        }
-
-        saveUserDetails()
-    }, [userDetails])
 
     return (
         <div>
