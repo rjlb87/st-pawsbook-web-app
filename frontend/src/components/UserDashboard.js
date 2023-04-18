@@ -53,19 +53,19 @@ function UserDashboard() {
             <table className=" mx-auto border-collapse">
                 <thead>
                     <tr className="bg-black">
-                        <th className=" border-gray-300 px-6  text-xs font-semibold text-white">
+                        <th className=" px-6  text-xs font-semibold text-white">
                             #
                         </th>
-                        <th className=" border-gray-300 px-6  text-xs font-semibold uppercase text-white">
+                        <th className=" px-6  text-xs font-semibold uppercase text-white">
                             First Name
                         </th>
-                        <th className=" border-gray-300 px-6  text-xs font-semibold uppercase text-white">
+                        <th className=" px-6  text-xs font-semibold uppercase text-white">
                             Last Name
                         </th>
-                        <th className=" border-gray-300 px-6  text-xs font-semibold uppercase text-white">
+                        <th className=" px-6  text-xs font-semibold uppercase text-white">
                             Email
                         </th>
-                        <th className=" border-gray-300 px-6  text-xs font-semibold uppercase text-white">
+                        <th className=" px-6  text-xs font-semibold uppercase text-white">
                             Phone Number
                         </th>
                         <th
@@ -82,25 +82,25 @@ function UserDashboard() {
                             key={owners.id}
                             className="hover:bg-gray-100 transition-colors text-xs"
                         >
-                            <td className="border  border-gray-500 px-6  bg-gray-600 text-center text-white font-semibold">
+                            <td className=" border-gray-500 px-6  bg-gray-600 text-center text-white font-semibold">
                                 {startIndex + index}
                             </td>
-                            <td className="border border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
+                            <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
                                 {owners.first_name}
                             </td>
-                            <td className="border border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
+                            <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
                                 {owners.last_name}
                             </td>
-                            <td className="border border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
+                            <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
                                 {owners.email}
                             </td>
-                            <td className="border border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
+                            <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
                                 {owners.phone_number}
                             </td>
-                            <td className="border border-gray-500 bg-gray-600">
+                            <td className="border-gray-500 bg-gray-600">
                                 <EditDashboard owners={owners} />
                             </td>
-                            <td className="border border-gray-500  bg-gray-600">
+                            <td className="border-gray-500  bg-gray-600">
                                 <td className="flex justify-center group py-4 px-6">
                                     <button
                                         className=" bg-gray-800 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded"
@@ -124,14 +124,14 @@ function UserDashboard() {
                         pageCount={5}
                         containerClassName={'flex'}
                         pageClassName={
-                            'flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                            'flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
                         }
                         activeClassName={'text-blue-700'}
                         previousClassName={
-                            'px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                            'px-4 py-2 text-sm font-medium text-gray-500 bg-white border-gray-300 rounded-l-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
                         }
                         nextClassName={
-                            'px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                            'px-4 py-2 text-sm font-medium text-gray-500 bg-white border-gray-300 rounded-r-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
                         }
                         previousLinkClassName={'page-link'}
                         nextLinkClassName={'page-link'}
