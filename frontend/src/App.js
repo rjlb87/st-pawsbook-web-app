@@ -1,4 +1,4 @@
-// import UserDashboard from './components/UserDashboard'
+import UserDashboard from './components/UserDashboard'
 import Dashboard from './common/Dashboard'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './common/NavBar'
@@ -10,6 +10,7 @@ function App() {
             <NavBar />
             <Routes>
                 <Route path="/" element={<Dashboard />} />
+                <Route path="/UserDashboard" element={<UserDashboard />} />
                 <Route path="/Signup" element={<Signup />} />
                 <Route path="/Signin" element={<Signin />} />
             </Routes>

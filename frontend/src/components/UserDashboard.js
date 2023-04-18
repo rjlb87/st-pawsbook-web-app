@@ -1,9 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { getAllOwners, deleteOwner } from '../services/UserService'
 import EditDashboard from './EditDashboard'
+import ReactPaginate from 'react-paginate'
 
 function UserDashboard() {
     const [owners, setOwners] = useState([])
+    const [currentPage, setCurrentPage] = useState(0)
+    const itemsPerPage = 10
+    const pageCount = Math.ceil(owners.length / itemsPerPage)
+
+    const handlePageClick = ({ selected }) => {
+        setCurrentPage(selected)
+    }
+
+    const startIndex = currentPage * itemsPerPage + 1
+    const endIndex = startIndex + itemsPerPage
+
+    const currentData = (owners || []).slice(
+        startIndex,
+        Math.min(endIndex, owners.length)
+    )
     const handleDeleteOwners = async (id) => {
         try {
             const success = await deleteOwner(id)
@@ -28,7 +44,7 @@ function UserDashboard() {
     }, [])
 
     return (
-        <div className="h-auto bg-gray-800 px-4 py-20" name="DASHBOARD">
+        <div className="h-auto bg-gray-800 px-4 py-20">
             <div className="flex justify-center items-center uppercase my-5 text-2xl text-white">
                 <h1 className="font-bold tracking-wider pb-10 pt-10">
                     Owners Dashboard
@@ -61,13 +77,13 @@ function UserDashboard() {
                     </tr>
                 </thead>
                 <tbody>
-                    {owners.map((owners, index) => (
+                    {currentData.map((owners, index) => (
                         <tr
                             key={owners.id}
                             className="hover:bg-gray-100 transition-colors text-xs"
                         >
                             <td className="border  border-gray-500 px-6  bg-gray-600 text-center text-white font-semibold">
-                                {index + 1}
+                                {startIndex + index}
                             </td>
                             <td className="border border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
                                 {owners.first_name}
@@ -100,6 +116,29 @@ function UserDashboard() {
                     ))}
                 </tbody>
             </table>
+            <div className="flex justify-center mt-4">
+                <nav class="bg-white rounded-lg shadow-md">
+                    <ReactPaginate
+                        previousLabel={'Prev'}
+                        nextLabel={'Next'}
+                        pageCount={5}
+                        containerClassName={'flex'}
+                        pageClassName={
+                            'flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                        }
+                        activeClassName={'text-blue-700'}
+                        previousClassName={
+                            'px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                        }
+                        nextClassName={
+                            'px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                        }
+                        previousLinkClassName={'page-link'}
+                        nextLinkClassName={'page-link'}
+                        onPageChange={handlePageClick}
+                    />
+                </nav>
+            </div>
         </div>
     )
 }

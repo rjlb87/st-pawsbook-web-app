@@ -20,7 +20,7 @@ const SignUp = () => {
         }
         try {
             await createOwners(owners)
-            window.location = '/'
+            window.location = '/UserDashboard'
         } catch (error) {
             console.error(error.message)
         }
