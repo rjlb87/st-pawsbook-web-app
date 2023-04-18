@@ -9,7 +9,7 @@ function Signin() {
                         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                             Sign in to your account
                         </h1>
-                        <form class="space-y-4 md:space-y-6" action="#">
+                        <form class="space-y-4 md:space-y-6" action="Signup">
                             <div>
                                 <label
                                     for="email"
@@ -51,9 +51,9 @@ function Signin() {
                             </button>
                             <p class=" text-center text-sm font-light text-gray-500 dark:text-gray-400">
                                 Don’t have an account yet?{' '}
-                                <div className=" text-center font-medium text-primary-600 hover:underline dark:text-primary-500">
+                                <button className=" text-center font-medium text-primary-600 hover:underline dark:text-primary-500">
                                     Sign up
-                                </div>
+                                </button>
                             </p>
                         </form>
                     </div>
