@@ -22,7 +22,6 @@ class OwnersRepository {
         }
     }
 
-    
     async createOwners(owners) {
         let ownersData = {}
 
@@ -38,7 +37,6 @@ class OwnersRepository {
             console.log('Error: ', error)
         }
     }
-
 
     // CRUD
     async updateOwners(owners) {
@@ -69,6 +67,5 @@ class OwnersRepository {
         }
     }
 }
-
 
 module.exports = new OwnersRepository()

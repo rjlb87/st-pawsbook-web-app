@@ -35,11 +35,13 @@ const Card = ({ image, title, description, age }) => {
                     </svg>
                 </button>
 
-                <div>
-                    <button className="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2">
+                <div className="">
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  text-xs">
                         Profile
                     </button>
-                    <button className="block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                </div>
+                <div className="">
+                    <button className=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-xs">
                         Book me
                     </button>
                 </div>
@@ -51,7 +53,7 @@ const Card = ({ image, title, description, age }) => {
 const CardList = () => {
     const cards = [
         {
-            image: 'https://source.unsplash.com/random/400x300',
+            image: 'https://www.svgrepo.com/show/436014/dog-4.svg',
             title: 'Talia',
             description: 'Super maldita, but sweet and loving doggo.',
             age: 3,
