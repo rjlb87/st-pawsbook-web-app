@@ -1,16 +1,21 @@
 export const navigation = [
     {
         id: 1,
+        link: 'MAIN PAGE',
+        path: '/MainPage',
+    },
+    {
+        id: 2,
         link: 'DASHBOARD',
         path: '/UserDashboard',
     },
     {
-        id: 2,
+        id: 3,
         link: 'SIGN IN',
         path: '/Signin',
     },
     {
-        id: 3,
+        id: 4,
         link: 'SIGN UP',
         path: '/Signup',
     },
