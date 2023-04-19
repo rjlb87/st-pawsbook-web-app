@@ -9,10 +9,10 @@ const Card = ({ image, title, description, age }) => {
     }
 
     return (
-        <div className="max-w-xs rounded overflow-hidden shadow-lg">
-            <img className="w-full h-48 object-cover" src={image} alt={title} />
+        <div className="max-w-xs rounded overflow-hidden shadow-lg mt-20 bg-yellow-300">
+            <img className="w-full h-48 pt-4" src={image} alt={title} />
             <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">
+                <div className="font-bold text-xl mb-2 text-center text-gray-800 uppercase">
                     {title}
                     {','} {age}
                 </div>
@@ -22,7 +22,7 @@ const Card = ({ image, title, description, age }) => {
             </div>
             <div className="px-6 py-4 flex justify-between items-center">
                 <button
-                    className="hover:text-red-600 text-gray-500 focus:outline-none"
+                    className="hover:text-red-600 text-gray-800 focus:outline-none"
                     onClick={handleFavoriteClick}
                 >
                     <svg
@@ -35,12 +35,12 @@ const Card = ({ image, title, description, age }) => {
                     </svg>
                 </button>
 
-                <div className="">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  text-xs">
+                <div>
+                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded  text-xs">
                         Profile
                     </button>
                 </div>
-                <div className="">
+                <div>
                     <button className=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-xs">
                         Book me
                     </button>
@@ -59,15 +59,30 @@ const CardList = () => {
             age: 3,
         },
         {
-            image: 'https://source.unsplash.com/random/400x300',
+            image: 'https://www.svgrepo.com/show/436015/dog-5.svg',
             title: 'Cookie',
-            description: 'HAHAHA Im just a dog',
+            description:
+                'HAHAHA Im just a dog. I bark, I sleep, I run and eat everything except you',
+            age: 2,
+        },
+        {
+            image: 'https://www.svgrepo.com/show/436015/dog-5.svg',
+            title: 'Cookie',
+            description:
+                'HAHAHA Im just a dog. I bark, I sleep, I run and eat everything except you',
+            age: 2,
+        },
+        {
+            image: 'https://www.svgrepo.com/show/436015/dog-5.svg',
+            title: 'Cookie',
+            description:
+                'HAHAHA Im just a dog. I bark, I sleep, I run and eat everything except you',
             age: 2,
         },
     ]
 
     return (
-        <div className="flex flex-wrap justify-center py-20 gap-8">
+        <div className="bg-gray-500 flex flex-wrap  justify-evenly pt-20 gap-4 h-auto">
             {cards.map((card, index) => (
                 <div
                     className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-8"
