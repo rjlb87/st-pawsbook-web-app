@@ -7,12 +7,6 @@ const NavBar = () => {
     const [nav, setNav] = useState(false)
     const navigate = useNavigate()
 
-    // const handleCloseNav = () => {
-    //     if (nav) {
-    //         setNav(false)
-    //     }
-    // }
-
     return (
         <div className="fixed flex items-center w-full h-20 px-4 md:px-12 bg-white text-black z-50">
             <div className="text-start mr-auto">
@@ -26,10 +20,7 @@ const NavBar = () => {
 
             {navigation.map(({ id, link, path }) => (
                 <ul className="list-none">
-                    <li
-                        key={id}
-                        // className=" text-sm px-6 cursor-pointer font-semibold text-gray-800 hover:scale-105 hover:text-orange-500 link-underline"
-                    >
+                    <li key={id}>
                         <button
                             className="text-gray-800 hover:text-orange-500 link-underline font-semibold px-4"
                             onClick={() => navigate(path)}
@@ -61,7 +52,6 @@ const NavBar = () => {
                         <li
                             key={id}
                             className="px-4 cursor-pointer capitalize py-6 text-4xl"
-                            // onClick={() => handleCloseNav}
                         >
                             {link}
                         </li>
