@@ -2,10 +2,10 @@ import { mdiViewDashboard, mdiDog, mdiCalendarCheck, mdiHeart } from '@mdi/js'
 
 const Sidebar = () => {
     return (
-        <div className=" bg-gray-800 text-white rounded-lg mx-10 my-10">
+        <div className=" bg-gray-800 text-white rounded-lg mx-6 mt-20">
             <div className="p-10">
                 <ul>
-                    <li className="flex items-center mb-4">
+                    <li className="flex items-center mb-6">
                         <svg
                             className="w-6 h-6 mr-2"
                             viewBox="0 0 24 24"
@@ -13,11 +13,11 @@ const Sidebar = () => {
                         >
                             <path d={mdiViewDashboard} />
                         </svg>
-                        <button className="flex items-center text-white hover:text-orange-500">
+                        <button className="flex items-center text-white hover:text-orange-500 ">
                             <span className="ml-2">Dashboard</span>
                         </button>
                     </li>
-                    <li className="flex items-center mb-4">
+                    <li className="flex items-center mb-6">
                         <svg
                             className="w-6 h-6 mr-2"
                             viewBox="0 0 24 24"
@@ -25,11 +25,11 @@ const Sidebar = () => {
                         >
                             <path d={mdiDog} />
                         </svg>
-                        <button className="flex items-center text-white hover:text-gray-900">
+                        <button className="flex items-center text-white hover:text-orange-500">
                             <span className="ml-2">Dogs</span>
                         </button>
                     </li>
-                    <li className="flex items-center mb-4">
+                    <li className="flex items-center mb-6">
                         <svg
                             className="w-6 h-6 mr-2"
                             viewBox="0 0 24 24"
@@ -37,11 +37,11 @@ const Sidebar = () => {
                         >
                             <path d={mdiCalendarCheck} />
                         </svg>
-                        <button className="flex items-center text-white hover:text-gray-900">
+                        <button className="flex items-center text-white hover:text-orange-500">
                             <span className="ml-2">Schedules</span>
                         </button>
                     </li>
-                    <li className="flex items-center mb-4">
+                    <li className="flex items-center my-6">
                         <svg
                             className="w-6 h-6 mr-2"
                             viewBox="0 0 24 24"
@@ -49,7 +49,7 @@ const Sidebar = () => {
                         >
                             <path d={mdiHeart} />
                         </svg>
-                        <button className="flex items-center text-white hover:text-gray-900">
+                        <button className="flex items-center text-white hover:text-orange-500">
                             <span className="ml-2">Favorites</span>
                         </button>
                     </li>

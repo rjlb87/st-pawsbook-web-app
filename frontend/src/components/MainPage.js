@@ -10,23 +10,11 @@ const Card = ({ image, title, breed, description, age }) => {
     }
 
     return (
-        <div className="max-w-xs md:max-w-md rounded-lg overflow-hidden shadow-lg mt-20 bg-yellow-200 ">
+        <div className="max-w-xs md:max-w-md rounded-lg overflow-hidden shadow-lg mt-20 bg-yellow-200">
             <img className="w-full h-40 md:h-48" src={image} alt={title} />
-            <div className="px-6 py-4">
-                <div className="font-bold text-lg md:text-xl mb-2 text-center text-gray-800 uppercase">
-                    {title}
-                    {','} {age}
-                </div>
-                <div className="font-semibold text-lg md:text-xl mb-2  text-gray-800">
-                    {breed}
-                </div>
-                <p className="text-gray-700 text-sm md:text-base h-16 md:h-20 overflow-hidden">
-                    {description}
-                </p>
-            </div>
-            <div className="px-6 py-4 flex justify-between items-center">
+            <div className="flex items-center px-4 pt-4 pb-4">
                 <button
-                    className="hover:text-red-600 text-gray-800 focus:outline-none"
+                    className="hover:text-red-600 text-gray-700 focus:outline-none mr-2"
                     onClick={handleFavoriteClick}
                 >
                     <svg
@@ -38,17 +26,26 @@ const Card = ({ image, title, breed, description, age }) => {
                         <path fill="currentColor" d={mdiHeart} />
                     </svg>
                 </button>
-
-                <div>
-                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded  text-xs">
-                        Profile
-                    </button>
+                <div className="font-bold text-lg md:text-xl text-center text-gray-800 uppercase">
+                    {title}
+                    {','} {age}
                 </div>
-                <div>
-                    <button className=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-xs">
-                        Book me
-                    </button>
+            </div>
+            <div className="px-4 pt-2">
+                <div className="font-semibold text-lg md:text-xl mb-2 text-red-500">
+                    {breed}
                 </div>
+                <p className="text-gray-700 text-sm md:text-base h-16 md:h-20 overflow-hidden">
+                    {description}
+                </p>
+            </div>
+            <div className=" py-4 flex justify-center">
+                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-xs">
+                    More about me
+                </button>
+                {/* <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-xs">
+        Book me
+    </button> */}
             </div>
         </div>
     )
@@ -67,35 +64,59 @@ const Dog_info = () => {
             image: 'https://images.unsplash.com/photo-1543320317-15188058b450?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
             title: 'mon',
             breed: 'Pug',
-            description:
-                'HAHAHA Im just a dog. I bark, I sleep, I run and eat everything except you',
+            description: 'I eat everything except you.',
             age: 2,
         },
         {
             image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
             title: 'Cookie',
             breed: 'Shih tzu',
-            description:
-                'HAHAHA Im just a dog. I bark, I sleep, I run and eat everything except you',
+            description: 'I eat everything except you.',
+            age: 2,
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+            title: 'Cookie',
+            breed: 'Shih tzu',
+            description: 'I eat everything except you.',
+            age: 2,
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+            title: 'Cookie',
+            breed: 'Shih tzu',
+            description: 'I eat everything except you.',
+            age: 2,
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+            title: 'Cookie',
+            breed: 'Shih tzu',
+            description: 'I eat everything except you.',
             age: 2,
         },
     ]
 
     return (
-        <div className="flex h-screen">
-            <SideBar />
-            <div className="flex-1"></div>
-            <div className="bg-white flex flex-wrap  justify-evenly pt-20 gap-4 h-auto">
-                {cards.map((card, index) => (
-                    <div
-                        className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-8"
-                        key={index}
-                    >
-                        <Card {...card} />
-                    </div>
-                ))}
+        <>
+            <div className=" flex-1 mx-10 mt-6 font-bold text-gray-800 text-3xl">
+                pawsbook.
             </div>
-        </div>
+            <div className="flex h-screen">
+                <SideBar />
+                <div className="flex-1"></div>
+                <div className="bg-white flex justify-evenly mt-20 gap-x-2 gap-y-2 h-auto sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row flex-wrap">
+                    {cards.map((card, index) => (
+                        <div
+                            className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-8 sm:max-w-sm"
+                            key={index}
+                        >
+                            <Card {...card} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
     )
 }
 
