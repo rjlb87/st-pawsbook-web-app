@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { mdiHeart } from '@mdi/js'
+import SideBar from './SideBar'
 
 const Card = ({ image, title, breed, description, age }) => {
     const [isFavorite, setIsFavorite] = useState(false)
@@ -9,7 +10,7 @@ const Card = ({ image, title, breed, description, age }) => {
     }
 
     return (
-        <div className="max-w-xs md:max-w-md rounded-lg overflow-hidden shadow-lg mt-20 bg-yellow-200">
+        <div className="max-w-xs md:max-w-md rounded-lg overflow-hidden shadow-lg mt-20 bg-yellow-200 ">
             <img className="w-full h-40 md:h-48" src={image} alt={title} />
             <div className="px-6 py-4">
                 <div className="font-bold text-lg md:text-xl mb-2 text-center text-gray-800 uppercase">
@@ -53,7 +54,7 @@ const Card = ({ image, title, breed, description, age }) => {
     )
 }
 
-const CardList = () => {
+const Dog_info = () => {
     const cards = [
         {
             image: 'https://images.unsplash.com/photo-1608096299210-db7e38487075?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80',
@@ -81,17 +82,21 @@ const CardList = () => {
     ]
 
     return (
-        <div className="bg-white flex flex-wrap  justify-evenly pt-20 gap-4 h-auto">
-            {cards.map((card, index) => (
-                <div
-                    className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-8"
-                    key={index}
-                >
-                    <Card {...card} />
-                </div>
-            ))}
+        <div className="flex h-screen">
+            <SideBar />
+            <div className="flex-1"></div>
+            <div className="bg-white flex flex-wrap  justify-evenly pt-20 gap-4 h-auto">
+                {cards.map((card, index) => (
+                    <div
+                        className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-8"
+                        key={index}
+                    >
+                        <Card {...card} />
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
 
-export default CardList
+export default Dog_info
