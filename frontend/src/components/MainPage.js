@@ -10,8 +10,8 @@ const Card = ({ image, title, breed, description, age }) => {
     }
 
     return (
-        <div className="max-w-xs md:max-w-md rounded-lg overflow-hidden shadow-lg mt-20 bg-yellow-200">
-            <img className="w-full h-40 md:h-48" src={image} alt={title} />
+        <div className="max-w-[224px] h-85 rounded-lg overflow-hidden shadow-lg mt-8 bg-yellow-200">
+            <img className="w-105% h-40 md:h-128px" src={image} alt={title} />
             <div className="flex items-center px-4 pt-4 pb-4">
                 <button
                     className="hover:text-red-600 text-gray-700 focus:outline-none mr-2"
@@ -26,26 +26,41 @@ const Card = ({ image, title, breed, description, age }) => {
                         <path fill="currentColor" d={mdiHeart} />
                     </svg>
                 </button>
-                <div className="font-bold text-lg md:text-xl text-center text-gray-800 uppercase">
+                <div className="font-bold text-md text-center text-gray-800  ">
                     {title}
                     {','} {age}
                 </div>
             </div>
             <div className="px-4 pt-2">
-                <div className="font-semibold text-lg md:text-xl mb-2 text-red-500">
+                <div className="font-semibold text-sm mb-2 text-red-500">
                     {breed}
                 </div>
-                <p className="text-gray-700 text-sm md:text-base h-16 md:h-20 overflow-hidden">
+                <p className="text-gray-700 text-xs h-16 md:h-20 overflow-hidden">
                     {description}
+                    <div className="pt-2 flex justify-center">
+                        <a
+                            href="#_"
+                            class="inline-flex items-center  w-full px-2 py-2 mb-2 text-xs text-white bg-gray-500 rounded-md hover:bg-orange-500 hover:text-gray-800 sm:w-auto sm:mb-0"
+                            data-primary="green-400"
+                            data-rounded="rounded-2xl"
+                            data-primary-reset="{}"
+                        >
+                            Profile
+                            <svg
+                                class="w-4 h-4 ml-1"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                ></path>
+                            </svg>
+                        </a>
+                    </div>
                 </p>
-            </div>
-            <div className=" py-4 flex justify-center">
-                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-xs">
-                    More about me
-                </button>
-                {/* <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-xs">
-        Book me
-    </button> */}
             </div>
         </div>
     )
@@ -57,7 +72,7 @@ const Dog_info = () => {
             image: 'https://images.unsplash.com/photo-1608096299210-db7e38487075?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80',
             title: 'Talia',
             breed: 'Shih tzu',
-            description: 'Super maldita, but sweet and loving doggo.',
+            description: 'Super maldita and sweet.',
             age: 3,
         },
         {
@@ -95,17 +110,28 @@ const Dog_info = () => {
             description: 'I eat everything except you.',
             age: 2,
         },
+        {
+            image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+            title: 'Cookie',
+            breed: 'Shih tzu',
+            description: 'I eat everything except you.',
+            age: 2,
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+            title: 'Cookie',
+            breed: 'Shih tzu',
+            description: 'I eat everything except you.',
+            age: 2,
+        },
     ]
 
     return (
         <>
-            <div className=" flex-1 mx-10 mt-6 font-bold text-gray-800 text-3xl">
-                pawsbook.
-            </div>
             <div className="flex h-screen">
                 <SideBar />
                 <div className="flex-1"></div>
-                <div className="bg-white flex justify-evenly mt-20 gap-x-2 gap-y-2 h-auto sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row flex-wrap">
+                <div className="bg-white flex justify-evenly mt-20  h-auto sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 grid-flow-row flex-wrap px-6">
                     {cards.map((card, index) => (
                         <div
                             className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-8 sm:max-w-sm"

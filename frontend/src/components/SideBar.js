@@ -1,8 +1,8 @@
 import { mdiViewDashboard, mdiDog, mdiCalendarCheck, mdiHeart } from '@mdi/js'
 
-const Sidebar = () => {
+const SideBar = () => {
     return (
-        <div className=" bg-gray-800 text-white rounded-lg mx-6 mt-20">
+        <div className=" bg-gray-800 text-white ">
             <div className="p-10">
                 <ul>
                     <li className="flex items-center mb-6">
@@ -59,4 +59,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default SideBar
