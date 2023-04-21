@@ -10,11 +10,11 @@ const Card = ({ image, title, breed, description, age }) => {
     }
 
     return (
-        <div className="max-w-[224px] h-85 rounded-lg overflow-hidden shadow-lg mt-8 bg-yellow-200">
+        <div className="max-w-[224px] h-85 rounded-lg overflow-hidden shadow-lg mt-8 bg-gray-800">
             <img className="w-105% h-40 md:h-128px" src={image} alt={title} />
             <div className="flex items-center px-4 pt-4 pb-4">
                 <button
-                    className="hover:text-red-600 text-gray-700 focus:outline-none mr-2"
+                    className="hover:text-red-600 text-white focus:outline-none mr-2"
                     onClick={handleFavoriteClick}
                 >
                     <svg
@@ -26,18 +26,18 @@ const Card = ({ image, title, breed, description, age }) => {
                         <path fill="currentColor" d={mdiHeart} />
                     </svg>
                 </button>
-                <div className="font-bold text-md text-center text-gray-800  ">
+                <div className="font-bold text-md text-center text-white  ">
                     {title}
                     {','} {age}
                 </div>
             </div>
             <div className="px-4 pt-2">
-                <div className="font-semibold text-sm mb-2 text-red-500">
+                <div className="font-semibold text-sm mb-2 text-yellow-500">
                     {breed}
                 </div>
-                <p className="text-gray-700 text-xs h-16 md:h-20 overflow-hidden">
+                <p className="text-white text-xs font-semibold h-16 md:h-20 overflow-hidden">
                     {description}
-                    <div className="pt-2 flex justify-center">
+                    <div className="pt-6 flex justify-end">
                         <a
                             href="#_"
                             class="inline-flex items-center  w-full px-2 py-2 mb-2 text-xs text-white bg-gray-500 rounded-md hover:bg-orange-500 hover:text-gray-800 sm:w-auto sm:mb-0"
@@ -131,7 +131,7 @@ const Dog_info = () => {
             <div className="flex h-screen">
                 <SideBar />
                 <div className="flex-1"></div>
-                <div className="bg-white flex justify-evenly mt-20  h-auto sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 grid-flow-row flex-wrap px-6">
+                <div className="bg-white flex justify-evenly mt-20  h-auto sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 grid-flow-row flex-wrap pl-10">
                     {cards.map((card, index) => (
                         <div
                             className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-8 sm:max-w-sm"
