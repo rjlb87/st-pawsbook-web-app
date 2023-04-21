@@ -5,6 +5,7 @@ import NavBar from './common/NavBar'
 import Signup from './authentication/Signup'
 import Signin from './authentication/Signin'
 import MainPage from './components/MainPage'
+import { FaKaaba } from 'react-icons/fa'
 function App() {
     return (
         <BrowserRouter>
@@ -34,7 +35,14 @@ function App() {
                         </Layout>
                     }
                 />
-                <Route path="/main-page" element={<MainPage />} />
+                <Route
+                    path="/main-page"
+                    element={
+                        <Layout>
+                            <MainPage />
+                        </Layout>
+                    }
+                />
             </Routes>
         </BrowserRouter>
     )
@@ -45,7 +53,9 @@ export default App
 function Layout(props) {
     const { children } = props
     const path = window.location.pathname
-    const showNavbar = ['/', '/sign-up', '/sign-in', '/'].includes(path)
+    const showNavbar = ['/', '/sign-up', '/sign-in', '/main-page'].includes(
+        path
+    )
     return (
         <>
             {showNavbar && <NavBar />}

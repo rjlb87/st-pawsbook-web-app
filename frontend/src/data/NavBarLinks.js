@@ -1,7 +1,7 @@
 export const navigation = [
     {
         id: 1,
-        link: 'MAIN PAGE',
+        link: '',
         path: '/main-page',
     },
     {
