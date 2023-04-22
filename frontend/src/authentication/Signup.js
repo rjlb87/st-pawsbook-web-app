@@ -74,7 +74,7 @@ const SignUp = () => {
                         <input
                             className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
                             type="email"
-                            placeholder="youremail@gmail.com"
+                            placeholder="name@gmail.com"
                             value={email}
                             onChange={(e) =>
                                 setOwners({ ...owners, email: e.target.value })

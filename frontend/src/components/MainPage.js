@@ -10,8 +10,8 @@ const Card = ({ image, title, breed, description, age }) => {
     }
 
     return (
-        <div className="max-w-[224px] h-85 rounded-lg overflow-hidden shadow-lg mt-8 bg-gray-800">
-            <img className="w-105% h-40 md:h-128px" src={image} alt={title} />
+        <div className="max-w-sm rounded overflow-hidden bg-gray-800 mx-6 mt-20">
+            <img className="w-full" src={image} alt={title} />
             <div className="flex items-center px-4 pt-4 pb-4">
                 <button
                     className="hover:text-red-600 text-white focus:outline-none mr-2"
@@ -84,14 +84,14 @@ const Dog_info = () => {
         },
         {
             image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-            title: 'Cookie',
+            title: 'Valley',
             breed: 'Shih tzu',
             description: 'I eat everything except you.',
             age: 2,
         },
         {
             image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-            title: 'Cookie',
+            title: 'Cloudy',
             breed: 'Shih tzu',
             description: 'I eat everything except you.',
             age: 2,
@@ -131,10 +131,10 @@ const Dog_info = () => {
             <div className="flex h-screen">
                 <SideBar />
                 <div className="flex-1"></div>
-                <div className="bg-white flex justify-evenly mt-20  h-auto sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 grid-flow-row flex-wrap pl-10">
+                <div className="bg-white flex justify-evenly sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 grid-flow-row flex-wrap pl-10 h-screen">
                     {cards.map((card, index) => (
                         <div
-                            className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-8 sm:max-w-sm"
+                            className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:max-w-sm"
                             key={index}
                         >
                             <Card {...card} />
