@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { mdiHeart } from '@mdi/js'
 import SideBar from './SideBar'
+// import SearchBar from './SearchBar'
 
 const Card = ({ image, title, breed, description, age }) => {
     const [isFavorite, setIsFavorite] = useState(false)
@@ -10,8 +11,12 @@ const Card = ({ image, title, breed, description, age }) => {
     }
 
     return (
-        <div className="max-w-sm rounded overflow-hidden bg-gray-800 mx-6 mt-20">
-            <img className="w-full" src={image} alt={title} />
+        <div className="w-64 h-96 rounded overflow-hidden bg-gray-800 mx-6 mt-36">
+            <img
+                className="w-full h-1/2 object-cover"
+                src={image}
+                alt={title}
+            />
             <div className="flex items-center px-4 pt-4 pb-4">
                 <button
                     className="hover:text-red-600 text-white focus:outline-none mr-2"
@@ -26,7 +31,7 @@ const Card = ({ image, title, breed, description, age }) => {
                         <path fill="currentColor" d={mdiHeart} />
                     </svg>
                 </button>
-                <div className="font-bold text-md text-center text-white  ">
+                <div className="text-md text-center text-white">
                     {title}
                     {','} {age}
                 </div>
@@ -40,7 +45,7 @@ const Card = ({ image, title, breed, description, age }) => {
                     <div className="pt-6 flex justify-end">
                         <a
                             href="#_"
-                            class="inline-flex items-center  w-full px-2 py-2 mb-2 text-xs text-white bg-gray-500 rounded-md hover:bg-orange-500 hover:text-gray-800 sm:w-auto sm:mb-0"
+                            class="inline-flex items-center w-full px-2 py-2 mb-2 text-xs text-white bg-gray-500 rounded-md hover:bg-gray-600 hover:text-white sm:w-auto sm:mb-0"
                             data-primary="green-400"
                             data-rounded="rounded-2xl"
                             data-primary-reset="{}"
@@ -90,14 +95,14 @@ const Dog_info = () => {
             age: 2,
         },
         {
-            image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+            image: 'https://images.unsplash.com/photo-1529906920574-628dc1e49f5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=867&q=80',
             title: 'Cloudy',
             breed: 'Shih tzu',
             description: 'I eat everything except you.',
             age: 2,
         },
         {
-            image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+            image: 'https://images.unsplash.com/photo-1608831540955-35094d48694a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=526&q=80',
             title: 'Cookie',
             breed: 'Shih tzu',
             description: 'I eat everything except you.',
@@ -105,21 +110,21 @@ const Dog_info = () => {
         },
         {
             image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-            title: 'Cookie',
+            title: 'Summer',
             breed: 'Shih tzu',
             description: 'I eat everything except you.',
             age: 2,
         },
         {
             image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-            title: 'Cookie',
+            title: 'Milo',
             breed: 'Shih tzu',
             description: 'I eat everything except you.',
             age: 2,
         },
         {
             image: 'https://images.unsplash.com/photo-1610866443075-9188b628003c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-            title: 'Cookie',
+            title: 'Coffee',
             breed: 'Shih tzu',
             description: 'I eat everything except you.',
             age: 2,
@@ -131,7 +136,7 @@ const Dog_info = () => {
             <div className="flex h-screen">
                 <SideBar />
                 <div className="flex-1"></div>
-                <div className="bg-white flex justify-evenly sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 grid-flow-row flex-wrap pl-10 h-screen">
+                <div className="bg-white flex justify-evenly sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 grid-flow-row flex-wrap pl-10 h-screen gap-x-2">
                     {cards.map((card, index) => (
                         <div
                             className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:max-w-sm"

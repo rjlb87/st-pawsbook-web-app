@@ -11,10 +11,10 @@ const NavBar = () => {
         return classes.filter(Boolean).join(' ')
     }
     return (
-        <div className="fixed flex items-center w-full h-20 px-4 md:px-12 bg-white text-black z-50">
+        <div className="fixed flex items-center w-full h-20 px-4 md:px-12 bg-gray-800">
             <div className="text-start mr-auto">
                 <button
-                    className="text-2xl ml-3 font-extrabold py-6 text-orange-500 bg-clip-text"
+                    className="text-2xl ml-3 font-extrabold py-6 text-white bg-clip-text"
                     onClick={() => navigate('/')}
                 >
                     pawsbook.
@@ -25,7 +25,7 @@ const NavBar = () => {
                 <ul className="list-none">
                     <li key={id}>
                         <button
-                            className="text-gray-800 hover:text-orange-500 link-underline font-semibold px-4"
+                            className="text-white hover:text-gray-500 link-underline font-semibold px-4"
                             onClick={() => navigate(path)}
                         >
                             {' '}
