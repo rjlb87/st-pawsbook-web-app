@@ -1,5 +1,4 @@
-const ownersService = require('../service/owners');
-
+const ownersService = require('../service/owners')
 
 class OwnersController {
     async getOwners() {
@@ -9,12 +8,12 @@ class OwnersController {
     async createOwners(owners) {
         console.log('GETTING USERS IN THE CONTROLLER')
         return await ownersService.createOwners(owners)
-
-    }   async updateOwners(owners) {
+    }
+    async updateOwners(owners) {
         console.log('GETTING USERS IN THE CONTROLLER')
         return await ownersService.updateOwners(owners)
-
-    }   async deleteOwners(id) {
+    }
+    async deleteOwners(id) {
         console.log('GETTING USERS IN THE CONTROLLER')
         return await ownersService.deleteOwners(id)
     }

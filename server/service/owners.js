@@ -1,6 +1,5 @@
 const ownersRepository = require('../repository/owners')
 
-
 class OwnersService {
     async getOwners() {
         console.log('GETTING USERS IN THE SERVICE')
@@ -18,7 +17,10 @@ class OwnersService {
         console.log('GETTING USERS IN THE SERVICE')
         return await ownersRepository.deleteOwners(id)
     }
-    
+    // Login
+    async loginUser(loginCredentials) {
+        return await userRepository.loginUser(loginCredentials)
+    }
 }
 
 module.exports = new OwnersService()
