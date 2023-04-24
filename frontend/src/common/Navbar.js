@@ -14,10 +14,10 @@ const NavBar = () => {
         <div className="fixed flex items-center w-full h-20 px-4 md:px-12 bg-gray-800">
             <div className="text-start mr-auto">
                 <button
-                    className="text-2xl ml-3 font-extrabold py-6 text-white bg-clip-text"
+                    className="justify-items-center text-2xl font-extrabold py-6 text-white px-20"
                     onClick={() => navigate('/')}
                 >
-                    pawsbook.
+                    {/* pawsbook. */}
                 </button>
             </div>
 

@@ -1,4 +1,5 @@
 const ownersService = require('../service/owners')
+const { generateAccessToken } = require('../config/jwt')
 
 class OwnersController {
     async getOwners() {
@@ -17,6 +18,8 @@ class OwnersController {
         console.log('GETTING USERS IN THE CONTROLLER')
         return await ownersService.deleteOwners(id)
     }
+    async loginOwners(loginCredentials) {
+        return await ownersService.loginOwners(loginCredentials)
+    }
 }
-
 module.exports = new OwnersController()

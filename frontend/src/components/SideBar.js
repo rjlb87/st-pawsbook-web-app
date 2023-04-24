@@ -1,62 +1,85 @@
-import { mdiViewDashboard, mdiDog, mdiCalendarCheck, mdiHeart } from '@mdi/js'
+import { useState } from 'react'
+import Calendar from '../assets/Calendar.png'
+import Chart_fill from '../assets/Chart_fill.png'
+import Chart from '../assets/Chart.png'
+import Chat from '../assets/Chat.png'
+import control from '../assets/control.png'
+import Folder from '../assets/Folder.png'
+import logo from '../assets/logo.png'
+import Search from '../assets/Search.png'
+import Setting from '../assets/Setting.png'
+import User from '../assets/User.png'
+import pawprints from '../assets/pawprints.png'
 
-const SideBar = () => {
+const App = () => {
+    const [open, setOpen] = useState(true)
+    const Menus = [
+        { title: 'Dashboard', src: Chart_fill },
+        { title: 'Inbox', src: Chat },
+        { title: 'Accounts', src: User, gap: true },
+        { title: 'Schedule ', src: Calendar },
+        { title: 'Search', src: Search },
+        { title: 'Analytics', src: Chart },
+        { title: 'Files ', src: Folder, gap: true },
+        { title: 'Setting', src: Setting },
+    ]
+
     return (
-        <div className=" bg-gray-800 rounded-b-lg text-white mt-20">
-            <div className="p-10">
-                <ul>
-                    <li className="flex items-center mb-6 mt-16">
-                        <svg
-                            className="w-6 h-6 mr-2"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
+        <div className="flex">
+            <div
+                className={` ${
+                    open ? 'w-72' : 'w-20 '
+                } bg-gray-800 h-screen p-5  pt-8 relative duration-300`}
+            >
+                <img
+                    src={control}
+                    className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
+           border-2 rounded-full  ${!open && 'rotate-180'}`}
+                    onClick={() => setOpen(!open)}
+                    alt=""
+                />
+                <div className="flex gap-x-4 items-center">
+                    <img
+                        src={pawprints}
+                        className={`cursor-pointer duration-500 ${
+                            open && 'rotate-[360deg]'
+                        }`}
+                        alt=""
+                    />
+                    <div
+                        className={`text-white  text-2xl duration-200 uppercase font-bold ${
+                            !open && 'scale-0'
+                        }`}
+                    >
+                        pawsbook
+                    </div>
+                </div>
+                <ul className="pt-6">
+                    {Menus.map((Menu, index) => (
+                        <li
+                            key={index}
+                            className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
+              ${Menu.gap ? 'mt-9' : 'mt-2'} ${
+                                index === 0 && 'bg-light-white'
+                            } `}
                         >
-                            <path d={mdiViewDashboard} />
-                        </svg>
-                        <button className="flex items-center text-white hover:text-gray-500">
-                            <span className="ml-2">Dashboard</span>
-                        </button>
-                    </li>
-                    <li className="flex items-center mb-6">
-                        <svg
-                            className="w-6 h-6 mr-2"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                        >
-                            <path d={mdiDog} />
-                        </svg>
-                        <button className="flex items-center text-white hover:text-gray-500">
-                            <span className="ml-2">Dogs</span>
-                        </button>
-                    </li>
-                    <li className="flex items-center mb-6">
-                        <svg
-                            className="w-6 h-6 mr-2"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                        >
-                            <path d={mdiCalendarCheck} />
-                        </svg>
-                        <button className="flex items-center text-white hover:text-gray-500">
-                            <span className="ml-2">Schedules</span>
-                        </button>
-                    </li>
-                    <li className="flex items-center my-6">
-                        <svg
-                            className="w-6 h-6 mr-2"
-                            viewBox="0 0 24 24"
-                            fill="currentcolor"
-                        >
-                            <path d={mdiHeart} />
-                        </svg>
-                        <button className="flex items-center text-white hover:text-gray-600">
-                            <span className="ml-2">Favorites</span>
-                        </button>
-                    </li>
+                            <img src={Menu.src} alt={Menu.title} />
+                            <span
+                                className={`${
+                                    !open && 'hidden'
+                                } origin-left duration-200`}
+                            >
+                                {Menu.title}
+                            </span>
+                        </li>
+                    ))}
                 </ul>
             </div>
+            {/* <div className="h-screen flex-1 p-7">
+                <h1 className="text-2xl font-semibold ">Home Page</h1>
+            </div> */}
         </div>
     )
 }
 
-export default SideBar
+export default App
