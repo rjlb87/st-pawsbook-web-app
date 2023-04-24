@@ -5,7 +5,7 @@ import NavBar from './common/NavBar'
 import Signup from './authentication/Signup'
 import Signin from './authentication/Signin'
 import MainPage from './components/MainPage'
-import { FaKaaba } from 'react-icons/fa'
+// import { FaKaaba } from 'react-icons/fa'
 function App() {
     return (
         <BrowserRouter>

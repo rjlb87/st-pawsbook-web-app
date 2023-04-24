@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { mdiHeart } from '@mdi/js'
 import SideBar from './SideBar'
 
-// import SearchBar from './SearchBar'
-
 const Card = ({ image, title, breed, description, age }) => {
     const [isFavorite, setIsFavorite] = useState(false)
 
@@ -13,7 +11,7 @@ const Card = ({ image, title, breed, description, age }) => {
 
     return (
         <>
-            <div className="w-64 h-96 rounded overflow-hidden bg-gray-800">
+            <div className="w-64 h-96 rounded overflow-hidden bg-gray-800 mt-10">
                 <img
                     className="w-full h-1/2 object-cover"
                     src={image}
@@ -106,7 +104,7 @@ const Dog_info = () => {
         },
         {
             image: 'https://images.unsplash.com/photo-1608831540955-35094d48694a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=526&q=80',
-            title: 'Chihuahua',
+            title: 'Const',
             breed: 'Shih tzu',
             description: 'I eat everything except you.',
             age: 2,
@@ -121,36 +119,21 @@ const Dog_info = () => {
     ]
 
     return (
-        <>
-            <div className="flex">
-                <SideBar />
-                <div className="flex-1"></div>
+        <div className="flex">
+            <SideBar />
+            <div className="flex-1"></div>
 
-                <div className="bg-white flex flex-col justify-start items-center w-full mt-36">
-                    <div className="w-full sm:max-w-md flex justify-between items-center ml-10 mb-10">
-                        <input
-                            type="text"
-                            placeholder="Search"
-                            className="py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 w-full"
-                        />
-                        <button className="py-2 mx-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Search
-                        </button>
+            <div className="flex flex-wrap justify-center sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6 gap-y-5">
+                {cards.map((card, index) => (
+                    <div
+                        className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:max-w-sm"
+                        key={index}
+                    >
+                        <Card {...card} />
                     </div>
-
-                    <div className="flex flex-wrap justify-center sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6 gap-y-5">
-                        {cards.map((card, index) => (
-                            <div
-                                className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:max-w-sm"
-                                key={index}
-                            >
-                                <Card {...card} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                ))}
             </div>
-        </>
+        </div>
     )
 }
 

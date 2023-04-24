@@ -18,8 +18,6 @@ const App = () => {
         { title: 'Accounts', src: User, gap: true },
         { title: 'Schedule ', src: Calendar },
         { title: 'Search', src: Search },
-        { title: 'Analytics', src: Chart },
-        { title: 'Files ', src: Folder, gap: true },
         { title: 'Setting', src: Setting },
     ]
 
@@ -28,7 +26,7 @@ const App = () => {
             <div
                 className={` ${
                     open ? 'w-72' : 'w-20 '
-                } bg-gray-800 h-screen p-5  pt-8 relative duration-300`}
+                } bg-gray-800 h-screen p-5  pt-8 rounded-b-md relative duration-300`}
             >
                 <img
                     src={control}
