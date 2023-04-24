@@ -17,12 +17,12 @@ const NavBar = () => {
                     className="justify-items-center text-2xl font-extrabold py-6 text-white px-20"
                     onClick={() => navigate('/')}
                 >
-                    {/* pawsbook. */}
+                    pawsbook.
                 </button>
             </div>
 
-            {navigation.map(({ id, link, path }) => (
-                <ul className="list-none">
+            <ul className="list-none">
+                {navigation.map(({ id, link, path }) => (
                     <li key={id}>
                         <button
                             className="text-white hover:text-gray-500 link-underline font-semibold px-4"
@@ -32,8 +32,9 @@ const NavBar = () => {
                             {link}
                         </button>
                     </li>
-                </ul>
-            ))}
+                ))}
+            </ul>
+
             <Menu as="div" className="relative ml-3">
                 <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">

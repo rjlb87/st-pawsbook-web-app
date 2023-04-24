@@ -8,7 +8,7 @@ function Splash() {
                 <img src={img} className="h-screen" alt="background" /> */}
             <div className=" bg-white flex justify-center items-center h-screen">
                 <p className="text-green-800 text-6xl font-extrabold ">
-                    Welcome to pawsbook
+                    Welcome to Pawsbook 🐾
                 </p>
             </div>
         </>
