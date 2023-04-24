@@ -44,15 +44,15 @@ function UserDashboard() {
     }, [])
 
     return (
-        <div className="h-auto bg-gray-800 px-4 py-20">
-            <div className="flex justify-center items-center uppercase my-5 text-2xl text-white">
+        <div className="h-auto bg-gray-200 px-4 py-10">
+            <div className="flex justify-center items-center uppercase my-5 text-2xl text-gray-800">
                 <h1 className="font-bold tracking-wider pb-10 pt-10">
                     Owners Dashboard
                 </h1>
             </div>
             <table className=" mx-auto border-collapse">
                 <thead>
-                    <tr className="bg-black">
+                    <tr className="bg-gray-800">
                         <th className=" px-6  text-xs font-semibold text-white">
                             #
                         </th>
@@ -103,7 +103,7 @@ function UserDashboard() {
                             <td className="border-gray-500  bg-gray-600">
                                 <td className="flex justify-center group py-4 px-6">
                                     <button
-                                        className=" bg-gray-800 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
+                                        className=" bg-gray-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
                                         onClick={() =>
                                             handleDeleteOwners(owners.id)
                                         }

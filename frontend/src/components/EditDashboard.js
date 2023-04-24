@@ -91,7 +91,7 @@ const EditDashboard = ({ owners }) => {
                                 </div>
                                 <div className="flex justify-end mt-10">
                                     <button
-                                        className=" text-sm bg-gray-500 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded-md"
+                                        className=" text-sm bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-md"
                                         onClick={(e) => {
                                             handleSubmit(e)
                                             toggleModal()
@@ -101,7 +101,7 @@ const EditDashboard = ({ owners }) => {
                                     </button>
                                     <div className="px-6">
                                         <button
-                                            className="bg-gray-500 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded-md text-sm"
+                                            className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-md text-sm"
                                             onClick={toggleModal}
                                         >
                                             Cancel
