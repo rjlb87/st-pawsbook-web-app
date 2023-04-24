@@ -17,10 +17,10 @@ class OwnersService {
         console.log('GETTING USERS IN THE SERVICE')
         return await ownersRepository.deleteOwners(id)
     }
-    // Login
-    async loginOwners(loginCredentials) {
-        return await ownersRepository.loginOwners(loginCredentials)
-    }
+    // // Login
+    // async loginOwners(loginCredentials) {
+    //     return await ownersRepository.loginOwners(loginCredentials)
+    // }
 }
 
 module.exports = new OwnersService()

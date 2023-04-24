@@ -1,6 +1,6 @@
 const { connect } = require('../config/db')
 const bcrypt = require('bcryptjs')
-const { generateAccessToken } = require('../config/jwt')
+// const { generateAccessToken } = require('../config/jwt')
 const owners = require('../model/owners')
 
 class OwnersRepository {
@@ -68,31 +68,31 @@ class OwnersRepository {
             console.log('Error: ', error)
         }
     }
-    ///Login
-    async loginOwners(loginCredentials) {
-        console.log('ERROR', loginCredentials)
-        try {
-            const password = loginCredentials.password
+    // ///Login
+    // async loginOwners(loginCredentials) {
+    //     console.log('ERROR', loginCredentials)
+    //     try {
+    //         const password = loginCredentials.password
 
-            const owners = await this.db.owners.findOne({
-                where: {
-                    email: loginCredentials.email,
-                },
-            })
-            const passwordMatch = await bcrypt.compare(
-                password,
-                owners.password
-            )
+    //         const owners = await this.db.owners.findOne({
+    //             where: {
+    //                 email: loginCredentials.email,
+    //             },
+    //         })
+    //         const passwordMatch = await bcrypt.compare(
+    //             password,
+    //             owners.password
+    //         )
 
-            if (passwordMatch) {
-                return generateAccessToken({ email: loginCredentials.email })
-            }
+    //         if (passwordMatch) {
+    //             return generateAccessToken({ email: loginCredentials.email })
+    //         }
 
-            throw 'Invalid Credentials!'
-        } catch (error) {
-            console.log('Error: ', error)
-        }
-    }
+    //         throw 'Invalid Credentials!'
+    //     } catch (error) {
+    //         console.log('Error: ', error)
+    //     }
+    // }
 }
 
 module.exports = new OwnersRepository()

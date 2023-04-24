@@ -12,10 +12,10 @@ const ownersController = require('./controller/owners')
 const app = express()
 
 // Setup Port
-const port = process.env.DB_PORT || 8080
+const port = process.env.DB_PORT || 3000
 
 // Express Setup
-app.use(express.static(path.join(__dirname, './ui/build/')))
+app.use(express.static(path.join(__dirname, './frontend/build/')))
 app.use(cors())
 app.use(express.json())
 app.use(bodyParser.json())
@@ -42,9 +42,9 @@ app.delete('/api/v1/owners/:id', (req, res) => {
 })
 
 // Express Listening Port
-app.listen(port, () => {
-    console.log(`Server listening on the port: ${port}`)
-})
+// app.listen(port, () => {
+//     console.log(`Server listening on the port: ${port}`)
+// })
 
 // API Login
 app.post('/api/login', (req, res) => {

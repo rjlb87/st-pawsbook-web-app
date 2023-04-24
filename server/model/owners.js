@@ -22,11 +22,9 @@ module.exports = (sequelize, DataTypes, Model) => {
             password: {
                 type: DataTypes.STRING,
             },
-
             phone_number: {
                 type: DataTypes.STRING,
             },
-
             address: {
                 type: DataTypes.STRING,
             },
@@ -35,9 +33,9 @@ module.exports = (sequelize, DataTypes, Model) => {
             sequelize,
             modelName: 'owners',
             tableName: 'owners',
-            timestamps: true,
-            createdAt: 'inserted_at',
-            updatedAt: 'updated_at',
+            // timestamps: true,
+            // createdAt: 'inserted_at',
+            // updatedAt: 'updated_at',
         }
     )
 
