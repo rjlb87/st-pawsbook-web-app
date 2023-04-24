@@ -6,7 +6,7 @@ function authenticateToken(req, res, next) {
 
     if (token == null) return res.sendStatus(401)
     jwt.verify(token, process.env.TOKEN_SECRET, (err, owners) => {
-        console.log(error)
+        console.log(err)
         req.owners = owners
         next()
     })

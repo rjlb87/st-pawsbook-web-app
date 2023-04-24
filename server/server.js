@@ -7,6 +7,7 @@ const path = require('path')
 
 // Import Controllers
 const ownersController = require('./controller/owners')
+const { loginOwners } = require('./repository/owners')
 
 // Initialize Express App
 const app = express()
@@ -41,31 +42,9 @@ app.delete('/api/v1/owners/:id', (req, res) => {
     ownersController.deleteOwners(req.params.id).then((data) => res.json(data))
 })
 
-// Express Listening Port
-// app.listen(port, () => {
-//     console.log(`Server listening on the port: ${port}`)
-// })
-
 // API Login
-app.post('/api/login', (req, res) => {
-    ownersController
-        .loginOwners(req.body.data)
-        .then((jwt) => res.json({ jwt }))
-        .catch((error) => {
-            console.log('Error:', error)
-            res.status(500).send('Server error!')
-        })
-})
-
-// API Login
-app.post('/api/login', (req, res) => {
-    ownersController
-        .loginOwners(req.body.data)
-        .then((jwt) => res.json({ jwt }))
-        .catch((error) => {
-            console.log('Error:', error)
-            res.status(500).send('Server error!')
-        })
+app.post('/api/Signin', (req, res) => {
+    ownersController.loginOwners(req.body).then((jwt) => res.json({ jwt }))
 })
 
 app.listen(port, () => {

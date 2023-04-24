@@ -87,7 +87,6 @@ class OwnersRepository {
             if (passwordMatch) {
                 return generateAccessToken({ email: loginCredentials.email })
             }
-
             throw 'Invalid Credentials!'
         } catch (error) {
             console.log('Error: ', error)
