@@ -12,29 +12,29 @@ const ownersController = require('./controller/owners')
 const app = express()
 
 // Setup Port
-const port = process.env.DB_PORT || 3000
+const port = process.env.DB_PORT || 8080
 
 // Express Setup
-app.use(express.static(path.join(__dirname, './frontend/build/')))
+app.use(express.static(path.join(__dirname, './ui/build/')))
 app.use(cors())
 app.use(express.json())
 app.use(bodyParser.json())
 
-// Add application endpoints (owners, pet, appointment)
 app.get('/api/v1/owners', (req, res) => {
-    // http://localhost:3080/api/v1/owners
-    // do something here to get your data from the database
     ownersController.getOwners().then((data) => res.json(data))
 })
 
-
 //create owners request
 app.post('/api/v1/owners', (req, res) => {
-    ownersController.createOwners(req.body.owners).then((data) => res.json(data))
+    ownersController
+        .createOwners(req.body.owners)
+        .then((data) => res.json(data))
 })
 
-app.put('/api/v1/owners', (req,res) => {
-    ownersController.updateOwners(req.body.owners).then((data) => res.json(data))
+app.put('/api/v1/owners', (req, res) => {
+    ownersController
+        .updateOwners(req.body.owners)
+        .then((data) => res.json(data))
 })
 
 app.delete('/api/v1/owners/:id', (req, res) => {
@@ -46,4 +46,17 @@ app.listen(port, () => {
     console.log(`Server listening on the port: ${port}`)
 })
 
-//create pet request
+// API Login
+app.post('/api/login', (req, res) => {
+    ownersController
+        .loginOwners(req.body.data)
+        .then((jwt) => res.json({ jwt }))
+        .catch((error) => {
+            console.log('Error:', error)
+            res.status(500).send('Server error!')
+        })
+})
+
+app.listen(port, () => {
+    console.log(`Server listening on the port: ${port}`)
+})

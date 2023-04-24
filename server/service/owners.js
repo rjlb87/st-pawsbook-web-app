@@ -18,8 +18,8 @@ class OwnersService {
         return await ownersRepository.deleteOwners(id)
     }
     // Login
-    async loginUser(loginCredentials) {
-        return await userRepository.loginUser(loginCredentials)
+    async loginOwners(loginCredentials) {
+        return await ownersRepository.loginOwners(loginCredentials)
     }
 }
 
