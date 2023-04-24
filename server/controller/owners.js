@@ -14,8 +14,8 @@ class OwnersController {
     async deleteOwners(id) {
         return await ownersService.deleteOwners(id)
     }
-    // async loginOwners(loginCredentials) {
-    //     return await ownersService.loginOwners(loginCredentials)
-    // }
+    async loginOwners(loginCredentials) {
+        return await ownersService.loginOwners(loginCredentials)
+    }
 }
 module.exports = new OwnersController()

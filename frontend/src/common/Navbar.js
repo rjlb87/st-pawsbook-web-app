@@ -17,7 +17,7 @@ const NavBar = () => {
                     className="justify-items-center text-2xl font-extrabold py-6 text-white px-20"
                     onClick={() => navigate('/')}
                 >
-                    pawsbook.
+                    {/* pawsbook. */}
                 </button>
             </div>
 
