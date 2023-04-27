@@ -11,12 +11,11 @@ class OwnersRepository {
     }
 
     async getOwners() {
-        console.log('GETTING/FETCH/READ USERS IN THE Repository')
         try {
             const owners = this.db.owners.findAll({
                 order: [['id', 'ASC']],
             })
-            console.log('HEY, ano yung data na nakuha ko sa owners', owners)
+
             return owners
         } catch (error) {
             console.log('ERROR FOUND', error)

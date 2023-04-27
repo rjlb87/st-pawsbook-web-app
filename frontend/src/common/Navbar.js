@@ -14,15 +14,15 @@ const NavBar = () => {
         <div className="fixed flex items-center w-full h-20 px-4 md:px-12 bg-gray-800">
             <div className="text-start mr-auto">
                 <button
-                    className="justify-items-center text-2xl font-extrabold py-6 text-white px-20"
+                    className="justify-items-center text-2xl font-extrabold py-6 text-white "
                     onClick={() => navigate('/')}
                 >
                     LOGO.
                 </button>
             </div>
 
-            {navigation.map(({ id, link, path }) => (
-                <ul className="list-none">
+            <ul className="pb-10">
+                {navigation.map(({ id, link, path }) => (
                     <li key={id}>
                         <button
                             className="text-white hover:text-gray-500 link-underline font-semibold px-4"
@@ -32,8 +32,9 @@ const NavBar = () => {
                             {link}
                         </button>
                     </li>
-                </ul>
-            ))}
+                ))}
+            </ul>
+
             <Menu as="div" className="relative ml-3">
                 <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">

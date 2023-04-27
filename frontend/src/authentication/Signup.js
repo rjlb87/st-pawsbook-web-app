@@ -36,7 +36,7 @@ const SignUp = () => {
                     <div className="flex gap-4">
                         <div className="flex-1">
                             <label className="mb-4 block text-xs">
-                                First Name:
+                                First Name
                                 <input
                                     className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1 text-xs"
                                     type="text"
@@ -53,7 +53,7 @@ const SignUp = () => {
                         </div>
                         <div className="flex-1">
                             <label className="mb-4 block text-xs">
-                                Last Name:
+                                Last Name
                                 <input
                                     className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
                                     type="text"
@@ -70,7 +70,7 @@ const SignUp = () => {
                         </div>
                     </div>
                     <label className="block mb-4 text-xs">
-                        Email:
+                        Email
                         <input
                             className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
                             type="email"
@@ -82,7 +82,7 @@ const SignUp = () => {
                         />
                     </label>
                     <label className="mb-4 block text-xs">
-                        Password:
+                        Password
                         <div className="relative">
                             <input
                                 className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1 pr-10"
@@ -100,7 +100,7 @@ const SignUp = () => {
                         </div>
                     </label>
                     <label className="mb-4 block text-xs">
-                        Phone Number:
+                        Phone Number
                         <input
                             className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
                             type="tel"

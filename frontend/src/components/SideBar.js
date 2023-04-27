@@ -1,22 +1,20 @@
 import { useState } from 'react'
 import Calendar from '../assets/Calendar.png'
 import Chart_fill from '../assets/Chart_fill.png'
-import Chart from '../assets/Chart.png'
 import Chat from '../assets/Chat.png'
 import control from '../assets/control.png'
-import Folder from '../assets/Folder.png'
 import Search from '../assets/Search.png'
 import Setting from '../assets/Setting.png'
 import User from '../assets/User.png'
 import pawprints from '../assets/pawprints.png'
 
 const App = () => {
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
     const Menus = [
         { title: 'Dashboard', src: Chart_fill },
         { title: 'Inbox', src: Chat },
         { title: 'Accounts', src: User, gap: true },
-        { title: 'Schedule ', src: Calendar },
+        { title: 'Appointments', src: Calendar },
         { title: 'Search', src: Search },
         { title: 'Setting', src: Setting },
     ]
@@ -56,7 +54,7 @@ const App = () => {
                         <li
                             key={index}
                             className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-              ${Menu.gap ? 'mt-9' : 'mt-2'} ${
+              ${Menu.gap ? 'mt-2' : 'mt-2'} ${
                                 index === 0 && 'bg-light-white'
                             } `}
                         >
@@ -72,9 +70,6 @@ const App = () => {
                     ))}
                 </ul>
             </div>
-            {/* <div className="h-screen flex-1 p-7">
-                <h1 className="text-2xl font-semibold ">Home Page</h1>
-            </div> */}
         </div>
     )
 }

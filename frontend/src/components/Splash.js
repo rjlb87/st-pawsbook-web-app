@@ -1,17 +1,18 @@
 import React from 'react'
-// import img from '../assets/background.png'
 
 function Splash() {
     return (
         <>
-            {/* <div className="flex justify-center">
-                <img src={img} className="h-screen" alt="background" /> */}
-            <div className=" bg-white flex justify-center items-center h-screen">
-                <p className="text-green-800 text-6xl font-extrabold ">
+            <div className="bg-white flex flex-col justify-center items-center h-screen">
+                <p className="text-green-800 text-6xl font-extrabold mb-8">
                     Let's go paws and multiply
                 </p>
+                <button className="bg-green-800 text-white text-lg font-bold py-2 px-4 rounded-xl">
+                    Register your dog
+                </button>
             </div>
         </>
     )
 }
+
 export default Splash

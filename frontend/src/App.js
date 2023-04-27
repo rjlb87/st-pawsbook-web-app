@@ -18,7 +18,14 @@ function App() {
                         </Layout>
                     }
                 />
-                <Route path="/user-dashboard" element={<UserDashboard />} />
+                <Route
+                    path="/user-dashboard"
+                    element={
+                        <Layout>
+                            <UserDashboard />
+                        </Layout>
+                    }
+                />
                 <Route
                     path="/sign-up"
                     element={
@@ -46,7 +53,12 @@ export default App
 function Layout(props) {
     const { children } = props
     const path = window.location.pathname
-    const showNavbar = ['/', '/sign-up', '/sign-in'].includes(path)
+    const showNavbar = [
+        '/',
+        '/user-dashboard',
+        '/sign-up',
+        '/sign-in',
+    ].includes(path)
     return (
         <>
             {showNavbar && <NavBar />}

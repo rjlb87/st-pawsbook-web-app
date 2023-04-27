@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { mdiHeart } from '@mdi/js'
 import SideBar from './SideBar'
 
-const Card = ({ image, title, breed, description, age }) => {
+const Card = ({ image, title, breed, description, age, gender }) => {
     const [isFavorite, setIsFavorite] = useState(false)
 
     const handleFavoriteClick = () => {
@@ -39,6 +39,7 @@ const Card = ({ image, title, breed, description, age }) => {
                 <div className="px-4 pt-2">
                     <div className="font-semibold text-sm mb-2 text-gray-300">
                         {breed}
+                        {','} {gender}
                     </div>
                     <p className="text-white text-xs font-semibold h-16 md:h-20 overflow-hidden">
                         {description}
@@ -78,13 +79,15 @@ const Dog_info = () => {
             image: 'https://images.unsplash.com/photo-1608096299210-db7e38487075?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80',
             title: 'Talia',
             breed: 'Shih tzu',
-            description: 'Super maldita and sweet.',
             age: 3,
+            gender: 'Female',
+            description: 'Super maldita and sweet.',
         },
         {
             image: 'https://images.unsplash.com/photo-1543320317-15188058b450?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
             title: 'Mon',
             breed: 'Pug',
+            gender: 'Male',
             description: 'I eat everything except you.',
             age: 2,
         },
@@ -92,6 +95,7 @@ const Dog_info = () => {
             image: 'https://images.unsplash.com/photo-1658347124285-281deec3dee8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80',
             title: 'Valley',
             breed: 'Corgy',
+            gender: 'Female',
             description: 'I eat everything except you.',
             age: 2,
         },
@@ -99,6 +103,7 @@ const Dog_info = () => {
             image: 'https://images.unsplash.com/photo-1529906920574-628dc1e49f5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=867&q=80',
             title: 'Tilly',
             breed: 'Golden Retriever',
+            gender: 'Female',
             description: 'I eat everything except you.',
             age: 2,
         },
@@ -113,6 +118,7 @@ const Dog_info = () => {
             image: 'https://images.unsplash.com/photo-1605244863941-3a3ed921c60d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
             title: 'Summer',
             breed: 'Poodle',
+            gender: 'Female',
             description: 'I eat everything except you.',
             age: 2,
         },
