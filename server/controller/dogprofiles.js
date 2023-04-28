@@ -2,14 +2,14 @@ const dogProfilesService = require('../service/dogprofiles')
 const { generateAccessToken } = require('../config/jwt')
 
 class DogsProfilesController {
-    async getDogProfiles(owners) {
-        return await dogProfilesService.getDogProfiles(owners)
+    async getDogProfiles() {
+        return await dogProfilesService.getDogProfiles()
     }
-    async createDogProfiles() {
-        return await dogProfilesService.createDogProfiles()
+    async createDogProfiles(profile) {
+        return await dogProfilesService.createDogProfiles(profile)
     }
-    async updateDogProfiles(owners) {
-        return await dogProfilesService.updateDogProfiles(owners)
+    async updateDogProfiles(profile) {
+        return await dogProfilesService.updateDogProfiles(profile)
     }
     async deleteDogProfiles(id) {
         return await dogProfilesService.deleteDogProfiles(id)

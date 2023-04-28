@@ -52,12 +52,12 @@ module.exports = (sequelize, DataTypes, Model) => {
         {
             sequelize,
             modelName: 'DogProfiles',
-            tableName: 'DogProdiles',
-            timestamps: true,
-            createdAt: 'inserted_at',
-            updatedAt: 'updated_at',
+            tableName: 'dog_profiles',
+            // timestamps: true,
+            // createdAt: 'inserted_at',
+            // updatedAt: 'updated_at',
         }
     )
 
-    return Owners
+    return DogProfiles
 }

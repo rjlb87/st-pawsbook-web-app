@@ -7,9 +7,9 @@ class DogProfilesRepository {
         this.db = connect()
     }
 
-    async createDogProfiles() {
+    async getDogProfiles() {
         try {
-            const owners = this.db.owners.findAll({
+            const owners = this.db.dogProfiles.findAll({
                 order: [['id', 'ASC']],
             })
 
@@ -20,14 +20,25 @@ class DogProfilesRepository {
         }
     }
 
-    async createDogProfiles(dogprofiles) {
+    // CRUD
+    async createDogProfiles(profiles) {
         try {
+            const visit = await this.db.dogProfiles.create({
+                owner_id: profiles.owner_id,
+                name: profiles.name,
+                breed: profiles.breed,
+                color: profiles.color,
+                date_of_birth: profiles.date_of_birth,
+                gender: profiles.gender,
+                age: profiles.age,
+                size: profiles.size,
+            })
+            return visit
         } catch (error) {
             console.log('Error: ', error)
         }
     }
 
-    // CRUD
     async updateDogProfiles(dogprofiles) {
         let data = {}
 

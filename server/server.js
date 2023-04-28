@@ -8,6 +8,7 @@ const path = require('path')
 // Import Controllers
 const ownersController = require('./controller/owners')
 const dogProfilesController = require('./controller/dogprofiles')
+const dogprofiles = require('./model/dogprofiles')
 
 // Initialize Express App
 const app = express()
@@ -47,14 +48,17 @@ app.post('/api/v1/Signin', (req, res) => {
     ownersController.loginOwners(req.body).then((data) => res.json(data))
 })
 
-app.get('/api/v1/owners', (req, res) => {
-    ownersController.getDogProfiles().then((data) => res.json(data))
+//Dog profiles
+app.get('/api/v1/dogprofiles', (req, res) => {
+    dogProfilesController.getDogProfiles().then((data) => res.json(data))
 })
 
 //create dog profiles request
+
 app.post('/api/v1/dogprofiles', (req, res) => {
+    // console.log('ano ang request', req.body)
     dogProfilesController
-        .createDogProfiles(req.body.owners)
+        .createDogProfiles(req.body.dog_profiles)
         .then((data) => res.json(data))
 })
 

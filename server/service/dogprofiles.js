@@ -4,11 +4,11 @@ class DogProfilesService {
     async getDogProfiles() {
         return await dogProfilesRepository.getDogProfiles()
     }
-    async createDogProfiles(owners) {
-        return await dogProfilesRepository.createDogProfiles(owners)
+    async createDogProfiles(profile) {
+        return await dogProfilesRepository.createDogProfiles(profile)
     }
-    async updateDogProfiles(owners) {
-        return await dogProfilesRepository.updateDogProfiles(owners)
+    async updateDogProfiles(profile) {
+        return await dogProfilesRepository.updateDogProfiles(profile)
     }
     async deleteDogProfiles(id) {
         console.log('GETTING USERS IN THE SERVICE')
