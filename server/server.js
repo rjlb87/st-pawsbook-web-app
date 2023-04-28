@@ -43,8 +43,8 @@ app.delete('/api/v1/owners/:id', (req, res) => {
 })
 
 // API Login
-app.post('/api/Signin', (req, res) => {
-    ownersController.loginOwners(req.body).then((jwt) => res.json({ jwt }))
+app.post('/api/v1/Signin', (req, res) => {
+    ownersController.loginOwners(req.body).then((data) => res.json(data))
 })
 
 app.listen(port, () => {

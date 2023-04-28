@@ -84,7 +84,14 @@ class OwnersRepository {
             )
 
             if (passwordMatch) {
-                return generateAccessToken({ email: loginCredentials.email })
+                const getBaby = generateAccessToken({
+                    email: loginCredentials.email,
+                })
+
+                if (getBaby) {
+                    const getBabies = [owners, { jwt: getBaby }]
+                    return getBabies
+                }
             }
             throw 'Invalid Credentials!'
         } catch (error) {
