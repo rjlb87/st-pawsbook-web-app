@@ -7,7 +7,7 @@ const path = require('path')
 
 // Import Controllers
 const ownersController = require('./controller/owners')
-const { loginOwners } = require('./repository/owners')
+const dogProfilesController = require('./controller/dogprofiles')
 
 // Initialize Express App
 const app = express()
@@ -45,6 +45,29 @@ app.delete('/api/v1/owners/:id', (req, res) => {
 // API Login
 app.post('/api/v1/Signin', (req, res) => {
     ownersController.loginOwners(req.body).then((data) => res.json(data))
+})
+
+app.get('/api/v1/owners', (req, res) => {
+    ownersController.getDogProfiles().then((data) => res.json(data))
+})
+
+//create dog profiles request
+app.post('/api/v1/dogprofiles', (req, res) => {
+    dogProfilesController
+        .createDogProfiles(req.body.owners)
+        .then((data) => res.json(data))
+})
+
+app.put('/api/v1/dogprofiles', (req, res) => {
+    dogProfilesController
+        .updateDogProfiles(req.body.owners)
+        .then((data) => res.json(data))
+})
+
+app.delete('/api/v1/dogprofiles/:id', (req, res) => {
+    dogProfilesController
+        .deleteDogProfiles(req.params.id)
+        .then((data) => res.json(data))
 })
 
 app.listen(port, () => {
