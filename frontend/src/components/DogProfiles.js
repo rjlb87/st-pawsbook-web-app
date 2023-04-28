@@ -1,7 +1,7 @@
 import React from 'react'
 
 function DogProfiles() {
-    return <div>DogProfiles</div>
+    return <div className="text-black">DogProfiles</div>
 }
 
 export default DogProfiles

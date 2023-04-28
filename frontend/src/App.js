@@ -4,7 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './common/NavBar'
 import Signup from './authentication/Signup'
 import Signin from './authentication/Signin'
-import MainPage from './components/MainPage'
+import DogInfo from './components/DogInfos'
+
+import Appointments from './components/Appointments'
 // import { FaKaaba } from 'react-icons/fa'
 function App() {
     return (
@@ -42,7 +44,22 @@ function App() {
                         </Layout>
                     }
                 />
-                <Route path="/main-page" element={<MainPage />} />
+                <Route
+                    path="/main-page"
+                    element={
+                        <Layout>
+                            <DogInfo />
+                        </Layout>
+                    }
+                />
+                <Route
+                    path="/appointments"
+                    element={
+                        <Layout>
+                            <Appointments />
+                        </Layout>
+                    }
+                />
             </Routes>
         </BrowserRouter>
     )
@@ -58,6 +75,8 @@ function Layout(props) {
         '/user-dashboard',
         '/sign-up',
         '/sign-in',
+        '/main-page',
+        '/Appointments',
     ].includes(path)
     return (
         <>

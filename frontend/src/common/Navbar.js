@@ -11,7 +11,7 @@ const NavBar = () => {
         return classes.filter(Boolean).join(' ')
     }
     return (
-        <div className="fixed flex items-center w-full h-20 px-4 md:px-12 bg-gray-800">
+        <div className=" z-50 fixed flex items-center w-full h-20 px-4 md:px-12 bg-gray-800">
             <div className="text-start mr-auto">
                 <button
                     className="justify-items-center text-2xl font-extrabold py-6 text-white "
@@ -78,7 +78,7 @@ const NavBar = () => {
                                         'block px-4 py-2 text-sm text-gray-700'
                                     )}
                                 >
-                                    Settings
+                                    Sign in
                                 </a>
                             )}
                         </Menu.Item>
