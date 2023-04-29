@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { mdiHeart } from '@mdi/js'
-import { TbPawFilled } from './Icons'
-import DogProfiles from './DogProfiles'
 
 const Card = ({ image, title, breed, description, age, gender }) => {
     const [isFavorite, setIsFavorite] = useState(false)
@@ -12,7 +10,7 @@ const Card = ({ image, title, breed, description, age, gender }) => {
 
     return (
         <>
-            <div className="w-64 h-96 rounded overflow-hidden bg-gray-800 items-center mt-40">
+            <div className="w-64 h-96 rounded overflow-hidden bg-gray-800">
                 <img
                     className="w-full h-1/2 object-cover"
                     src={image}

@@ -52,14 +52,14 @@ function App() {
                         </Layout>
                     }
                 />
-                <Route
+                {/* <Route
                     path="/appointments"
                     element={
                         <Layout>
                             <Appointments />
                         </Layout>
                     }
-                />
+                /> */}
             </Routes>
         </BrowserRouter>
     )
@@ -76,7 +76,7 @@ function Layout(props) {
         '/sign-up',
         '/sign-in',
         '/main-page',
-        '/Appointments',
+        // '/Appointments',
     ].includes(path)
     return (
         <>
