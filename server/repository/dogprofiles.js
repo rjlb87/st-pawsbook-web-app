@@ -23,7 +23,7 @@ class DogProfilesRepository {
     // CRUD
     async createDogProfiles(profiles) {
         try {
-            const visit = await this.db.dogProfiles.create({
+            const details = await this.db.dogProfiles.create({
                 owner_id: profiles.owner_id,
                 name: profiles.name,
                 breed: profiles.breed,
@@ -33,7 +33,7 @@ class DogProfilesRepository {
                 age: profiles.age,
                 size: profiles.size,
             })
-            return visit
+            return details
         } catch (error) {
             console.log('Error: ', error)
         }

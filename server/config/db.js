@@ -39,6 +39,11 @@ const connect = () => {
         DataTypes,
         Model
     )
+    db.appointments = require('../model/appointments')(
+        sequelize,
+        DataTypes,
+        Model
+    )
 
     return db
 }
