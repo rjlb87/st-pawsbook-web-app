@@ -14,7 +14,7 @@ class DogProfilesRepository {
             const owners = this.db.dogProfiles.findAll({
                 order: [['id', 'ASC']],
                 where: {
-                    owner_id: 73,
+                    owner_id: 74,
                 },
             })
 
@@ -25,12 +25,12 @@ class DogProfilesRepository {
         }
     }
 
-    async getPublicDogProfiles() {
+    async getPublicDogProfiles(owner_id) {
         try {
             const owners = this.db.dogProfiles.findAll({
                 order: [['id', 'ASC']],
                 where: {
-                    owner_id: { [Op.not]: 73 },
+                    owner_id: { [Op.not]: 74 },
                 },
             })
 
@@ -42,9 +42,7 @@ class DogProfilesRepository {
     }
 
     // CRUD
-
     async createDogProfiles(profiles) {
-        console.log('ano ini', profiles)
         try {
             const details = await this.db.dogProfiles.create({
                 owner_id: profiles.owner_id,
@@ -66,7 +64,6 @@ class DogProfilesRepository {
 
     async updateDogProfiles(dogprofiles) {
         let data = {}
-
         try {
             data = await this.db.dogprofiles.update(
                 { ...dogprofiles },

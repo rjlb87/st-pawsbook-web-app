@@ -6,6 +6,7 @@ class DogsProfilesController {
         return await dogProfilesService.getDogProfiles()
     }
     async getPublicDogProfiles() {
+        // console.log('public aso', owner_id)
         return await dogProfilesService.getPublicDogProfiles()
     }
     async createDogProfiles(profile) {
