@@ -4,6 +4,9 @@ class DogProfilesService {
     async getDogProfiles() {
         return await dogProfilesRepository.getDogProfiles()
     }
+    async getPublicDogProfiles() {
+        return await dogProfilesRepository.getPublicDogProfiles()
+    }
     async createDogProfiles(profile) {
         return await dogProfilesRepository.createDogProfiles(profile)
     }

@@ -5,6 +5,9 @@ class DogsProfilesController {
     async getDogProfiles() {
         return await dogProfilesService.getDogProfiles()
     }
+    async getPublicDogProfiles() {
+        return await dogProfilesService.getPublicDogProfiles()
+    }
     async createDogProfiles(profile) {
         return await dogProfilesService.createDogProfiles(profile)
     }

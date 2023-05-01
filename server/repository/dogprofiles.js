@@ -1,3 +1,5 @@
+const { Op } = require('sequelize')
+
 const { connect } = require('../config/db')
 
 class DogProfilesRepository {
@@ -11,6 +13,25 @@ class DogProfilesRepository {
         try {
             const owners = this.db.dogProfiles.findAll({
                 order: [['id', 'ASC']],
+                where: {
+                    owner_id: 73,
+                },
+            })
+
+            return owners
+        } catch (error) {
+            console.log('ERROR FOUND', error)
+            return []
+        }
+    }
+
+    async getPublicDogProfiles() {
+        try {
+            const owners = this.db.dogProfiles.findAll({
+                order: [['id', 'ASC']],
+                where: {
+                    owner_id: { [Op.not]: 73 },
+                },
             })
 
             return owners
