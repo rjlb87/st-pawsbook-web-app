@@ -54,15 +54,15 @@ app.get('/api/v1/dogprofiles', (req, res) => {
 })
 
 app.post('/api/v1/dogprofiles', (req, res) => {
-    // console.log('ano ang request', req.body)
+    console.log('ano ang request', req.body)
     dogProfilesController
-        .createDogProfiles(req.body.dog_profiles)
+        .createDogProfiles(req.body.dogprofiles)
         .then((data) => res.json(data))
 })
 
 app.put('/api/v1/dogprofiles', (req, res) => {
     dogProfilesController
-        .updateDogProfiles(req.body.owners)
+        .updateDogProfiles(req.body.dog_profiles)
         .then((data) => res.json(data))
 })
 

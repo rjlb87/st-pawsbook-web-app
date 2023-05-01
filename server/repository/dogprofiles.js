@@ -21,7 +21,9 @@ class DogProfilesRepository {
     }
 
     // CRUD
+
     async createDogProfiles(profiles) {
+        console.log('ano ini', profiles)
         try {
             const details = await this.db.dogProfiles.create({
                 owner_id: profiles.owner_id,
@@ -32,6 +34,8 @@ class DogProfilesRepository {
                 gender: profiles.gender,
                 age: profiles.age,
                 size: profiles.size,
+                image: profiles.image,
+                description: profiles.description,
             })
             return details
         } catch (error) {
