@@ -8,8 +8,8 @@ function DogRegistrationForm() {
         color: '',
         size: '',
         dob: '',
-        ownerName: '',
-        ownerEmail: '',
+        gender: '',
+        description: '',
     })
     const [alertMessage, setAlertMessage] = useState('')
 
@@ -31,8 +31,8 @@ function DogRegistrationForm() {
             color: '',
             size: '',
             dob: '',
-            ownerName: '',
-            ownerEmail: '',
+            gender: '',
+            description: '',
         })
     }
 
@@ -167,13 +167,13 @@ function DogRegistrationForm() {
                             className="block text-gray-700 font-bold mb-2"
                             htmlFor="ownerName"
                         >
-                            Owner Name
+                            Gender
                         </label>
                         <input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="ownerName"
+                            id="gender"
                             type="text"
-                            placeholder="Enter owner name"
+                            placeholder="Enter dog gender"
                             name="ownerName"
                             value={formData.ownerName}
                             onChange={handleChange}
@@ -183,16 +183,16 @@ function DogRegistrationForm() {
                     <div className="mb-4 flex-grow w-full md:w-1/2 pl-2">
                         <label
                             className="block text-gray-700 font-bold mb-2"
-                            htmlFor="ownerEmail"
+                            htmlFor="dog description"
                         >
-                            Owner Email
+                            Description
                         </label>
                         <input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="ownerEmail"
+                            id="dog description"
                             type="email"
-                            placeholder="Enter owner email"
-                            name="ownerEmail"
+                            placeholder="Enter dog description"
+                            name="dog description"
                             value={formData.ownerEmail}
                             onChange={handleChange}
                             required

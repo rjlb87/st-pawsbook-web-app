@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sidebar = () => {
     return (
-        <div className="bg-gray-800 text-white h-screen w-64 px-4 flex flex-col mt-20">
+        <div className="bg-gray-800 text-white h-screen w-64 px-4 flex flex-col mt-25 pt-10">
             <div className="flex items-center justify-center h-14 border-b border-gray-700"></div>
             <nav className="flex-1 mt-4">
                 <a

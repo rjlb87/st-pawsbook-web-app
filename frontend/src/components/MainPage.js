@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { mdiHeart } from '@mdi/js'
+import { IoMdMale, IoMdFemale } from './Icons'
 
-const Card = ({ image, title, breed, description, age, gender }) => {
+const Card = ({ image, name, breed, description, age, gender }) => {
     const [isFavorite, setIsFavorite] = useState(false)
 
     const handleFavoriteClick = () => {
@@ -14,7 +15,7 @@ const Card = ({ image, title, breed, description, age, gender }) => {
                 <img
                     className="w-full h-1/2 object-cover"
                     src={image}
-                    alt={title}
+                    alt={name}
                 />
                 <div className="flex items-center px-4 pt-4 pb-4">
                     <button
@@ -31,13 +32,14 @@ const Card = ({ image, title, breed, description, age, gender }) => {
                         </svg>
                     </button>
                     <div className="text-md text-center font-semibold text-white">
-                        {title}
+                        {name}
                         {','} {age}
                     </div>
                 </div>
                 <div className="px-4 pt-2">
                     <div className="font-semibold text-sm mb-2 text-gray-300">
-                        {gender} {breed}
+                        {gender}
+                        <IoMdFemale /> {breed}
                     </div>
                     <p className="text-white text-xs font-semibold h-16 md:h-20 overflow-hidden">
                         {description}
