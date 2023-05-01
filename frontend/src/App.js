@@ -7,7 +7,7 @@ import Signin from './authentication/Signin'
 import DogInfo from './components/DogInfos'
 
 import Appointments from './components/Appointments'
-// import { FaKaaba } from 'react-icons/fa'
+
 function App() {
     return (
         <BrowserRouter>

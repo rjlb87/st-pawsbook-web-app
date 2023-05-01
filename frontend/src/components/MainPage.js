@@ -8,7 +8,11 @@ const Card = ({ image, name, breed, description, age, gender }) => {
     const handleFavoriteClick = () => {
         setIsFavorite(!isFavorite)
     }
-
+    const itemsStorage = localStorage.getItem('data')
+    const userData = JSON.parse(itemsStorage)
+    if (userData === null) {
+        window.location = '/sign-up'
+    }
     return (
         <>
             <div className="w-64 h-96 rounded overflow-hidden bg-gray-800">

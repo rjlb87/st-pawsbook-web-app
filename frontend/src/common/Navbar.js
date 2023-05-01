@@ -3,12 +3,29 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 import { navigation } from '../data/NavBarLinks'
 import { useNavigate } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
+import { Avatar } from 'flowbite-react'
 
 const NavBar = () => {
+    const itemsStorage = localStorage.getItem('data')
+
+    const userData = JSON.parse(itemsStorage)
+
+    console.log('data ini', userData)
+    let initials =
+        userData !== null
+            ? userData.first_name[0].toUpperCase() +
+              userData.last_name[0].toUpperCase()
+            : ''
+
     const [nav, setNav] = useState(false)
     const navigate = useNavigate()
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
+    }
+    const Signout = () => {
+        console.log('Signing out')
+        // localStorage.setItem('data', '')
+        window.location = '/'
     }
     return (
         <div className=" z-50 fixed flex items-center w-full h-14 px-4 md:px-12 bg-gray-800">
@@ -38,12 +55,12 @@ const NavBar = () => {
             <Menu as="div" className="relative ml-3">
                 <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                        <span className="sr-only">Open user menu</span>
-                        <img
-                            className="h-8 w-8 rounded-full"
-                            src="https://images.unsplash.com/photo-1581562324420-eff2f5aaa4b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
-                            alt=""
-                        />
+                        <div className="flex flex-wrap gap-2">
+                            <Avatar
+                                rounded={true}
+                                placeholderInitials={initials}
+                            />
+                        </div>
                     </Menu.Button>
                 </div>
                 <Transition
@@ -72,7 +89,7 @@ const NavBar = () => {
                         <Menu.Item>
                             {({ active }) => (
                                 <a
-                                    href="/"
+                                    href="/sign-in"
                                     className={classNames(
                                         active ? 'bg-gray-100' : '',
                                         'block px-4 py-2 text-sm text-gray-700'
@@ -85,6 +102,7 @@ const NavBar = () => {
                         <Menu.Item>
                             {({ active }) => (
                                 <a
+                                    onClick={Signout}
                                     href="/"
                                     className={classNames(
                                         active ? 'bg-gray-100' : '',

@@ -47,8 +47,11 @@ const Dog_info = () => {
             console.error(error.message)
         }
     }
+    const itemsStorage = localStorage.getItem('data')
+    const userData = JSON.parse(itemsStorage)
+    console.log('ano ang id', userData)
     const [formData, setFormData] = useState({
-        owner_id: 35,
+        owner_id: userData.id,
         image: 'https://images.unsplash.com/photo-1529906920574-628dc1e49f5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=867&q=80',
         name: '',
         breed: '',
