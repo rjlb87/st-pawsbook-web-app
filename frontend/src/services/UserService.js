@@ -24,6 +24,7 @@ export const createOwners = async (owners) => {
         console.error(error.message)
     }
 }
+
 export async function deleteOwner(id) {
     try {
         const confirmed = window.confirm(

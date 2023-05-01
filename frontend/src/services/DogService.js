@@ -3,6 +3,11 @@ export async function getAllDogs() {
     return await response.json()
 }
 
+export async function getAllPublicDogProfiles() {
+    const response = await fetch('/api/v1/public-dog-profiles')
+    return await response.json()
+}
+
 export async function editDogs(data) {
     const response = await fetch(`/api/v1/dogprofiles`, {
         method: 'PUT',

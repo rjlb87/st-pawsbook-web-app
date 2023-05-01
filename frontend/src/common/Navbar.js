@@ -24,17 +24,18 @@ const NavBar = () => {
     }
     const Signout = () => {
         console.log('Signing out')
-        // localStorage.setItem('data', '')
-        window.location = '/'
+        localStorage.removeItem('data') // Remove data from local storage
+        window.location.href = '/' // Redirect to home page
     }
+
     return (
         <div className=" z-50 fixed flex items-center w-full h-14 px-4 md:px-12 bg-gray-800">
             <div className="text-start mr-auto">
                 <button
-                    className="justify-items-center text-2xl font-extrabold py-6 text-white "
+                    className="justify-items-center text-2xl font-bold py-6 text-white "
                     onClick={() => navigate('/')}
                 >
-                    LOGO.
+                    pawsbook.
                 </button>
             </div>
 

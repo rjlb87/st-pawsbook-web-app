@@ -18,7 +18,7 @@ const Sidebar = () => {
                     Appointments
                 </a>
                 <a
-                    href="/DogProfiles"
+                    href="/dog-profiles"
                     className="block py-2.5 px-4 text-sm hover:bg-gray-700 rounded"
                 >
                     Dog Profiles

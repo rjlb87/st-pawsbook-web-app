@@ -5,8 +5,8 @@ import NavBar from './common/NavBar'
 import Signup from './authentication/Signup'
 import Signin from './authentication/Signin'
 import DogInfo from './components/DogInfos'
-
 import Appointments from './components/Appointments'
+import DogProfiles from './components/DogProfiles'
 
 function App() {
     return (
@@ -52,14 +52,22 @@ function App() {
                         </Layout>
                     }
                 />
-                {/* <Route
+                <Route
                     path="/appointments"
                     element={
                         <Layout>
                             <Appointments />
                         </Layout>
                     }
-                /> */}
+                />
+                <Route
+                    path="/dog-profiles"
+                    element={
+                        <Layout>
+                            <DogProfiles />
+                        </Layout>
+                    }
+                />
             </Routes>
         </BrowserRouter>
     )
@@ -76,7 +84,8 @@ function Layout(props) {
         '/sign-up',
         '/sign-in',
         '/main-page',
-        // '/Appointments',
+        '/appointments',
+        '/dog-profiles',
     ].includes(path)
     return (
         <>

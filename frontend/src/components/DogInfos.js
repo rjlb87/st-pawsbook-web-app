@@ -1,8 +1,7 @@
 import SideBar from './SideBar'
 import { useEffect, useState } from 'react'
-import { getAllDogs } from '../services/DogService'
+import { getAllPublicDogProfiles } from '../services/DogService'
 import { createDogs } from '../services/DogService'
-import { IoMdMale, IoMdFemale } from './Icons'
 import Card from './MainPage'
 
 const Dog_info = () => {
@@ -10,7 +9,7 @@ const Dog_info = () => {
     useEffect(() => {
         const fetchDogs = async () => {
             try {
-                const doggo = await getAllDogs()
+                const doggo = await getAllPublicDogProfiles()
                 console.log('hahahah ano laman ni doggo', doggo)
                 setDogs(doggo)
             } catch (error) {
@@ -33,7 +32,7 @@ const Dog_info = () => {
             await createDogs(formData)
             // window.location = '/user-dashboard'
             setFormData({
-                owner_id: '',
+                owner_id: userData.id ? userData.id : '',
                 name: '',
                 breed: '',
                 age: '',
@@ -51,7 +50,7 @@ const Dog_info = () => {
     const userData = JSON.parse(itemsStorage)
     console.log('ano ang id', userData)
     const [formData, setFormData] = useState({
-        owner_id: userData.id,
+        owner_id: '',
         image: 'https://images.unsplash.com/photo-1529906920574-628dc1e49f5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=867&q=80',
         name: '',
         breed: '',
@@ -94,10 +93,10 @@ const Dog_info = () => {
                                 Search
                             </button>
                         </div>
-                        <div className="flex flex-wrap sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-6 pt-8">
+                        <div className="flex justify-center flex-wrap sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4  gap-y-10 pt-8 gap-x-40">
                             {dogs.map((card, index) => (
                                 <div
-                                    className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:max-w-sm"
+                                    className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:max-w-sm gap-x-6"
                                     key={index}
                                 >
                                     <Card {...card} />

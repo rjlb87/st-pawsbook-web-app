@@ -2,7 +2,17 @@ import { useState } from 'react'
 import { mdiHeart } from '@mdi/js'
 import { IoMdMale, IoMdFemale } from './Icons'
 
-const Card = ({ image, name, breed, description, age, gender }) => {
+const Card = ({
+    image,
+    name,
+    breed,
+    description,
+    age,
+    gender,
+    color,
+    size,
+    date_of_birth,
+}) => {
     const [isFavorite, setIsFavorite] = useState(false)
 
     const handleFavoriteClick = () => {
@@ -13,46 +23,46 @@ const Card = ({ image, name, breed, description, age, gender }) => {
     if (userData === null) {
         window.location = '/sign-up'
     }
+    function getGenderIcon(gender) {
+        return gender === 'female' ? <IoMdFemale /> : <IoMdMale />
+    }
     return (
         <>
-            <div className="w-64 h-96 rounded overflow-hidden bg-gray-800">
-                <img
-                    className="w-full h-1/2 object-cover"
-                    src={image}
-                    alt={name}
-                />
-                <div className="flex items-center px-4 pt-4 pb-4">
-                    <button
-                        className="hover:text-red-600 text-white focus:outline-none mr-2"
-                        onClick={handleFavoriteClick}
-                    >
-                        <svg
-                            viewBox="0 0 24 24"
-                            className={`w-6 h-6 ${
-                                isFavorite ? 'text-red-600' : ''
-                            }`}
-                        >
-                            <path fill="currentColor" d={mdiHeart} />
-                        </svg>
-                    </button>
-                    <div className="text-md text-center font-semibold text-white">
-                        {name}
-                        {','} {age}
+            <div className="flex flex-row rounded overflow-hidden bg-gray-800 w-96 h-64">
+                <img className="w-1/2 object-cover" src={image} alt={name} />
+                <div className="flex flex-col justify-between w-1/2 p-4">
+                    <div className="text-right text-white text-lg font-semibold">
+                        Dog name: {name}
                     </div>
-                </div>
-                <div className="px-4 pt-2">
-                    <div className="font-semibold text-sm mb-2 text-gray-300">
-                        {gender}
-                        <IoMdFemale /> {breed}
-                    </div>
-                    <p className="text-white text-xs font-semibold h-16 md:h-20 overflow-hidden">
-                        {description}
-                        <div className="pt-6 flex justify-center items-center">
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                More about me
-                            </button>
+                    <div>
+                        <div className="font-semibold text-sm mb-2 text-gray-300">
+                            {getGenderIcon(gender)} {breed}
                         </div>
-                    </p>
+                        <div className="text-white text-sm">
+                            {size} {date_of_birth} {color}
+                        </div>
+                        <p className="text-white text-sm h-20 overflow-hidden">
+                            {description}
+                        </p>
+                    </div>
+                    <div className="flex justify-end">
+                        <button
+                            className="hover:text-red-600 text-white focus:outline-none mr-2"
+                            onClick={handleFavoriteClick}
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                className={`w-6 h-6 ${
+                                    isFavorite ? 'text-red-600' : ''
+                                }`}
+                            >
+                                <path fill="currentColor" d={mdiHeart} />
+                            </svg>
+                        </button>
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Breed me!
+                        </button>
+                    </div>
                 </div>
             </div>
         </>
