@@ -71,14 +71,14 @@ const Dog_info = () => {
 
     return (
         <>
-            <div className="flex flex-col bg-gray-100">
+            <div className="flex flex-col bg-gray-800">
                 <div className="flex">
                     <SideBar />
-                    <div className="flex-1"></div>
+                    <div className=""></div>
                     <div className=" px-4 mt-20 pl-10">
                         <button
                             onClick={toggleModal}
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10"
+                            className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white font-bold py-2 px-4 rounded-xl mt-10"
                         >
                             Add a dog
                         </button>

@@ -10,13 +10,11 @@ const AppointmentForm = () => {
     const [dogProfileId, setDogProfileId] = useState('')
     const [dogName, setDogName] = useState('')
     const [location, setLocation] = useState('')
-    const [landmarks, setLandmarks] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
         // send the form data to the server
     }
-
     return (
         <div className="bg-gray-500 h-screen pt-20">
             <form onSubmit={handleSubmit} className="max-w-md mx-auto">
@@ -24,7 +22,7 @@ const AppointmentForm = () => {
                 <div className="grid grid-cols-2 gap-4">
                     <div>
                         <label className="block text-gray-700 font-bold mb-2">
-                            Name:
+                            Booked dog profile ID
                             <input
                                 type="text"
                                 value={name}
@@ -35,7 +33,7 @@ const AppointmentForm = () => {
                     </div>
                     <div>
                         <label className="block text-gray-700 font-bold mb-2">
-                            Email:
+                            Meet up dog profile ID
                             <input
                                 type="email"
                                 value={email}
@@ -44,20 +42,10 @@ const AppointmentForm = () => {
                             />
                         </label>
                     </div>
+
                     <div>
                         <label className="block text-gray-700 font-bold mb-2">
-                            Phone:
-                            <input
-                                type="tel"
-                                value={phone}
-                                onChange={(e) => setPhone(e.target.value)}
-                                className="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className="block text-gray-700 font-bold mb-2">
-                            Meet-up Date:
+                            Meet-up Date
                             <input
                                 type="date"
                                 value={meetUpDate}
@@ -68,31 +56,7 @@ const AppointmentForm = () => {
                     </div>
                     <div>
                         <label className="block text-gray-700 font-bold mb-2">
-                            Booked Dog Profile ID:
-                            <input
-                                type="text"
-                                value={dogProfileId}
-                                onChange={(e) =>
-                                    setDogProfileId(e.target.value)
-                                }
-                                className="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className="block text-gray-700 font-bold mb-2">
-                            Dog Name:
-                            <input
-                                type="text"
-                                value={dogName}
-                                onChange={(e) => setDogName(e.target.value)}
-                                className="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className="block text-gray-700 font-bold mb-2">
-                            Location:
+                            Location
                             <input
                                 type="text"
                                 value={location}
@@ -103,29 +67,7 @@ const AppointmentForm = () => {
                     </div>
                     <div>
                         <label className="block text-gray-700 font-bold mb-2">
-                            Landmarks:
-                            <input
-                                type="text"
-                                value={landmarks}
-                                onChange={(e) => setLandmarks(e.target.value)}
-                                className="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className="block text-gray-700 font-bold mb-2">
-                            Date:
-                            <input
-                                type="date"
-                                value={date}
-                                onChange={(e) => setDate(e.target.value)}
-                                className="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className="block text-gray-700 font-bold mb-2">
-                            Time:
+                            Time
                             <input
                                 type="time"
                                 value={time}

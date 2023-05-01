@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useEffect } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { navigation } from '../data/NavBarLinks'
 import { useNavigate } from 'react-router-dom'
@@ -27,15 +27,33 @@ const NavBar = () => {
         localStorage.removeItem('data') // Remove data from local storage
         window.location.href = '/' // Redirect to home page
     }
+    const [isVisible, setIsVisible] = useState(true)
+    useEffect(() => {
+        function handleScroll() {
+            const scrollTop = document.documentElement.scrollTop
+            const threshold = 50
+            setIsVisible(scrollTop < threshold)
+        }
 
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
     return (
-        <div className=" z-50 fixed flex items-center w-full h-14 px-4 md:px-12 bg-gray-800">
+        <div
+            className={`transition duration-500 ease-in-out ${
+                isVisible ? '' : 'hidden'
+            } z-50 fixed flex items-center w-full h-14 px-4 md:px-12 bg-transparent`}
+        >
             <div className="text-start mr-auto">
                 <button
                     className="justify-items-center text-2xl font-bold py-6 text-white "
                     onClick={() => navigate('/')}
                 >
-                    pawsbook.
+                    <img
+                        src="pawsbooklogo.png"
+                        className="h-60 w-50 mt-10"
+                        alt="logo"
+                    />
                 </button>
             </div>
 

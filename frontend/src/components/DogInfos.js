@@ -9,6 +9,9 @@ const Dog_info = () => {
     useEffect(() => {
         const fetchDogs = async () => {
             try {
+                // const itemsStorage = localStorage.getItem('data')
+                // const userData = JSON.parse(itemsStorage)
+                // console.log('hahahahh ano ka')
                 const doggo = await getAllPublicDogProfiles()
                 console.log('hahahah ano laman ni doggo', doggo)
                 setDogs(doggo)
@@ -71,17 +74,15 @@ const Dog_info = () => {
 
     return (
         <>
-            <div className="flex flex-col bg-gray-100">
+            <div className="flex flex-col bg-gray-800">
                 <div className="flex">
                     <SideBar />
                     <div className="flex-1"></div>
-                    <div className=" px-4 mt-20 pl-10">
-                        <button
+                    <div className=" mt-20">
+                        {/* <button
                             onClick={toggleModal}
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10"
-                        >
-                            Register Your Dog
-                        </button>
+                        ></button> */}
 
                         <div className="flex flex-row justify-center ">
                             <input
@@ -89,7 +90,7 @@ const Dog_info = () => {
                                 type="text"
                                 placeholder="Search"
                             />
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white ml-2 py-2 px-4 rounded">
+                            <button className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white ml-2 py-2 px-4 rounded-xl">
                                 Search
                             </button>
                         </div>
