@@ -31,10 +31,10 @@ const Card = ({
 
     return (
         <>
-            <div className="flex flex-row rounded overflow-hidden bg-green-700 w-96 h-64 ">
+            <div className="flex flex-row rounded overflow-hidden bg-gray-900  w-96 h-64 ">
                 <img className="w-1/2 object-cover" src={image} alt="" />
                 <div className="flex flex-col justify-between w-1/2 p-4">
-                    <div className="font-semibold text-xs mb-2 text-white flex flex-row items items-center">
+                    <div className="font-bold text-xs mb-2 text-white flex flex-row items items-center uppercase pl-10 ">
                         {name}
                     </div>
                     <div className="font-semibold text-xs mb-2 text-gray-300 flex flex-row">

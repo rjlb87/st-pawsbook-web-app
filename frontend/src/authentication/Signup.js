@@ -27,7 +27,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className="bg-gray-800 flex justify-center py-40">
+        <div className="bg-gray-800 flex justify-center py-20">
             <div className="sm:w-96 p-6 bg-white rounded-lg shadow-md">
                 <h1 className="text-2xl text-gray-800 font-semibold mb-6 text-center pt-3 pb-3">
                     Sign Up
@@ -55,7 +55,7 @@ const SignUp = () => {
                             <label className="mb-4 block text-xs">
                                 Last Name
                                 <input
-                                    className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
+                                    className="border-gray-300 border text-xs rounded-md px-3 py-2 w-full mt-1"
                                     type="text"
                                     placeholder="Doe"
                                     value={last_name}
@@ -72,7 +72,7 @@ const SignUp = () => {
                     <label className="block mb-4 text-xs">
                         Email
                         <input
-                            className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
+                            className="border-gray-300 border rounded-md px-3 py-2 w-full text-xs mt-1"
                             type="email"
                             placeholder="name@gmail.com"
                             value={email}
@@ -102,7 +102,7 @@ const SignUp = () => {
                     <label className="mb-4 block text-xs">
                         Phone Number
                         <input
-                            className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1"
+                            className="border-gray-300 border rounded-md px-3 py-2 mb-4 block text-xs w-full mt-1"
                             type="tel"
                             value={phone_number}
                             placeholder="+63"
@@ -117,7 +117,7 @@ const SignUp = () => {
 
                     <button
                         type="submit"
-                        className="bg-gray-800 text-white hover:bg-green-600 rounded-md px-4 py-2 mt-4 w-full"
+                        className="bg-gray-800 text-white hover:bg-gray-500 rounded-md px-4 py-2 mt-4 w-full"
                     >
                         Sign Up
                     </button>

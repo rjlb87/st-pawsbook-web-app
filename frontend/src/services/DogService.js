@@ -1,10 +1,12 @@
-export async function getAllDogs() {
-    const response = await fetch('/api/v1/dogprofiles')
+export async function getAllDogs(owner_id) {
+    const response = await fetch(`/api/v1/dogprofiles/${owner_id}`)
     return await response.json()
 }
 
-export async function getAllPublicDogProfiles() {
-    const response = await fetch('/api/v1/public-dog-profiles')
+export async function getAllPublicDogProfiles(owner_id) {
+    const response = await fetch(`/api/v1/public-dog-profiles/${owner_id}`, {
+        method: 'GET',
+    })
     return await response.json()
 }
 

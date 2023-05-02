@@ -9,7 +9,9 @@ const Dog_info = () => {
     useEffect(() => {
         const fetchDogs = async () => {
             try {
-                const doggo = await getAllDogs()
+                const doggo = await getAllDogs(
+                    JSON.parse(localStorage.getItem('data')).id
+                )
                 console.log('hahahah ano laman ni doggo', doggo)
                 setDogs(doggo)
             } catch (error) {
@@ -75,28 +77,28 @@ const Dog_info = () => {
                 <div className="flex">
                     <SideBar />
                     <div className=""></div>
-                    <div className=" px-4 mt-20 pl-10">
+                    <div className="text-center pt-20 px-10">
                         <button
                             onClick={toggleModal}
-                            className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white font-bold py-2 px-4 rounded-xl mt-10"
+                            className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white font-semibold text-sm py-2 px-4 rounded-xl mt-10"
                         >
-                            Add a dog
+                            + Add dog
                         </button>
 
-                        <div className="flex flex-row justify-center ">
+                        <div className="flex flex-row justify-center pt-4 ">
                             <input
                                 className="border border-gray-400 bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none"
                                 type="text"
                                 placeholder="Search"
                             />
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white ml-2 py-2 px-4 rounded">
+                            <button className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white ml-2 py-2 px-4 rounded">
                                 Search
                             </button>
                         </div>
                         <div className="flex justify-center flex-wrap sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4  gap-y-10 pt-8 gap-x-40">
                             {dogs.map((card, index) => (
                                 <div
-                                    className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:max-w-sm gap-x-6"
+                                    className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 sm:max-w-sm"
                                     key={index}
                                 >
                                     <Card {...card} />
@@ -108,9 +110,9 @@ const Dog_info = () => {
             </div>
 
             {showModal && (
-                <div className="fixed z-10 inset-0 overflow-y-auto">
-                    <div className="mt-40 flex items-center justify-center">
-                        <div className="bg-teal-600 rounded-lg text-white">
+                <div className="fixed z-10 inset-0 overflow-y-auto ">
+                    <div className="mt-20 flex items-center justify-center">
+                        <div className="rounded-lg text-white">
                             <form
                                 onSubmit={onSubmitForm}
                                 className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-wrap justify-between"
@@ -276,6 +278,14 @@ const Dog_info = () => {
                                         >
                                             Register Dog
                                         </button>
+                                        {/* <div className="mb-4 w-full flex justify-center">
+                                            <button
+                                                className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-md text-sm"
+                                                onClick={toggleModal}
+                                            >
+                                                Cancel
+                                        //     </button> */}
+                                        {/*  </div> */}
                                     </div>
                                 </div>
                             </form>

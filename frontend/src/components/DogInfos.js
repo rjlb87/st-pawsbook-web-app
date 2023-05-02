@@ -9,10 +9,10 @@ const Dog_info = () => {
     useEffect(() => {
         const fetchDogs = async () => {
             try {
-                // const itemsStorage = localStorage.getItem('data')
-                // const userData = JSON.parse(itemsStorage)
-                // console.log('hahahahh ano ka')
-                const doggo = await getAllPublicDogProfiles()
+                const itemsStorage = localStorage.getItem('data')
+                const userData = JSON.parse(itemsStorage)
+                console.log('hahahahh ano ka', userData.id)
+                const doggo = await getAllPublicDogProfiles(userData.id)
                 console.log('hahahah ano laman ni doggo', doggo)
                 setDogs(doggo)
             } catch (error) {
@@ -84,13 +84,13 @@ const Dog_info = () => {
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10"
                         ></button> */}
 
-                        <div className="flex flex-row justify-center ">
+                        <div className="flex flex-row justify-center pl-20">
                             <input
                                 className="border border-gray-400 bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none"
                                 type="text"
                                 placeholder="Search"
                             />
-                            <button className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white ml-2 py-2 px-4 rounded-xl">
+                            <button className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white ml-2 py-2 px-4 text-sm rounded-xl">
                                 Search
                             </button>
                         </div>
