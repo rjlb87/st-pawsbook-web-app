@@ -9,12 +9,13 @@ class DogProfilesRepository {
         this.db = connect()
     }
 
-    async getDogProfiles() {
+    async getDogProfiles(owner_id) {
+        console.log('ito ay repo dog profiles', owner_id)
         try {
-            const owners = this.db.dogProfiles.findAll({
-                order: [['id', 'ASC']],
+            const owners = await this.db.dogProfiles.findAll({
+                order: [['owner_id', 'ASC']],
                 where: {
-                    owner_id: 74,
+                    owner_id: owner_id,
                 },
             })
 
@@ -30,9 +31,10 @@ class DogProfilesRepository {
             const owners = this.db.dogProfiles.findAll({
                 order: [['id', 'ASC']],
                 where: {
-                    owner_id: { [Op.not]: 74 },
+                    owner_id: { [Op.not]: owner_id },
                 },
             })
+            console.log(owner_id)
 
             return owners
         } catch (error) {

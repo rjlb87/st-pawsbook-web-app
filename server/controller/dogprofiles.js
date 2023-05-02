@@ -2,12 +2,12 @@ const dogProfilesService = require('../service/dogprofiles')
 const { generateAccessToken } = require('../config/jwt')
 
 class DogsProfilesController {
-    async getDogProfiles() {
-        return await dogProfilesService.getDogProfiles()
+    async getDogProfiles(owner_id) {
+        return await dogProfilesService.getDogProfiles(owner_id)
     }
-    async getPublicDogProfiles() {
-        // console.log('public aso', owner_id)
-        return await dogProfilesService.getPublicDogProfiles()
+    async getPublicDogProfiles(owner_id) {
+        console.log('public aso', owner_id)
+        return await dogProfilesService.getPublicDogProfiles(owner_id)
     }
     async createDogProfiles(profile) {
         return await dogProfilesService.createDogProfiles(profile)

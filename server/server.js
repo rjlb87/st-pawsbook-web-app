@@ -49,18 +49,22 @@ app.post('/api/v1/Signin', (req, res) => {
 })
 
 //Dog profiles request
-app.get('/api/v1/dogprofiles', (req, res) => {
-    dogProfilesController.getDogProfiles().then((data) => res.json(data))
-})
-
-app.get('/api/v1/public-dog-profiles', (req, res) => {
-    dogProfilesController.getPublicDogProfiles().then((data) => res.json(data))
-})
-
-app.post('/api/v1/dogprofiles', (req, res) => {
-    console.log('ano ang request', req.body)
+app.get('/api/v1/dogprofiles/:owner_id', (req, res) => {
     dogProfilesController
-        .createDogProfiles(req.body.dogprofiles)
+        .getDogProfiles(req.params.owner_id)
+        .then((data) => res.json(data))
+})
+//public dog profiles
+app.get('/api/v1/public-dog-profiles/:owner_id', (req, res) => {
+    dogProfilesController
+        .getPublicDogProfiles(req.params.owner_id)
+        .then((data) => res.json(data))
+})
+
+app.post('/api/v1/dogprofiles/:owner_id', (req, res) => {
+    // console.log('ano ang request', req.body)
+    dogProfilesController
+        .createDogProfiles(req.params.owner_id)
         .then((data) => res.json(data))
 })
 
