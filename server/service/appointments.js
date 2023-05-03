@@ -7,8 +7,8 @@ class AppointmentsService {
     async createAppointments(schedule) {
         return await appointmentsRepository.createAppointments(schedule)
     }
-    async updateAppointments(schedule) {
-        return await appointmentsRepository.updateAppointments(schedule)
+    async updateAppointments(appointments) {
+        return await appointmentsRepository.updateAppointments(appointments)
     }
     async deleteAppointments(id) {
         console.log('GETTING USERS IN THE SERVICE')

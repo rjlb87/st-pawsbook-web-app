@@ -7,8 +7,8 @@ class AppointmentsController {
     async createAppointments(schedule) {
         return await appointmentsService.createAppointments(schedule)
     }
-    async updateAppointments(schedule) {
-        return await appointmentsService.updateAppointments(schedule)
+    async updateAppointments(appointments) {
+        return await appointmentsService.updateAppointments(appointments)
     }
     async deleteAppointments(id) {
         return await appointmentsService.deleteAppointments(id)

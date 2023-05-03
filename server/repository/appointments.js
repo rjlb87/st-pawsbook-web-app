@@ -37,7 +37,9 @@ class AppointmentsRepository {
         }
     }
 
-    async updateAppointments() {
+    async updateAppointments(appointments) {
+        console.log('status:', appointments)
+
         let data = {}
 
         try {
@@ -45,14 +47,15 @@ class AppointmentsRepository {
                 { ...appointments },
                 {
                     where: {
-                        id: appointments.id,
+                        booked_dog_profile_id:
+                            appointments.booked_dog_profile_id,
                     },
                 }
             )
-            return data
         } catch (error) {
             console.log('Error: ', error)
         }
+
         return data
     }
 

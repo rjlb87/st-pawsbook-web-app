@@ -92,6 +92,7 @@ app.post('/api/v1/appointments', (req, res) => {
 })
 
 app.put('/api/v1/appointments', (req, res) => {
+    console.log('here', req.body.appointments)
     appointmentsController
         .updateAppointments(req.body.appointments)
         .then((data) => res.json(data))
