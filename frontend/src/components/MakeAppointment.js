@@ -32,7 +32,7 @@ const MakeAppointment = () => {
         }
         try {
             await createAppointments(appointments)
-            window.location = '/user-dashboard'
+            window.location = '/'
         } catch (error) {
             console.error(error.message)
         }
@@ -87,7 +87,7 @@ const MakeAppointment = () => {
                         Date
                         <input
                             className="border-gray-300 border rounded-md px-3 py-2 w-full text-xs mt-1"
-                            type="text"
+                            type="date"
                             placeholder="meet up date"
                             value={meet_up_date}
                             onChange={(e) =>
@@ -102,10 +102,10 @@ const MakeAppointment = () => {
                         Location
                         <div className="relative">
                             <input
-                                className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1 pr-10"
+                                className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1 pr-10 text-sm"
                                 // type={showPassword ? 'text' : 'password'}
                                 type="text"
-                                placeholder="meet up location"
+                                placeholder="Enter complete meet up location"
                                 value={location}
                                 onChange={(e) =>
                                     setAppointments({

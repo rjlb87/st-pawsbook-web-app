@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {
-    getAllAppointments,
-    deleteAppointments,
-} from '../services/AppointmentsService'
+import { getAllAppointments } from '../services/AppointmentsService'
 // import EditDashboard from './EditDashboard'
 import ReactPaginate from 'react-paginate'
+import AppointmentsStatus from './AppointmentStatus'
 
 function AppointmentsList() {
     const [appointments, setAppointments] = useState([])
@@ -23,18 +21,7 @@ function AppointmentsList() {
         startIndex,
         Math.min(endIndex, appointments.length)
     )
-    const handleDeleteAppointment = async (id) => {
-        try {
-            const success = await deleteAppointments(id)
-            if (success) {
-                setAppointments((prevUsers) =>
-                    prevUsers.filter((u) => u.id !== id)
-                )
-            }
-        } catch (error) {
-            console.error(error.message)
-        }
-    }
+
     useEffect(() => {
         const fetchAppointments = async () => {
             try {
@@ -85,41 +72,43 @@ function AppointmentsList() {
                     </tr>
                 </thead>
                 <tbody>
-                    {currentData.map((appointments, index) => (
-                        <tr
-                            key={appointments.id}
-                            className="hover:bg-gray-100 transition-colors text-xs"
-                        >
-                            <td className=" border-gray-500 px-6  bg-gray-600 text-center text-white font-semibold">
-                                {startIndex + index}
-                            </td>
-                            <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
-                                {appointments.booked_dog_profile_id}
-                            </td>
-                            <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
-                                {appointments.meet_up_dog_profile_id}
-                            </td>
-                            <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
-                                {appointments.meet_up_date}
-                            </td>
-                            <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
-                                {appointments.location}
-                            </td>
-                            <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
-                                {appointments.status}
-                            </td>
-                            <td className="border-gray-500  bg-gray-600">
-                                <td className="flex justify-center group py-4 px-6">
-                                    <button className=" bg-gray-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
-                                        Accept
-                                    </button>
-                                    <button className="mx-4 bg-gray-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
-                                        Reject
-                                    </button>
-                                </td>
-                            </td>
-                        </tr>
-                    ))}
+                    {currentData.map(
+                        (appointments, index) =>
+                            appointments && (
+                                <tr>
+                                    <td className=" border-gray-500 px-6  bg-gray-600 text-center text-white font-semibold">
+                                        {startIndex + index}
+                                    </td>
+                                    <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
+                                        {appointments.booked_dog_profile_id}
+                                    </td>
+                                    <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
+                                        {appointments.meet_up_dog_profile_id}
+                                    </td>
+                                    <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
+                                        {appointments.meet_up_date}
+                                    </td>
+                                    <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
+                                        {appointments.location}
+                                    </td>
+                                    <td className="border-gray-500 px-6  bg-gray-600  text-center text-white font-light">
+                                        {appointments.status}
+                                    </td>
+                                    <td className="border-gray-500  bg-gray-600">
+                                        <td className="flex justify-center group py-4 px-6">
+                                            <button className=" bg-gray-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                                                <AppointmentsStatus
+                                                    key={
+                                                        appointments.booked_dog_profile_id
+                                                    }
+                                                    appointments={appointments}
+                                                />
+                                            </button>
+                                        </td>
+                                    </td>
+                                </tr>
+                            )
+                    )}
                 </tbody>
             </table>
             <div className="flex justify-center mt-4">

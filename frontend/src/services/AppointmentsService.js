@@ -3,13 +3,23 @@ export async function getAllAppointments() {
     return await response.json()
 }
 
-export async function editAppointments(data) {
-    const response = await fetch(`/api/v1/appopintments`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ owners: data }),
-    })
-    return await response.json()
+export async function editAppointments(booked_dog_profile_id, status) {
+    try {
+        const response = await fetch('/api/v1/appointments', {
+            method: 'PUT',
+            body: JSON.stringify({
+                appointments: {
+                    booked_dog_profile_id,
+                    status,
+                },
+            }),
+            headers: { 'Content-Type': 'application/json' },
+        })
+
+        return await response.json()
+    } catch (error) {
+        console.error(error.message)
+    }
 }
 
 export const createAppointments = async (appointments) => {

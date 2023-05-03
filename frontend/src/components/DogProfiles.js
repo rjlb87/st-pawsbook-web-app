@@ -81,18 +81,59 @@ const Dog_info = () => {
                             onClick={toggleModal}
                             className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white font-semibold text-sm py-2 px-4 rounded-xl mt-10"
                         >
-                            + Add dog
+                            Add your dogs
                         </button>
 
-                        <div className="flex flex-row justify-center pt-4 ">
-                            <input
-                                className="border border-gray-400 bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none"
-                                type="text"
-                                placeholder="Search"
-                            />
-                            <button className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white ml-2 py-2 px-4 rounded">
-                                Search
-                            </button>
+                        <div className="flex flex-row justify-center pt-6 pl-3">
+                            <form class="flex items-center">
+                                <label for="simple-search" class="sr-only">
+                                    Search
+                                </label>
+                                <div class="relative w-full">
+                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                        <svg
+                                            aria-hidden="true"
+                                            class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                                clip-rule="evenodd"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <input
+                                        type="text"
+                                        id="simple-search"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="Search"
+                                        required
+                                    ></input>
+                                </div>
+                                <button
+                                    type="submit"
+                                    class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                >
+                                    <svg
+                                        class="w-5 h-5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                        ></path>
+                                    </svg>
+                                    <span class="sr-only">Search</span>
+                                </button>
+                            </form>
                         </div>
                         <div className="flex justify-center flex-wrap sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4  gap-y-10 pt-8 gap-x-40">
                             {dogs.map((card, index) => (
@@ -107,24 +148,23 @@ const Dog_info = () => {
                     </div>
                 </div>
             </div>
-
             {showModal && (
-                <div className="fixed z-10 inset-0 overflow-y-auto ">
-                    <div className="mt-20 flex items-center justify-center">
-                        <div className="rounded-lg text-white">
+                <div className="fixed z-10 inset-0 overflow-y-auto">
+                    <div className="flex py-20 px-40 text-xs items-center justify-center">
+                        <div className=" rounded-lg text-white w-1/2">
                             <form
                                 onSubmit={onSubmitForm}
-                                className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-wrap justify-between"
+                                className="bg-white  shadow-md rounded px-8 text-xs pt-6 pb-8 mb-4 flex flex-wrap justify-between"
                             >
                                 <div className="mb-4 flex-grow w-full md:w-1/3 pr-2">
                                     <label
-                                        className="block text-gray-700 font-bold mb-2"
+                                        className="block text-xs text-gray-700 font-bold mb-2"
                                         htmlFor="name"
                                     >
                                         Dog Name
                                     </label>
                                     <input
-                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        className="text-xs shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="name"
                                         type="text"
                                         placeholder="Enter dog name"
@@ -134,15 +174,15 @@ const Dog_info = () => {
                                         required
                                     />
                                 </div>
-                                <div className="mb-4 flex-grow w-full md:w-1/3 px-2">
+                                <div className=" mb-4 flex-grow w-full md:w-1/3 px-2 text-xs">
                                     <label
-                                        className="block text-gray-700 font-bold mb-2"
+                                        className=" text-xs block text-gray-700 font-bold mb-2"
                                         htmlFor="color"
                                     >
                                         Color
                                     </label>
                                     <input
-                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        className=" text-xs shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="color"
                                         type="text"
                                         placeholder="Enter dog color"
@@ -152,7 +192,7 @@ const Dog_info = () => {
                                         required
                                     />
                                 </div>
-                                <div className="mb-4 flex-grow w-full md:w-1/3 pl-2">
+                                <div className=" text-xs mb-4 flex-grow w-full md:w-1/3 pl-2">
                                     <label
                                         className="block text-gray-700 font-bold mb-2"
                                         htmlFor="size"
@@ -160,7 +200,7 @@ const Dog_info = () => {
                                         Size
                                     </label>
                                     <select
-                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        className="text-xs shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="size"
                                         name="size"
                                         value={formData.size}
@@ -175,25 +215,49 @@ const Dog_info = () => {
                                         <option value="large">Large</option>
                                     </select>
                                 </div>
-                                <div className="mb-4 flex-grow w-full md:w-1/3 pr-2">
+                                <div className="text-xs mb-4 flex-grow w-full md:w-1/3 pr-2">
                                     <label
-                                        className="block text-gray-700 font-bold mb-2"
+                                        className="text-xs block text-gray-700 font-bold mb-2"
                                         htmlFor="breed"
                                     >
                                         Breed
                                     </label>
-                                    <input
-                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    <select
+                                        className="text-xs shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="breed"
-                                        type="text"
-                                        placeholder="Enter dog breed"
                                         name="breed"
                                         value={formData.breed}
                                         onChange={handleChange}
                                         required
-                                    />
+                                    >
+                                        <option value="">Select a breed</option>
+                                        <option value="Golden Retriever">
+                                            Golden Retriever
+                                        </option>
+                                        <option value="Labrador Retriever">
+                                            Labrador Retriever
+                                        </option>
+                                        <option value="German Shepherd">
+                                            German Shepherd
+                                        </option>
+                                        <option value="Poodle">Poodle</option>
+                                        <option value="Bulldog">Bulldog</option>
+                                        <option value="Chihuahua">
+                                            Chihuahua
+                                        </option>
+                                        <option value="Dachshund">
+                                            Dachshund
+                                        </option>
+                                        <option value="Boxer">Boxer</option>
+                                        <option value="Siberian Husky">
+                                            Siberian Husky
+                                        </option>
+                                        <option value="Doberman Pinscher">
+                                            Doberman Pinscher
+                                        </option>
+                                    </select>
                                 </div>
-                                <div className="mb-4 flex-grow w-full md:w-1/3 px-2">
+                                <div className="text-xs mb-4 flex-grow w-full md:w-1/3 px-2">
                                     <label
                                         className="block text-gray-700 font-bold mb-2"
                                         htmlFor="age"
@@ -201,7 +265,7 @@ const Dog_info = () => {
                                         Age
                                     </label>
                                     <input
-                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        className="text-xs shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="age"
                                         type="number"
                                         placeholder="Enter dog age"
@@ -211,7 +275,7 @@ const Dog_info = () => {
                                         required
                                     />
                                 </div>
-                                <div className="mb-4 flex-grow w-full md:w-1/3 pl-2">
+                                <div className="text-xs mb-4 flex-grow w-full md:w-1/3 pl-2">
                                     <label
                                         className="block text-gray-700 font-bold mb-2"
                                         htmlFor="date_of_birth"
@@ -219,7 +283,7 @@ const Dog_info = () => {
                                         Date of Birth
                                     </label>
                                     <input
-                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        className="text-xs shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="date_of_birth"
                                         type="date"
                                         placeholder="Enter dog's date of birth"
@@ -229,15 +293,15 @@ const Dog_info = () => {
                                         required
                                     />
                                 </div>
-                                <div className="mb-4 flex-grow w-full md:w-1/3 pr-2">
+                                <div className="text-xs mb-4 flex-grow w-full md:w-1/3 pr-2">
                                     <label
-                                        className="block text-gray-700 font-bold mb-2"
+                                        className="text-xs block text-gray-700 font-bold mb-2"
                                         htmlFor="gender"
                                     >
                                         Gender
                                     </label>
                                     <select
-                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        className="text-xs shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="gender"
                                         name="gender"
                                         value={formData.gender}
@@ -251,40 +315,50 @@ const Dog_info = () => {
                                         <option value="female">Female</option>
                                     </select>
                                 </div>
-                                <div className="mb-4 flex-grow w-full">
-                                    <label
-                                        className="block text-gray-700 font-bold mb-2"
-                                        htmlFor="description"
-                                    >
-                                        Description
-                                    </label>
-                                    <textarea
-                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        id="description"
-                                        placeholder="Enter dog description"
-                                        name="description"
+                                <div className="flex items-center px-2 mt-2">
+                                    <input
+                                        type="checkbox"
+                                        id="vaccinated"
+                                        name="vaccinated"
                                         value={formData.description}
-                                        onChange={handleChange}
-                                        required
-                                    ></textarea>
+                                        class="rounded-full text-primary-600 focus:ring-primary-500 border-gray-300"
+                                    ></input>
+                                    <label
+                                        for="vaccinated"
+                                        class="ml-2 text-gray-700"
+                                    >
+                                        Vaccinated
+                                    </label>
                                 </div>
-
-                                <div className="mb-4 w-full flex justify-center">
+                                <div class="flex items-center mt-2">
+                                    <input
+                                        type="checkbox"
+                                        id="pcci-registered"
+                                        name="pcci-registered"
+                                        value={formData.description}
+                                        class="rounded-full text-primary-600 focus:ring-primary-500 border-gray-300"
+                                    ></input>
+                                    <label
+                                        for="pcci-registered"
+                                        class="ml-2 text-gray-700"
+                                    >
+                                        PCCI Registered
+                                    </label>
+                                </div>
+                                <div className="text-xs mb-4 w-full flex justify-center pt-10">
                                     <div className="text-center">
                                         <button
-                                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                            className="text-xs bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                             type="submit"
                                         >
-                                            Register Dog
+                                            Register
                                         </button>
-                                        {/* <div className="mb-4 w-full flex justify-center">
-                                            <button
-                                                className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-md text-sm"
-                                                onClick={toggleModal}
-                                            >
-                                                Cancel
-                                        //     </button> */}
-                                        {/*  </div> */}
+                                        <button
+                                            className="text-xs bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mx-2"
+                                            type="submit"
+                                        >
+                                            Cancel
+                                        </button>
                                     </div>
                                 </div>
                             </form>
