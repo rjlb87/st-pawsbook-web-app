@@ -35,7 +35,7 @@ const Dog_info = () => {
             await createDogs(formData)
             // window.location = '/user-dashboard'
             setFormData({
-                owner_id: userData.id ? userData.id : '',
+                owner_id: '',
                 name: '',
                 breed: '',
                 age: '',
@@ -53,7 +53,7 @@ const Dog_info = () => {
     const userData = JSON.parse(itemsStorage)
     console.log('ano ang id', userData)
     const [formData, setFormData] = useState({
-        owner_id: '',
+        owner_id: userData.id ? userData.id : '',
         image: 'https://images.unsplash.com/photo-1529906920574-628dc1e49f5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=867&q=80',
         name: '',
         breed: '',
@@ -78,11 +78,13 @@ const Dog_info = () => {
                 <div className="flex">
                     <SideBar />
                     <div className="flex-1"></div>
-                    <div className=" mt-20">
-                        {/* <button
+                    <div className=" mt-20 mr-40">
+                        <button
                             onClick={toggleModal}
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10"
-                        ></button> */}
+                        >
+                            Register your dog
+                        </button>
 
                         <div className="flex flex-row justify-center pl-20">
                             <input

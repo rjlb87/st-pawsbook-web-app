@@ -1,7 +1,6 @@
 import SideBar from './SideBar'
 import { useEffect, useState } from 'react'
-import { getAllDogs } from '../services/DogService'
-import { createDogs } from '../services/DogService'
+import { getAllDogs, createDogs } from '../services/DogService'
 import Card from './MainPage'
 
 const Dog_info = () => {

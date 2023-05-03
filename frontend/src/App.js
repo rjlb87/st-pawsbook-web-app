@@ -1,6 +1,6 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import UserDashboard from './components/UserDashboard'
 import Dashboard from './common/Dashboard'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './common/NavBar'
 import Signup from './authentication/Signup'
 import Signin from './authentication/Signin'
@@ -11,63 +11,15 @@ import DogProfiles from './components/DogProfiles'
 function App() {
     return (
         <BrowserRouter>
+            <NavBar />
             <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <Layout>
-                            <Dashboard />
-                        </Layout>
-                    }
-                />
-                <Route
-                    path="/user-dashboard"
-                    element={
-                        <Layout>
-                            <UserDashboard />
-                        </Layout>
-                    }
-                />
-                <Route
-                    path="/sign-up"
-                    element={
-                        <Layout>
-                            <Signup />
-                        </Layout>
-                    }
-                />
-                <Route
-                    path="/sign-in"
-                    element={
-                        <Layout>
-                            <Signin />
-                        </Layout>
-                    }
-                />
-                <Route
-                    path="/main-page"
-                    element={
-                        <Layout>
-                            <DogInfo />
-                        </Layout>
-                    }
-                />
-                <Route
-                    path="/appointments"
-                    element={
-                        <Layout>
-                            <Appointments />
-                        </Layout>
-                    }
-                />
-                <Route
-                    path="/dog-profiles"
-                    element={
-                        <Layout>
-                            <DogProfiles />
-                        </Layout>
-                    }
-                />
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/user-dashboard" element={<UserDashboard />} />
+                <Route path="/sign-up" element={<Signup />} />
+                <Route path="/sign-in" element={<Signin />} />
+                <Route path="/main-page" element={<DogInfo />} />
+                <Route path="/appointments" element={<Appointments />} />
+                <Route path="/dog-profiles" element={<DogProfiles />} />
             </Routes>
         </BrowserRouter>
     )
@@ -75,22 +27,22 @@ function App() {
 
 export default App
 
-function Layout(props) {
-    const { children } = props
-    const path = window.location.pathname
-    const showNavbar = [
-        '/',
-        '/user-dashboard',
-        '/sign-up',
-        '/sign-in',
-        '/main-page',
-        '/appointments',
-        '/dog-profiles',
-    ].includes(path)
-    return (
-        <>
-            {showNavbar && <NavBar />}
-            {children}
-        </>
-    )
-}
+// function Layout(props) {
+//     const { children } = props
+//     const path = window.location.pathname
+//     const showNavbar = [
+//         '/',
+//         '/user-dashboard',
+//         '/sign-up',
+//         '/sign-in',
+//         '/main-page',
+//         '/appointments',
+//         '/dog-profiles',
+//     ].includes(path)
+//     return (
+//         <>
+//             {showNavbar && <NavBar />}
+//             {children}
+//         </>
+//     )
+// }
