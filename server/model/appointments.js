@@ -34,21 +34,15 @@ module.exports = (sequelize, DataTypes, Model) => {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
-            time: {
+            landmark: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
             status: {
                 type: DataTypes.STRING,
-                allowNull: false,
-            },
-            accepted: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-            rejected: {
-                type: DataTypes.STRING,
-                allowNull: false,
+                type: DataTypes.ENUM('pending', 'accepted', 'declined'),
+                allowNull: true,
+                defaultValue: 'pending',
             },
         },
         {

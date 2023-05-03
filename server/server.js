@@ -61,10 +61,9 @@ app.get('/api/v1/public-dog-profiles/:owner_id', (req, res) => {
         .then((data) => res.json(data))
 })
 
-app.post('/api/v1/dogprofiles/:owner_id', (req, res) => {
-    // console.log('ano ang request', req.body)
+app.post('/api/v1/dogprofiles', (req, res) => {
     dogProfilesController
-        .createDogProfiles(req.params.owner_id)
+        .createDogProfiles(req.body.dogprofiles)
         .then((data) => res.json(data))
 })
 
@@ -86,7 +85,7 @@ app.get('/api/v1/appointments', (req, res) => {
 })
 
 app.post('/api/v1/appointments', (req, res) => {
-    // console.log('ano ang request', req.body)
+    console.log('ano ang request', req.body.appointments)
     appointmentsController
         .createAppointments(req.body.appointments)
         .then((data) => res.json(data))

@@ -29,6 +29,7 @@ class AppointmentsRepository {
                 meet_up_dog_profile_id: schedule.meet_up_dog_profile_id,
                 meet_up_date: schedule.meet_up_date,
                 location: schedule.location,
+                landmark: schedule.landmark,
             })
             return details
         } catch (error) {
