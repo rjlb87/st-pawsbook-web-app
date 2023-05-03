@@ -5,8 +5,8 @@ import NavBar from './common/NavBar'
 import Signup from './authentication/Signup'
 import Signin from './authentication/Signin'
 import DogInfo from './components/DogInfos'
-import Appointments from './components/Appointments'
 import DogProfiles from './components/DogProfiles'
+import MakeAppointment from './components/MakeAppointment'
 
 function App() {
     return (
@@ -18,7 +18,7 @@ function App() {
                 <Route path="/sign-up" element={<Signup />} />
                 <Route path="/sign-in" element={<Signin />} />
                 <Route path="/main-page" element={<DogInfo />} />
-                <Route path="/appointments" element={<Appointments />} />
+                <Route path="/appointments" element={<MakeAppointment />} />
                 <Route path="/dog-profiles" element={<DogProfiles />} />
             </Routes>
         </BrowserRouter>
