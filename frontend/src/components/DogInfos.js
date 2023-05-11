@@ -6,22 +6,7 @@ import Card from './MainPage'
 
 const Dog_info = () => {
     const [dogs, setDogs] = useState([])
-    useEffect(() => {
-        const fetchDogs = async () => {
-            try {
-                const itemsStorage = localStorage.getItem('data')
-                const userData = JSON.parse(itemsStorage)
-                console.log('hahahahh ano ka', userData.id)
-                const doggo = await getAllPublicDogProfiles(userData.id)
-                console.log('hahahah ano laman ni doggo', doggo)
-                setDogs(doggo)
-            } catch (error) {
-                console.error(error.message)
-            }
-        }
 
-        fetchDogs()
-    }, [])
     const [showModal, setShowModal] = useState(false)
 
     const toggleModal = (e) => {
@@ -53,7 +38,7 @@ const Dog_info = () => {
     const userData = JSON.parse(itemsStorage)
     console.log('ano ang id', userData)
     const [formData, setFormData] = useState({
-        owner_id: userData.id ? userData.id : '',
+        owner_id: userData ? userData.id : '',
         image: 'https://images.unsplash.com/photo-1529906920574-628dc1e49f5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=867&q=80',
         name: '',
         breed: '',
@@ -71,7 +56,22 @@ const Dog_info = () => {
             [event.target.name]: event.target.value,
         })
     }
+    useEffect(() => {
+        const fetchDogs = async () => {
+            try {
+                const itemsStorage = localStorage.getItem('data')
+                const userData = JSON.parse(itemsStorage)
+                // console.log('hahahahh ano ka', userData.id)
+                const doggo = await getAllPublicDogProfiles(userData.id)
+                // console.log('hahahah ano laman ni doggo', doggo)
+                setDogs(doggo)
+            } catch (error) {
+                console.error(error.message)
+            }
+        }
 
+        fetchDogs()
+    }, [])
     return (
         <>
             <div className="flex flex-col bg-gray-800">

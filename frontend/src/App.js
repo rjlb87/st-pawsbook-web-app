@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import UserDashboard from './components/UserDashboard'
 import Dashboard from './common/Dashboard'
-import NavBar from './common/NavBar'
+import NavBar from './common/Navbar'
 import Signup from './authentication/Signup'
 import Signin from './authentication/Signin'
 import DogInfo from './components/DogInfos'
