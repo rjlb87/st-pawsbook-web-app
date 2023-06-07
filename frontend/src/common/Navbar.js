@@ -71,7 +71,7 @@ const NavBar = () => {
                 </button>
             </div>
 
-            <ul className="flex space-x-8 pr-8">
+            <ul className="flex space-x-8 justify-center mr-36 text-white">
                 {loggedIn &&
                     Bars.map(({ id, link, path }) => (
                         <li
