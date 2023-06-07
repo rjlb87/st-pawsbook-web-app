@@ -11,7 +11,7 @@ const Dog_info = () => {
                 const doggo = await getAllDogs(
                     JSON.parse(localStorage.getItem('data')).id
                 )
-                console.log('hahahah ano laman ni doggo', doggo)
+                // console.log('hahahah ano laman ni doggo', doggo)
                 setDogs(doggo)
             } catch (error) {
                 console.error(error.message)
@@ -29,7 +29,6 @@ const Dog_info = () => {
         e.preventDefault()
 
         try {
-            console.log('hahaha ano ang data', formData)
             await createDogs(formData)
             // window.location = '/user-dashboard'
             setFormData({
