@@ -62,7 +62,7 @@ const Card = ({
                                 About me: {description}
                             </div>
                         </div>
-                        <div className="flex justify-end">
+                        {/* <div className="flex justify-end">
                             <button
                                 className="hover:text-red-600 text-white focus:outline-none mr-2"
                                 onClick={handleFavoriteClick}
@@ -75,14 +75,14 @@ const Card = ({
                                 >
                                     <path fill="currentColor" d={mdiHeart} />
                                 </svg>
-                            </button>
-                            {/* <button
+                            </button> */}
+                        {/* <button
                             onClick={() => navigate('/appointments')}
                             className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white  text-xs font-bold py-1 px-8 rounded-xl"
                         >
                             Breed me!
                         </button> */}
-                        </div>
+                        {/* </div> */}
                     </div>
                 </div>
             </Link>

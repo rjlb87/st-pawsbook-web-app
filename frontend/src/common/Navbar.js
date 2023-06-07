@@ -4,6 +4,8 @@ import { navigation } from '../data/NavBarLinks'
 import { useNavigate } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
 import { Avatar } from 'flowbite-react'
+import { Link } from 'react-scroll'
+import { Bars } from '../data/Bars'
 
 const NavBar = () => {
     const [nav, setNav] = useState(false)
@@ -35,6 +37,7 @@ const NavBar = () => {
         console.log('Signing out')
         localStorage.removeItem('data') // Remove data from local storage
         sessionStorage.removeItem('jwt')
+        setloggedIn(true)
         window.location.href = '/' // Redirect to home page
     }
 
@@ -53,11 +56,11 @@ const NavBar = () => {
         <div
             className={`transition duration-500 ease-in-out ${
                 isVisible ? '' : 'hidden'
-            } z-50 fixed flex items-center w-full h-14 px-4 md:px-12 bg-transparent`}
+            } z-50  justify-between items-center flex w-full h-20 px-4 md:px-12 bg-yellow-500`}
         >
-            <div className="text-start mr-auto">
+            <div className=" flex items-center">
                 <button
-                    className="justify-items-center text-2xl font-bold py-6 text-white "
+                    className="text-2xl font-bold py-6 text-white "
                     onClick={() => navigate('/')}
                 >
                     <img
@@ -67,6 +70,21 @@ const NavBar = () => {
                     />
                 </button>
             </div>
+
+            <ul className="flex space-x-8 pr-8">
+                {loggedIn &&
+                    Bars.map(({ id, link, path }) => (
+                        <li
+                            className="cursor cursor-pointer"
+                            key={id}
+                            onClick={() => navigate(path)}
+                        >
+                            {link}
+                        </li>
+                    ))}
+            </ul>
+
+            {/* </div> */}
 
             {loggedIn ? (
                 <Menu as="div" className="relative ml-3">
@@ -122,22 +140,24 @@ const NavBar = () => {
                 </Menu>
             ) : (
                 <>
-                    <a
-                        href="/sign-up"
-                        className={classNames(
-                            'block px-4 py-2 text-sm text-white uppercase'
-                        )}
-                    >
-                        Sign Up
-                    </a>
-                    <a
-                        href="/sign-in"
-                        className={classNames(
-                            'block px-4 py-2 text-sm text-white uppercase'
-                        )}
-                    >
-                        Sign In
-                    </a>
+                    <div>
+                        <a
+                            href="/sign-up"
+                            className={classNames(
+                                ' px-4 py-2 text-sm text-white uppercase'
+                            )}
+                        >
+                            Sign Up
+                        </a>
+                        <a
+                            href="/sign-in"
+                            className={classNames(
+                                'px-4 py-2 text-sm text-white uppercase'
+                            )}
+                        >
+                            Sign In
+                        </a>
+                    </div>
                 </>
             )}
             <div className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden">
