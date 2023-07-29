@@ -50,7 +50,9 @@ const MakeAppointment = () => {
             console.error(error.message)
         }
     }
-
+    const onCancel = () => {
+        window.location = '/main-page'
+    }
     useEffect(() => {
         const fetchDogs = async () => {
             try {
@@ -66,15 +68,15 @@ const MakeAppointment = () => {
     }, [])
 
     return (
-        <div className="bg-gray-800 flex justify-center py-20">
-            <div className="sm:w-96 p-6 bg-white rounded-lg shadow-md">
-                <h1 className="text-2xl text-gray-800 font-semibold mb-6 text-center pt-3 pb-3">
-                    Make an appointment
+        <div className=" flex justify-center py-20">
+            <div className="sm:w-96 p-6 bg-gray-900 rounded-lg shadow-md">
+                <h1 className="text-2xl text-white font-semibold mb-6 text-center pt-3 pb-3">
+                    Book me
                 </h1>
                 <form onSubmit={onSubmitForm}>
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 ">
                         <div className="flex-1">
-                            <label className="mb-4 block text-xs">
+                            <label className="mb-4 block text-xs text-white">
                                 aso niya
                                 <input
                                     className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1 text-xs"
@@ -86,14 +88,14 @@ const MakeAppointment = () => {
                             </label>
                         </div>
                         <div className="flex-1">
-                            <label className="mb-4 block text-xs">
+                            <label className="mb-4 block text-xs text-white">
                                 aso ko
                                 <select
-                                    className="SelectDogs"
+                                    className="SelectDogs rounded-md"
                                     value={selectedDog}
                                     onChange={handleChange}
                                 >
-                                    <option value="">Select Dog</option>
+                                    <option value="text-xs">Select Dog</option>
                                     {dogs.map((dog, index) => (
                                         <option key={index} value={dog.name}>
                                             {dog.name}
@@ -103,7 +105,7 @@ const MakeAppointment = () => {
                             </label>
                         </div>
                     </div>
-                    <label className="block mb-4 text-xs">
+                    <label className="block mb-4 text-xs text-white">
                         Date
                         <input
                             className="border-gray-300 border rounded-md px-3 py-2 w-full text-xs mt-1"
@@ -118,7 +120,7 @@ const MakeAppointment = () => {
                             }
                         />
                     </label>
-                    <label className="mb-4 block text-xs">
+                    <label className="mb-4 block text-xs text-white">
                         Location
                         <div className="relative">
                             <input
@@ -135,12 +137,9 @@ const MakeAppointment = () => {
                             />
                         </div>
                     </label>
-                    <label className="mb-4 block text-xs">
-                        <label
-                            className="block text-gray-700 font-bold mb-2"
-                            for="textarea"
-                        >
-                            Landmark
+                    <label className="mb-4 block text-xs text-white">
+                        <label className="block  font-bold mb-2" for="textarea">
+                            Landmark/Notes
                         </label>
                         <textarea
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -160,9 +159,16 @@ const MakeAppointment = () => {
 
                     <button
                         type="submit"
-                        className="bg-gray-800 text-white hover:bg-gray-500 rounded-md px-4 py-2 mt-4 w-full"
+                        className="bg-gray-800 text-white hover:bg-gray-400 rounded-md px-4 py-2 mt-4 w-full"
                     >
                         Submit
+                    </button>
+                    <button
+                        type="button"
+                        className="bg-gray-800 text-white hover:bg-gray-400 rounded-md px-4 py-2 mt-4 w-full"
+                        onClick={onCancel}
+                    >
+                        Cancel
                     </button>
                 </form>
             </div>

@@ -155,9 +155,7 @@ const Dog_info = () => {
                                         onChange={handleChange}
                                         required
                                     >
-                                        <option value="">
-                                            Select dog size
-                                        </option>
+                                        <option value="">Size</option>
                                         <option value="small">Small</option>
                                         <option value="medium">Medium</option>
                                         <option value="large">Large</option>

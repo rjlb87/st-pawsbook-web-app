@@ -56,7 +56,7 @@ const NavBar = () => {
         <div
             className={`transition duration-500 ease-in-out ${
                 isVisible ? '' : 'hidden'
-            } z-50  justify-between items-center flex w-full h-20 px-4 md:px-12 bg-yellow-500`}
+            } z-50  justify-between items-center flex w-full h-20 px-4 md:px-12 bg-gray-900`}
         >
             <div className=" flex items-center">
                 <button

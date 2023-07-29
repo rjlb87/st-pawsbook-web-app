@@ -7,7 +7,6 @@ function Dashboard() {
     return (
         <div>
             <Splash />
-            <MakeAppointment />
             <AppointmentsList />
         </div>
     )
