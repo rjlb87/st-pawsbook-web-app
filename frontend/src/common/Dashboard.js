@@ -1,13 +1,12 @@
 import React from 'react'
 import Splash from '../components/Splash'
-import MakeAppointment from '../components/MakeAppointment'
-import AppointmentsList from '../components/AppointmentsList'
+import About from '../components/About'
 
 function Dashboard() {
     return (
         <div>
             <Splash />
-            <AppointmentsList />
+            <About />
         </div>
     )
 }

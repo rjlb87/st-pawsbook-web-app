@@ -53,11 +53,7 @@ const NavBar = () => {
     }, [])
 
     return (
-        <div
-            className={`transition duration-500 ease-in-out ${
-                isVisible ? '' : 'hidden'
-            } z-50  justify-between items-center flex w-full h-20 px-4 md:px-12 bg-gray-900`}
-        >
+        <div className="z-50  justify-between items-center flex w-full h-32 px-4 md:px-12 bg-gray-100">
             <div className=" flex items-center">
                 <button
                     className="text-2xl font-bold py-6 text-white "
@@ -65,7 +61,7 @@ const NavBar = () => {
                 >
                     <img
                         src="pawsbooklogo.png"
-                        className="h-60 w-50 mt-10"
+                        className="h-50 w-60 mt-10 mb-4"
                         alt="logo"
                     />
                 </button>
@@ -144,7 +140,7 @@ const NavBar = () => {
                         <a
                             href="/sign-up"
                             className={classNames(
-                                ' px-4 py-2 text-sm text-white uppercase'
+                                ' px-4 py-2 text-sm text-red-600 uppercase'
                             )}
                         >
                             Sign Up
@@ -152,7 +148,7 @@ const NavBar = () => {
                         <a
                             href="/sign-in"
                             className={classNames(
-                                'px-4 py-2 text-sm text-white uppercase'
+                                'px-4 py-2 text-sm text-red-600 uppercase'
                             )}
                         >
                             Sign In
