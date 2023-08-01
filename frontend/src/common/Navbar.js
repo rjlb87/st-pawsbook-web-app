@@ -53,7 +53,7 @@ const NavBar = () => {
     }, [])
 
     return (
-        <div className="z-50  justify-between items-center flex w-full h-32 px-4 md:px-12 bg-gray-100">
+        <div className="z-50  justify-between items-center flex w-full h-24 px-4 md:px-12 bg-gray-100">
             <div className=" flex items-center">
                 <button
                     className="text-2xl font-bold py-6 text-white "
@@ -61,7 +61,7 @@ const NavBar = () => {
                 >
                     <img
                         src="pawsbooklogo.png"
-                        className="h-50 w-60 mt-10 mb-4"
+                        className="h-50 w-60 mt-10 mb-4 pr-20 "
                         alt="logo"
                     />
                 </button>
