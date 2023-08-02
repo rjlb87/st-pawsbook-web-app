@@ -9,6 +9,7 @@ import { Bars } from '../data/Bars'
 
 const NavBar = () => {
     const [nav, setNav] = useState(false)
+    const [showSearchBar, setShowSearchBar] = useState(false)
     const navigate = useNavigate()
     const [isVisible, setIsVisible] = useState(true)
     const [loggedIn, setloggedIn] = useState(false)
@@ -40,7 +41,10 @@ const NavBar = () => {
         setloggedIn(true)
         window.location.href = '/' // Redirect to home page
     }
-
+    // Function to toggle the search bar
+    const toggleSearchBar = () => {
+        setShowSearchBar(!showSearchBar)
+    }
     useEffect(() => {
         function handleScroll() {
             const scrollTop = document.documentElement.scrollTop
@@ -67,7 +71,7 @@ const NavBar = () => {
                 </button>
             </div>
 
-            <ul className="flex space-x-8 justify-center mr-36 text-white">
+            <ul className="flex space-x-8 justify-center mr-36 font-bold uppercase text-sm text-gray-900">
                 {loggedIn &&
                     Bars.map(({ id, link, path }) => (
                         <li
@@ -83,75 +87,98 @@ const NavBar = () => {
             {/* </div> */}
 
             {loggedIn ? (
-                <Menu as="div" className="relative ml-3">
-                    <div>
-                        <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                            <div className="flex flex-wrap gap-2">
-                                <Avatar
-                                    rounded={true}
-                                    placeholderInitials={initials}
-                                />
-                            </div>
-                        </Menu.Button>
+                <>
+                    <div class="pr-20">
+                        <div class="relative  flex w-full flex-wrap items-stretch">
+                            <input
+                                type="search"
+                                class="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border-2 border-solid border-red-800 bg-white bg-clip-padding px-20 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                                placeholder="Search"
+                                aria-label="Search"
+                                aria-describedby="button-addon3"
+                            />
+
+                            <button
+                                class="relative z-[2] rounded-r  px-6 py-2 text-xs font-medium uppercase  transition duration-150 ease-in-out hover:bg-red-800 hover:bg-opacity-100 focus:outline-none focus:ring-0 bg-red-900 text-gray-100"
+                                type="button"
+                                id="button-addon3"
+                                data-te-ripple-init
+                            >
+                                Search
+                            </button>
+                        </div>
                     </div>
-                    <Transition
-                        as={Fragment}
-                        enter="transition ease-out duration-100"
-                        enterFrom="transform opacity-0 scale-95"
-                        enterTo="transform opacity-100 scale-100"
-                        leave="transition ease-in duration-75"
-                        leaveFrom="transform opacity-100 scale-100"
-                        leaveTo="transform opacity-0 scale-95"
-                    >
-                        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <a
-                                        href="/"
-                                        className={classNames(
-                                            active ? 'bg-gray-100' : '',
-                                            'block px-4 py-2 text-sm text-gray-700'
-                                        )}
-                                    >
-                                        Your Profile
-                                    </a>
-                                )}
-                            </Menu.Item>
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <a
-                                        onClick={Signout}
-                                        href="/"
-                                        className={classNames(
-                                            active ? 'bg-gray-100' : '',
-                                            'block px-4 py-2 text-sm text-gray-700'
-                                        )}
-                                    >
-                                        Sign out
-                                    </a>
-                                )}
-                            </Menu.Item>
-                        </Menu.Items>
-                    </Transition>
-                </Menu>
+
+                    <Menu as="div" className="relative ml-3">
+                        <div>
+                            <Menu.Button className="flex rounded-full  border-4 border-red-800  ">
+                                <div className="flex flex-wrap gap-2 ">
+                                    <Avatar
+                                        rounded={true}
+                                        placeholderInitials={initials}
+                                    />
+                                </div>
+                            </Menu.Button>
+                        </div>
+                        <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-100"
+                            enterFrom="transform opacity-0 scale-95"
+                            enterTo="transform opacity-100 scale-100"
+                            leave="transition ease-in duration-75"
+                            leaveFrom="transform opacity-100 scale-100"
+                            leaveTo="transform opacity-0 scale-95"
+                        >
+                            <Menu.Items className=" absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <a
+                                            href="/"
+                                            className={classNames(
+                                                active ? 'bg-gray-100' : '',
+                                                'block px-4 py-2 text-sm text-gray-700'
+                                            )}
+                                        >
+                                            Your Profile
+                                        </a>
+                                    )}
+                                </Menu.Item>
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <a
+                                            onClick={Signout}
+                                            href="/"
+                                            className={classNames(
+                                                active ? 'bg-gray-100' : '',
+                                                'block px-4 py-2 text-sm text-gray-700'
+                                            )}
+                                        >
+                                            Sign out
+                                        </a>
+                                    )}
+                                </Menu.Item>
+                            </Menu.Items>
+                        </Transition>
+                    </Menu>
+                </>
             ) : (
                 <>
                     <div>
                         <a
                             href="/sign-up"
                             className={classNames(
-                                ' px-4 py-2 text-sm text-red-600 uppercase'
+                                ' px-4 py-2 text-sm bg-[#a51e36] text-white uppercase font-bold rounded-sm border shadow-sm '
                             )}
                         >
-                            Sign Up
+                            Register
                         </a>
                         <a
                             href="/sign-in"
                             className={classNames(
-                                'px-4 py-2 text-sm text-red-600 uppercase'
+                                'px-4 py-2 text-sm text-[#a51e36] uppercase font-bold border shadow-sm '
                             )}
                         >
-                            Sign In
+                            Sign in
                         </a>
                     </div>
                 </>
