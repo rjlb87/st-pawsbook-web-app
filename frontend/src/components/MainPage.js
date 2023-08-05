@@ -17,16 +17,9 @@ const Card = ({
     const [isFavorite, setIsFavorite] = useState(false)
     const [showModal, setShowModal] = useState(false)
 
-    // const handleFavoriteClick = () => {
-    //     setIsFavorite(!isFavorite)
-    // }
-
     const itemsStorage = localStorage.getItem('data')
     const userData = JSON.parse(itemsStorage)
     if (userData === null) {
-        // You may want to navigate instead of using window.location
-        // For that, make sure you have 'react-router-dom' properly set up.
-        // navigate('/sign-up');
     }
 
     function getGenderIcon(gender) {

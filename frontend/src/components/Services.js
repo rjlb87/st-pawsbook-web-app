@@ -9,14 +9,14 @@ function Services() {
             >
                 <div className="max-w-6xl mx-auto p-5 py-20">
                     <div className="text-center">
-                        <h2 className="text-3xl font-bold text-yellow-400  pb-10">
+                        <h2 className="text-3xl font-extrabold text-[#a51e36] pb-10">
                             SERVICES
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
                             {/* <FaHiking className="text-5xl text-gray-800 mb-4" /> */}
-                            <h3 className="text-md font-semibold text-white mb-2 bg-[#a51e36] rounded-2xl px-4 py-2">
+                            <h3 className="text-md font-semibold text-white mb-2 bg-yellow-400 rounded-2xl px-4 py-2">
                                 MATCHING
                             </h3>
                             <p className="text-gray-600 text-center">
@@ -30,7 +30,7 @@ function Services() {
                         </div>
                         <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
                             {/* <FaMountain className="text-5xl text-gray-800 mb-4" /> */}
-                            <h3 className="text-md font-semibold text-white mb-2 bg-[#a51e36] rounded-2xl px-4 py-2">
+                            <h3 className="text-md font-semibold text-white mb-2 bg-yellow-400 rounded-2xl px-4 py-2">
                                 SCHEDULE
                             </h3>
                             <p className="text-gray-600 text-center">
@@ -44,7 +44,7 @@ function Services() {
                         </div>
                         <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
                             {/* <FaCampground className="text-5xl text-gray-800 mb-4" /> */}
-                            <h3 className="text-md font-semibold text-white mb-2 bg-[#a51e36] rounded-2xl px-6 py-2">
+                            <h3 className="text-md font-semibold text-white mb-2 bg-yellow-400 rounded-2xl px-6 py-2">
                                 BREED
                             </h3>
                             <p className="text-gray-600 text-center">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ownerSignin } from '../services/SigninService'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Signin() {
     const navigate = useNavigate()
@@ -95,7 +96,12 @@ function Signin() {
                             <p className=" text-center text-sm font-light text-gray-500 dark:text-gray-400">
                                 Don’t have an account yet?{' '}
                                 <button className=" text-center font-medium text-primary-600 hover:underline dark:text-primary-500">
-                                    Sign up
+                                    <Link
+                                        to="/sign-up"
+                                        className="font-semibold underline"
+                                    >
+                                        Sign up
+                                    </Link>
                                 </button>
                             </p>
                         </form>
