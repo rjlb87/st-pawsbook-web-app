@@ -10,12 +10,16 @@ const MakeAppointment = () => {
     const handleChange = (e) => {
         const { value } = e.target
         setSelectedDog(value)
+        setAppointments((appointments) => ({
+            ...appointments,
+            booked_dog_profile_id: value,
+        }))
     }
 
     const [appointments, setAppointments] = useState({
         owner_id: userDog ? JSON.parse(userDog).id : '',
         booked_dog_profile_id: '',
-        meet_up_dog_profile_id: userDog ? JSON.parse(userDog).name : '',
+        meet_up_dog_profile_id: userDog ? JSON.parse(userDog).id : '',
         meet_up_date: '',
         location: '',
         landmark: '',
@@ -68,7 +72,7 @@ const MakeAppointment = () => {
     }, [])
 
     return (
-        <div className=" flex justify-center py-20">
+        <div className=" flex justify-center  py-20">
             <div className="sm:w-96 p-6 bg-gray-900 rounded-lg shadow-md">
                 <h1 className="text-2xl text-white font-semibold mb-6 text-center pt-3 pb-3">
                     Book me
@@ -79,7 +83,7 @@ const MakeAppointment = () => {
                             <label className="mb-4 block text-xs text-white">
                                 aso niya
                                 <input
-                                    className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1 text-xs"
+                                    className="border-gray-300 border rounded-md px-3 py-2 w-full mt-1 text-xs text-black"
                                     type="text"
                                     placeholder="ID"
                                     value={meet_up_dog_profile_id}
@@ -91,13 +95,13 @@ const MakeAppointment = () => {
                             <label className="mb-4 block text-xs text-white">
                                 aso ko
                                 <select
-                                    className="SelectDogs rounded-md"
+                                    className="SelectDogs rounded-md text-black"
                                     value={selectedDog}
                                     onChange={handleChange}
                                 >
-                                    <option value="text-xs">Select Dog</option>
+                                    <option value="">Select Dog</option>
                                     {dogs.map((dog, index) => (
-                                        <option key={index} value={dog.name}>
+                                        <option key={index} value={dog.id}>
                                             {dog.name}
                                         </option>
                                     ))}
@@ -108,7 +112,7 @@ const MakeAppointment = () => {
                     <label className="block mb-4 text-xs text-white">
                         Date
                         <input
-                            className="border-gray-300 border rounded-md px-3 py-2 w-full text-xs mt-1"
+                            className="border-gray-300 border rounded-md px-3 py-2 w-full text-xs mt-1 text-b"
                             type="date"
                             placeholder="meet up date"
                             value={meet_up_date}

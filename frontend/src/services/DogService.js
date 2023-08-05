@@ -1,6 +1,13 @@
 export async function getAllDogs(owner_id) {
-    const response = await fetch(`/api/v1/dogprofiles/${owner_id}`)
-    return await response.json()
+    console.log('lahat ng dogs ko', owner_id)
+    try {
+        const response = await fetch(`/api/v1/dogprofiles/${owner_id}`)
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.log('Error', error.message)
+        throw error
+    }
 }
 
 export async function getAllPublicDogProfiles(owner_id) {
