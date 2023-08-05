@@ -10,15 +10,21 @@ class DogProfilesRepository {
     }
 
     async getDogProfiles(owner_id) {
-        console.log('ito ay repo dog profiles', owner_id)
+        // console.log('ito ay repo dog profiles', owner_id)
         try {
             const owners = await this.db.dogProfiles.findAll({
                 order: [['owner_id', 'ASC']],
                 where: {
                     owner_id: owner_id,
                 },
+                include: [
+                    {
+                        model: this.db.owners,
+                        as: 'owners',
+                        attributes: ['id'],
+                    },
+                ],
             })
-
             return owners
         } catch (error) {
             console.log('ERROR FOUND', error)

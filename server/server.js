@@ -56,6 +56,7 @@ app.get('/api/v1/dogprofiles/:owner_id', (req, res) => {
 })
 //public dog profiles
 app.get('/api/v1/public-dog-profiles/:owner_id', (req, res) => {
+    console.log(req.body.owner_id)
     dogProfilesController
         .getPublicDogProfiles(req.params.owner_id)
         .then((data) => res.json(data))
