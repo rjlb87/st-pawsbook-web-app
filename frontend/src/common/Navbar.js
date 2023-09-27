@@ -4,7 +4,7 @@ import { navigation } from '../data/NavBarLinks'
 import { useNavigate } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
 import { Avatar } from 'flowbite-react'
-import { Link } from 'react-scroll'
+// import { Link } from 'react-scroll'
 import { Bars } from '../data/Bars'
 
 const NavBar = () => {

@@ -117,7 +117,7 @@ function UserDashboard() {
                 </tbody>
             </table>
             <div className="flex justify-center mt-4">
-                <nav class="bg-white rounded-lg shadow-md">
+                <nav className="bg-white rounded-lg shadow-md">
                     <ReactPaginate
                         previousLabel={'Prev'}
                         nextLabel={'Next'}

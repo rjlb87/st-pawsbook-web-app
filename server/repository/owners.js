@@ -1,7 +1,7 @@
 const { connect } = require('../config/db')
 const bcrypt = require('bcryptjs')
 const { generateAccessToken } = require('../config/jwt')
-const owners = require('../model/owners')
+const Owners = require('../model/owners')
 
 class OwnersRepository {
     db = {}
@@ -12,7 +12,7 @@ class OwnersRepository {
 
     async getOwners() {
         try {
-            const owners = this.db.owners.findAll({
+            const owners = this.db.Owners.findAll({
                 order: [['id', 'ASC']],
             })
 
@@ -32,7 +32,7 @@ class OwnersRepository {
             const hashedPassword = bcrypt.hashSync(password, salt)
 
             ownersData = { ...owners, password: hashedPassword }
-            const createdOwners = await this.db.owners.create(ownersData)
+            const createdOwners = await this.db.Owners.create(ownersData)
             return createdOwners
         } catch (error) {
             console.log('Error: ', error)
@@ -44,7 +44,7 @@ class OwnersRepository {
         let data = {}
 
         try {
-            data = await this.db.owners.update(
+            data = await this.db.Owners.update(
                 { ...owners },
                 {
                     where: {
@@ -61,7 +61,7 @@ class OwnersRepository {
 
     async deleteOwners(id) {
         try {
-            const owner = await this.db.owners.destroy({ where: { id } })
+            const owner = await this.db.Owners.destroy({ where: { id } })
             return owner
         } catch (error) {
             console.log('Error: ', error)
@@ -73,7 +73,7 @@ class OwnersRepository {
         try {
             const password = loginCredentials.password
 
-            const owners = await this.db.owners.findOne({
+            const owners = await this.db.Owners.findOne({
                 where: {
                     email: loginCredentials.email,
                 },

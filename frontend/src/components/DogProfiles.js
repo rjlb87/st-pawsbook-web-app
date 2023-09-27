@@ -267,26 +267,26 @@ const Dog_info = () => {
                                         id="vaccinated"
                                         name="vaccinated"
                                         value={formData.description}
-                                        class="rounded-full text-primary-600 focus:ring-primary-500 border-gray-300"
+                                        className="rounded-full text-primary-600 focus:ring-primary-500 border-gray-300"
                                     ></input>
                                     <label
                                         for="vaccinated"
-                                        class="ml-2 text-gray-700"
+                                        className="ml-2 text-gray-700"
                                     >
                                         Vaccinated
                                     </label>
                                 </div>
-                                <div class="flex items-center mt-2">
+                                <div className="flex items-center mt-2">
                                     <input
                                         type="checkbox"
                                         id="pcci-registered"
                                         name="pcci-registered"
                                         value={formData.description}
-                                        class="rounded-full text-primary-600 focus:ring-primary-500 border-gray-300"
+                                        className="rounded-full text-primary-600 focus:ring-primary-500 border-gray-300"
                                     ></input>
                                     <label
                                         for="pcci-registered"
-                                        class="ml-2 text-gray-700"
+                                        className="ml-2 text-gray-700"
                                     >
                                         PCCI Registered
                                     </label>

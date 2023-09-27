@@ -49,11 +49,15 @@ module.exports = (sequelize, DataTypes, Model) => {
             sequelize,
             modelName: 'Appointments',
             tableName: 'appointments',
-            // timestamps: true,
-            // createdAt: 'inserted_at',
-            // updatedAt: 'updated_at',
         }
     )
-
+    Appointments.belongsTo(sequelize.models.DogProfiles, {
+        foreignKey: 'booked_dog_profile_id',
+        as: 'DogProfiles',
+    })
+    Appointments.belongsTo(sequelize.models.DogProfiles, {
+        foreignKey: 'meet_up_dog_profile_id',
+        as: 'MeetUpDogProfiles',
+    })
     return Appointments
 }

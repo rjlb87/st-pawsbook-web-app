@@ -21,7 +21,7 @@ class DogProfilesRepository {
                     {
                         model: this.db.owners,
                         as: 'owners',
-                        attributes: ['id'],
+                        attributes: ['name'],
                     },
                 ],
             })
@@ -34,8 +34,15 @@ class DogProfilesRepository {
 
     async getPublicDogProfiles(owner_id) {
         try {
-            const owners = this.db.dogProfiles.findAll({
+            const owners = this.db.DogProfiles.findAll({
                 order: [['id', 'ASC']],
+                include: [
+                    {
+                        model: this.db.Owners,
+                        as: 'owners',
+                        attributes: ['first_name', 'last_name'],
+                    },
+                ],
                 where: {
                     owner_id: { [Op.not]: owner_id },
                 },
@@ -52,7 +59,7 @@ class DogProfilesRepository {
     // CRUD
     async createDogProfiles(profiles) {
         try {
-            const details = await this.db.dogProfiles.create({
+            const details = await this.db.DogProfiles.create({
                 owner_id: profiles.owner_id,
                 name: profiles.name,
                 breed: profiles.breed,
@@ -73,7 +80,7 @@ class DogProfilesRepository {
     async updateDogProfiles(dogprofiles) {
         let data = {}
         try {
-            data = await this.db.dogprofiles.update(
+            data = await this.db.DogProfiles.update(
                 { ...dogprofiles },
                 {
                     where: {
@@ -90,7 +97,7 @@ class DogProfilesRepository {
 
     async deleteDogProfiles(id) {
         try {
-            const profiles = await this.db.dogprofiles.destroy({
+            const profiles = await this.db.DogProfiles.destroy({
                 where: { id },
             })
             return profiles

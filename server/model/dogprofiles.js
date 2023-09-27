@@ -66,7 +66,7 @@ module.exports = (sequelize, DataTypes, Model) => {
             // updatedAt: 'updated_at',
         }
     )
-    DogProfiles.belongsTo(sequelize.models.owners, {
+    DogProfiles.belongsTo(sequelize.models.Owners, {
         foreignKey: 'owner_id',
         as: 'owners',
     })

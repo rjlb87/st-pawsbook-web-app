@@ -10,7 +10,7 @@ class AppointmentsRepository {
 
     async getAppointments() {
         try {
-            const bookings = this.db.appointments.findAll({
+            const bookings = this.db.Appointments.findAll({
                 order: [['id', 'ASC']],
             })
 
@@ -24,7 +24,7 @@ class AppointmentsRepository {
     // CRUD
     async createAppointments(schedule) {
         try {
-            const details = await this.db.appointments.create({
+            const details = await this.db.Appointments.create({
                 booked_dog_profile_id: schedule.booked_dog_profile_id,
                 meet_up_dog_profile_id: schedule.meet_up_dog_profile_id,
                 meet_up_date: schedule.meet_up_date,
@@ -43,7 +43,7 @@ class AppointmentsRepository {
         let data = {}
 
         try {
-            data = await this.db.appointments.update(
+            data = await this.db.Appointments.update(
                 { ...appointments },
                 {
                     where: {
@@ -61,7 +61,7 @@ class AppointmentsRepository {
 
     async deleteAppointments(id) {
         try {
-            const profiles = await this.db.appointments.destroy({
+            const profiles = await this.db.Appointments.destroy({
                 where: { id },
             })
             return profiles

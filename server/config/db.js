@@ -33,17 +33,9 @@ const connect = () => {
             console.error('Unable to connect to the database: ', error.message)
         })
 
-    db.owners = require('../model/owners')(sequelize, DataTypes, Model)
-    db.dogProfiles = require('../model/dogprofiles')(
-        sequelize,
-        DataTypes,
-        Model
-    )
-    db.appointments = require('../model/appointments')(
-        sequelize,
-        DataTypes,
-        Model
-    )
+        db.Owners = require('../model/owners')(sequelize, DataTypes, Model)
+        db.DogProfiles = require('../model/dogprofiles')(sequelize, DataTypes, Model)
+        db.Appointments = require('../model/appointments')(sequelize, DataTypes, Model)
 
     return db
 }
