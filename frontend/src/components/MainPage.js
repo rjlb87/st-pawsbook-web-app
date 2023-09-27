@@ -32,7 +32,7 @@ const Card = ({
         <>
             <div className="block uppercase">
                 <div
-                    className="flex flex-row rounded overflow-hidden bg-red-900 w-96 h-64"
+                    className="flex flex-row rounded overflow-hidden bg-gray-800 w-96 h-64"
                     onClick={() => setShowModal(true)} // Show modal on card click
                 >
                     <img className="w-1/2 object-cover" src={image} alt="" />

@@ -76,13 +76,13 @@ const Dog_info = () => {
     }
     return (
         <>
-            <div className="h-screen w-full flex flex-col bg-gray-800">
-                <button
+            <div className="h-screen w-full flex flex-col bg-white">
+                {/* <button
                     onClick={toggleModal}
-                    className="bg-gray-500 hover:bg-white hover:text-gray-600 text-white font-semibold text-sm py-2 px-4 rounded-xl mt-10"
+                    className="bg-yellow-400 hover:bg-white hover:text-gray-600 text-white font-semibold text-sm py-2 px-2 rounded-xl mt-10 "
                 >
                     Add your dogs
-                </button>
+                </button> */}
 
                 <div className="flex justify-center flex-wrap sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4  gap-y-10 pt-8 gap-x-40">
                     {dogs.map((card, index) => (

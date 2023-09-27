@@ -57,21 +57,10 @@ const NavBar = () => {
     }, [])
 
     return (
-        <div className="z-50  justify-between items-center flex w-full h-24 px-4 md:px-12 bg-gray-100">
-            <div className=" flex items-center">
-                <button
-                    className="text-2xl font-bold py-6 text-white "
-                    onClick={() => navigate('/')}
-                >
-                    <img
-                        src="pawsbooklogo.png"
-                        className="h-50 w-60 mt-10 mb-4 pr-20 "
-                        alt="logo"
-                    />
-                </button>
-            </div>
+        <div className="z-50  justify-between items-center flex w-full pt-10  pb-5 px-4 md:px-12  bg-[#ffa404]">
+            <div className=" flex items-center "></div>
 
-            <ul className="flex space-x-8 justify-center mr-36 font-bold uppercase text-sm text-gray-900">
+            <ul className="flex space-x-8 justify-center mr-36 font-bold  text-sm ">
                 {loggedIn &&
                     Bars.map(({ id, link, path }) => (
                         <li
@@ -98,7 +87,7 @@ const NavBar = () => {
                                 aria-describedby="button-addon3"
                             />
                             <button
-                                className="px-4 py-1 text-sm text-white bg-red-900 rounded-r hover:bg-red-800"
+                                className="px-4 py-1 text-sm text-white bg-gray-800 rounded-r hover:bg-gray-700"
                                 type="button"
                                 id="button-addon3"
                                 data-te-ripple-init
@@ -110,7 +99,7 @@ const NavBar = () => {
 
                     <Menu as="div" className="relative ml-3">
                         <div>
-                            <Menu.Button className="flex rounded-full  border-4 border-red-800  ">
+                            <Menu.Button className="flex rounded-full  border-4 border-gray-800  ">
                                 <div className="flex flex-wrap gap-2 ">
                                     <Avatar
                                         rounded={true}
@@ -166,7 +155,7 @@ const NavBar = () => {
                         <a
                             href="/sign-up"
                             className={classNames(
-                                ' px-4 py-2 text-sm bg-[#a51e36] text-white uppercase font-bold rounded-sm border shadow-sm '
+                                ' px-4 py-2 text-md  text-white  font-bold  '
                             )}
                         >
                             Register
@@ -174,7 +163,7 @@ const NavBar = () => {
                         <a
                             href="/sign-in"
                             className={classNames(
-                                'px-4 py-2 text-sm text-[#a51e36] uppercase font-bold border shadow-sm '
+                                'px-4 py-2 text-md  text-white  font-bold  '
                             )}
                         >
                             Sign in

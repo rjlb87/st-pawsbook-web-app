@@ -44,13 +44,13 @@ const SignUp = () => {
     }
 
     return (
-        <div className="bg-gray-200 min-h-screen flex items-center justify-center p-8">
-            <div className="w-full max-w-4xl p-8 shadow-md rounded-md bg-white flex items-center gap-20">
+        <div className="bg-gray-100 min-h-screen flex items-center justify-center p-8">
+            <div className="w-full max-w-4xl p-8  rounded-md flex items-center gap-20 ">
                 <div className="flex-1">
-                    <h1 className="text-2xl font-semibold mb-6 text-yellow-400 uppercase">
+                    <h1 className="text-4xl font-extrabold mb-10  text-yellow-300 uppercase">
                         Welcome to PawsBook!
                     </h1>
-                    <p className="text-md  text-gray-600">
+                    <p className="text-md font-semibold text-gray-800">
                         The ultimate web app for breeders and pet enthusiasts!
                         Whether you're a passionate breeder or simply adore our
                         furry friends, PAWSBOOK is here to connect you with
@@ -62,8 +62,8 @@ const SignUp = () => {
                         you'll be sharing your love for pets in no time.
                     </p>
                 </div>
-                <div className="flex-1 bg-gray-100 p-8 rounded-lg">
-                    <h2 className="text-2xl text-gray-800 font-semibold mb-6 text-center uppercase">
+                <div className="flex-1 bg-yellow-200 p-8 rounded-lg drop-shadow-lg">
+                    <h2 className="text-2xl text-gray-800 font-extrabold mb-6 text-center uppercase ">
                         Register
                     </h2>
                     <form
@@ -159,7 +159,7 @@ const SignUp = () => {
                         </label>
                         <button
                             type="submit"
-                            className="bg-gray-800 text-white hover:bg-gray-500 rounded-md px-4 py-2 mt-4 w-full"
+                            className="bg-yellow-400 text-white font-bold hover:bg-primary-700 rounded-md first-line:rounded-md px-4 py-2 mt-4 w-full uppercase"
                         >
                             Submit
                         </button>
